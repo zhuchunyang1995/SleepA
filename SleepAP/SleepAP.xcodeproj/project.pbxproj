@@ -1,0 +1,754 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		1FCE016B8F3D50426FD55230 /* Pods_SleepAPTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 822A3AD7704DAF26EE878169 /* Pods_SleepAPTests.framework */; };
+		3F7A9A940D2E9EC734B6593D /* Pods_SleepAP.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F47D98F4B02F42C8FD42348E /* Pods_SleepAP.framework */; };
+		47DF0B15BA1622061F7DBC92 /* Pods_SleepAPUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4FDB393460CD8643CBDBCDD8 /* Pods_SleepAPUITests.framework */; };
+		C6F5977F2176C8AE003592C3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6F5977E2176C8AE003592C3 /* AppDelegate.swift */; };
+		C6F597812176C8AE003592C3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6F597802176C8AE003592C3 /* ViewController.swift */; };
+		C6F597842176C8AE003592C3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C6F597822176C8AE003592C3 /* Main.storyboard */; };
+		C6F597862176C8AF003592C3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C6F597852176C8AF003592C3 /* Assets.xcassets */; };
+		C6F597892176C8AF003592C3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C6F597872176C8AF003592C3 /* LaunchScreen.storyboard */; };
+		C6F597942176C8AF003592C3 /* SleepAPTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6F597932176C8AF003592C3 /* SleepAPTests.swift */; };
+		C6F5979F2176C8AF003592C3 /* SleepAPUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6F5979E2176C8AF003592C3 /* SleepAPUITests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		C6F597902176C8AF003592C3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C6F597732176C8AE003592C3 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C6F5977A2176C8AE003592C3;
+			remoteInfo = SleepAP;
+		};
+		C6F5979B2176C8AF003592C3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C6F597732176C8AE003592C3 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C6F5977A2176C8AE003592C3;
+			remoteInfo = SleepAP;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		11F27F08845957DF156F2847 /* Pods-SleepAPUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SleepAPUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-SleepAPUITests/Pods-SleepAPUITests.release.xcconfig"; sourceTree = "<group>"; };
+		4CECD1D14C9913763932AE4F /* Pods-SleepAPUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SleepAPUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SleepAPUITests/Pods-SleepAPUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		4FDB393460CD8643CBDBCDD8 /* Pods_SleepAPUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SleepAPUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		57B78463B6C9E775DC228544 /* Pods-SleepAPTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SleepAPTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-SleepAPTests/Pods-SleepAPTests.release.xcconfig"; sourceTree = "<group>"; };
+		70E754EA466C3BF54BAC8BA2 /* Pods-SleepAP.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SleepAP.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SleepAP/Pods-SleepAP.debug.xcconfig"; sourceTree = "<group>"; };
+		726F812CCF914C248883962C /* Pods-SleepAPTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SleepAPTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SleepAPTests/Pods-SleepAPTests.debug.xcconfig"; sourceTree = "<group>"; };
+		822A3AD7704DAF26EE878169 /* Pods_SleepAPTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SleepAPTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C6F5977B2176C8AE003592C3 /* SleepAP.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SleepAP.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		C6F5977E2176C8AE003592C3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		C6F597802176C8AE003592C3 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		C6F597832176C8AE003592C3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		C6F597852176C8AF003592C3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		C6F597882176C8AF003592C3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		C6F5978A2176C8AF003592C3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C6F5978F2176C8AF003592C3 /* SleepAPTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SleepAPTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		C6F597932176C8AF003592C3 /* SleepAPTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SleepAPTests.swift; sourceTree = "<group>"; };
+		C6F597952176C8AF003592C3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C6F5979A2176C8AF003592C3 /* SleepAPUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SleepAPUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		C6F5979E2176C8AF003592C3 /* SleepAPUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SleepAPUITests.swift; sourceTree = "<group>"; };
+		C6F597A02176C8AF003592C3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E8649FFE3845830806EEE3B8 /* Pods-SleepAP.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SleepAP.release.xcconfig"; path = "Pods/Target Support Files/Pods-SleepAP/Pods-SleepAP.release.xcconfig"; sourceTree = "<group>"; };
+		F47D98F4B02F42C8FD42348E /* Pods_SleepAP.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SleepAP.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		C6F597782176C8AE003592C3 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3F7A9A940D2E9EC734B6593D /* Pods_SleepAP.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C6F5978C2176C8AF003592C3 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1FCE016B8F3D50426FD55230 /* Pods_SleepAPTests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C6F597972176C8AF003592C3 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				47DF0B15BA1622061F7DBC92 /* Pods_SleepAPUITests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		70BED84E1B7FF53D5DCE3905 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F47D98F4B02F42C8FD42348E /* Pods_SleepAP.framework */,
+				822A3AD7704DAF26EE878169 /* Pods_SleepAPTests.framework */,
+				4FDB393460CD8643CBDBCDD8 /* Pods_SleepAPUITests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		C6F597722176C8AE003592C3 = {
+			isa = PBXGroup;
+			children = (
+				C6F5977D2176C8AE003592C3 /* SleepAP */,
+				C6F597922176C8AF003592C3 /* SleepAPTests */,
+				C6F5979D2176C8AF003592C3 /* SleepAPUITests */,
+				C6F5977C2176C8AE003592C3 /* Products */,
+				E32638FB6CC91961824711C7 /* Pods */,
+				70BED84E1B7FF53D5DCE3905 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		C6F5977C2176C8AE003592C3 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				C6F5977B2176C8AE003592C3 /* SleepAP.app */,
+				C6F5978F2176C8AF003592C3 /* SleepAPTests.xctest */,
+				C6F5979A2176C8AF003592C3 /* SleepAPUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		C6F5977D2176C8AE003592C3 /* SleepAP */ = {
+			isa = PBXGroup;
+			children = (
+				C6F5977E2176C8AE003592C3 /* AppDelegate.swift */,
+				C6F597802176C8AE003592C3 /* ViewController.swift */,
+				C6F597822176C8AE003592C3 /* Main.storyboard */,
+				C6F597852176C8AF003592C3 /* Assets.xcassets */,
+				C6F597872176C8AF003592C3 /* LaunchScreen.storyboard */,
+				C6F5978A2176C8AF003592C3 /* Info.plist */,
+			);
+			path = SleepAP;
+			sourceTree = "<group>";
+		};
+		C6F597922176C8AF003592C3 /* SleepAPTests */ = {
+			isa = PBXGroup;
+			children = (
+				C6F597932176C8AF003592C3 /* SleepAPTests.swift */,
+				C6F597952176C8AF003592C3 /* Info.plist */,
+			);
+			path = SleepAPTests;
+			sourceTree = "<group>";
+		};
+		C6F5979D2176C8AF003592C3 /* SleepAPUITests */ = {
+			isa = PBXGroup;
+			children = (
+				C6F5979E2176C8AF003592C3 /* SleepAPUITests.swift */,
+				C6F597A02176C8AF003592C3 /* Info.plist */,
+			);
+			path = SleepAPUITests;
+			sourceTree = "<group>";
+		};
+		E32638FB6CC91961824711C7 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				70E754EA466C3BF54BAC8BA2 /* Pods-SleepAP.debug.xcconfig */,
+				E8649FFE3845830806EEE3B8 /* Pods-SleepAP.release.xcconfig */,
+				726F812CCF914C248883962C /* Pods-SleepAPTests.debug.xcconfig */,
+				57B78463B6C9E775DC228544 /* Pods-SleepAPTests.release.xcconfig */,
+				4CECD1D14C9913763932AE4F /* Pods-SleepAPUITests.debug.xcconfig */,
+				11F27F08845957DF156F2847 /* Pods-SleepAPUITests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		C6F5977A2176C8AE003592C3 /* SleepAP */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C6F597A32176C8AF003592C3 /* Build configuration list for PBXNativeTarget "SleepAP" */;
+			buildPhases = (
+				420408B9CF475E9D26AF495F /* [CP] Check Pods Manifest.lock */,
+				C6F597772176C8AE003592C3 /* Sources */,
+				C6F597782176C8AE003592C3 /* Frameworks */,
+				C6F597792176C8AE003592C3 /* Resources */,
+				B2A700FC7CB832421CBA00DA /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SleepAP;
+			productName = SleepAP;
+			productReference = C6F5977B2176C8AE003592C3 /* SleepAP.app */;
+			productType = "com.apple.product-type.application";
+		};
+		C6F5978E2176C8AF003592C3 /* SleepAPTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C6F597A62176C8AF003592C3 /* Build configuration list for PBXNativeTarget "SleepAPTests" */;
+			buildPhases = (
+				18D9263DCF430B0455AC38E6 /* [CP] Check Pods Manifest.lock */,
+				C6F5978B2176C8AF003592C3 /* Sources */,
+				C6F5978C2176C8AF003592C3 /* Frameworks */,
+				C6F5978D2176C8AF003592C3 /* Resources */,
+				AD180105D6199528BA439F9E /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				C6F597912176C8AF003592C3 /* PBXTargetDependency */,
+			);
+			name = SleepAPTests;
+			productName = SleepAPTests;
+			productReference = C6F5978F2176C8AF003592C3 /* SleepAPTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		C6F597992176C8AF003592C3 /* SleepAPUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C6F597A92176C8AF003592C3 /* Build configuration list for PBXNativeTarget "SleepAPUITests" */;
+			buildPhases = (
+				5BBE8E8E82650BB5DA98F70A /* [CP] Check Pods Manifest.lock */,
+				C6F597962176C8AF003592C3 /* Sources */,
+				C6F597972176C8AF003592C3 /* Frameworks */,
+				C6F597982176C8AF003592C3 /* Resources */,
+				65077D0D6ACA6B01DD2FDDBB /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				C6F5979C2176C8AF003592C3 /* PBXTargetDependency */,
+			);
+			name = SleepAPUITests;
+			productName = SleepAPUITests;
+			productReference = C6F5979A2176C8AF003592C3 /* SleepAPUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		C6F597732176C8AE003592C3 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1000;
+				LastUpgradeCheck = 1000;
+				ORGANIZATIONNAME = "Wu, Tianyuan";
+				TargetAttributes = {
+					C6F5977A2176C8AE003592C3 = {
+						CreatedOnToolsVersion = 10.0;
+					};
+					C6F5978E2176C8AF003592C3 = {
+						CreatedOnToolsVersion = 10.0;
+						TestTargetID = C6F5977A2176C8AE003592C3;
+					};
+					C6F597992176C8AF003592C3 = {
+						CreatedOnToolsVersion = 10.0;
+						TestTargetID = C6F5977A2176C8AE003592C3;
+					};
+				};
+			};
+			buildConfigurationList = C6F597762176C8AE003592C3 /* Build configuration list for PBXProject "SleepAP" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = C6F597722176C8AE003592C3;
+			productRefGroup = C6F5977C2176C8AE003592C3 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				C6F5977A2176C8AE003592C3 /* SleepAP */,
+				C6F5978E2176C8AF003592C3 /* SleepAPTests */,
+				C6F597992176C8AF003592C3 /* SleepAPUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		C6F597792176C8AE003592C3 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C6F597892176C8AF003592C3 /* LaunchScreen.storyboard in Resources */,
+				C6F597862176C8AF003592C3 /* Assets.xcassets in Resources */,
+				C6F597842176C8AE003592C3 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C6F5978D2176C8AF003592C3 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C6F597982176C8AF003592C3 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		18D9263DCF430B0455AC38E6 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-SleepAPTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		420408B9CF475E9D26AF495F /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-SleepAP-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		5BBE8E8E82650BB5DA98F70A /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-SleepAPUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		65077D0D6ACA6B01DD2FDDBB /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-SleepAPUITests/Pods-SleepAPUITests-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Bolts/Bolts.framework",
+				"${BUILT_PRODUCTS_DIR}/Parse/Parse.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Bolts.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Parse.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SleepAPUITests/Pods-SleepAPUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		AD180105D6199528BA439F9E /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-SleepAPTests/Pods-SleepAPTests-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Bolts/Bolts.framework",
+				"${BUILT_PRODUCTS_DIR}/Parse/Parse.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Bolts.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Parse.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SleepAPTests/Pods-SleepAPTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B2A700FC7CB832421CBA00DA /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-SleepAP/Pods-SleepAP-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Bolts/Bolts.framework",
+				"${BUILT_PRODUCTS_DIR}/Parse/Parse.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Bolts.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Parse.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SleepAP/Pods-SleepAP-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		C6F597772176C8AE003592C3 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C6F597812176C8AE003592C3 /* ViewController.swift in Sources */,
+				C6F5977F2176C8AE003592C3 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C6F5978B2176C8AF003592C3 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C6F597942176C8AF003592C3 /* SleepAPTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C6F597962176C8AF003592C3 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C6F5979F2176C8AF003592C3 /* SleepAPUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		C6F597912176C8AF003592C3 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C6F5977A2176C8AE003592C3 /* SleepAP */;
+			targetProxy = C6F597902176C8AF003592C3 /* PBXContainerItemProxy */;
+		};
+		C6F5979C2176C8AF003592C3 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C6F5977A2176C8AE003592C3 /* SleepAP */;
+			targetProxy = C6F5979B2176C8AF003592C3 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		C6F597822176C8AE003592C3 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C6F597832176C8AE003592C3 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		C6F597872176C8AF003592C3 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C6F597882176C8AF003592C3 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		C6F597A12176C8AF003592C3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		C6F597A22176C8AF003592C3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		C6F597A42176C8AF003592C3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 70E754EA466C3BF54BAC8BA2 /* Pods-SleepAP.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = SleepAP/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = SAPTeam.SleepAP;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		C6F597A52176C8AF003592C3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = E8649FFE3845830806EEE3B8 /* Pods-SleepAP.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = SleepAP/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = SAPTeam.SleepAP;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		C6F597A72176C8AF003592C3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 726F812CCF914C248883962C /* Pods-SleepAPTests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = SleepAPTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = SAPTeam.SleepAPTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SleepAP.app/SleepAP";
+			};
+			name = Debug;
+		};
+		C6F597A82176C8AF003592C3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 57B78463B6C9E775DC228544 /* Pods-SleepAPTests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = SleepAPTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = SAPTeam.SleepAPTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SleepAP.app/SleepAP";
+			};
+			name = Release;
+		};
+		C6F597AA2176C8AF003592C3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4CECD1D14C9913763932AE4F /* Pods-SleepAPUITests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = SleepAPUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = SAPTeam.SleepAPUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = SleepAP;
+			};
+			name = Debug;
+		};
+		C6F597AB2176C8AF003592C3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 11F27F08845957DF156F2847 /* Pods-SleepAPUITests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = SleepAPUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = SAPTeam.SleepAPUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = SleepAP;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		C6F597762176C8AE003592C3 /* Build configuration list for PBXProject "SleepAP" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C6F597A12176C8AF003592C3 /* Debug */,
+				C6F597A22176C8AF003592C3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C6F597A32176C8AF003592C3 /* Build configuration list for PBXNativeTarget "SleepAP" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C6F597A42176C8AF003592C3 /* Debug */,
+				C6F597A52176C8AF003592C3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C6F597A62176C8AF003592C3 /* Build configuration list for PBXNativeTarget "SleepAPTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C6F597A72176C8AF003592C3 /* Debug */,
+				C6F597A82176C8AF003592C3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C6F597A92176C8AF003592C3 /* Build configuration list for PBXNativeTarget "SleepAPUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C6F597AA2176C8AF003592C3 /* Debug */,
+				C6F597AB2176C8AF003592C3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = C6F597732176C8AE003592C3 /* Project object */;
+}

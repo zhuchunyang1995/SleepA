@@ -1,0 +1,6 @@
+framework module Pods_SleepAPTests {
+  umbrella header "Pods-SleepAPTests-umbrella.h"
+
+  export *
+  module * { export * }
+}
