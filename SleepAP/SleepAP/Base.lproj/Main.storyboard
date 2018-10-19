@@ -17,23 +17,23 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gGC-am-KS7">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NEE-AP-vBD" customClass="buttonView" customModule="SleepAP" customModuleProvider="target">
                                 <rect key="frame" x="107" y="348" width="200" height="200"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="200" id="Ph3-uJ-0og"/>
-                                    <constraint firstAttribute="height" constant="200" id="koy-oH-4mA"/>
+                                    <constraint firstAttribute="width" constant="200" id="Dxh-dQ-jDG"/>
+                                    <constraint firstAttribute="height" constant="200" id="fM4-Du-8oz"/>
                                 </constraints>
-                            </button>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="gGC-am-KS7" firstAttribute="centerX" secondItem="mR9-eX-Lum" secondAttribute="centerX" id="TUm-dW-Hyn"/>
-                            <constraint firstItem="gGC-am-KS7" firstAttribute="centerY" secondItem="mR9-eX-Lum" secondAttribute="centerY" id="TjR-Au-3Z3"/>
+                            <constraint firstItem="NEE-AP-vBD" firstAttribute="centerX" secondItem="mR9-eX-Lum" secondAttribute="centerX" id="47l-m7-Eze"/>
+                            <constraint firstItem="NEE-AP-vBD" firstAttribute="centerY" secondItem="mR9-eX-Lum" secondAttribute="centerY" id="Ho4-Kh-ro7"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="1Mt-Yu-q3g"/>
                     </view>
                     <connections>
-                        <outlet property="sleepButton" destination="gGC-am-KS7" id="fUp-MD-d9O"/>
+                        <outlet property="sleepView" destination="NEE-AP-vBD" id="9q1-4o-0s6"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x9b-g1-cIz" userLabel="First Responder" sceneMemberID="firstResponder"/>
