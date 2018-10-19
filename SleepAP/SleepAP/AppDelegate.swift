@@ -26,10 +26,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         // show the main storyboard depending on the status of user
         window = UIWindow(frame: UIScreen.main.bounds)
-        let isUserLoggedIn = false
+        let isUserLoggedIn = true
         if isUserLoggedIn {
             window?.rootViewController = AppStoryboard.Main.instance
-                .instantiateViewController(withIdentifier: "loginViewController")
+                .instantiateViewController(withIdentifier: "beginSleepViewController")
         } else {
             // TODO: change to the dashboard controller
             window?.rootViewController = AppStoryboard.Login.instance.instantiateViewController(withIdentifier: "loginViewController")
