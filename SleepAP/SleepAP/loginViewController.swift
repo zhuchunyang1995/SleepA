@@ -9,13 +9,13 @@
 import UIKit
 import Parse
 
-class ViewController: UIViewController {
+class loginViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        usernameText.text = ""
-        passwdText.text = ""
+        usernameTextField.text = ""
+        passwordTextField.text = ""
         
     }
     override func viewDidAppear(_ animated: Bool){
@@ -26,23 +26,24 @@ class ViewController: UIViewController {
         }
     }
     
-    //After login, show the main board
+    // After login, show the main board
     func loadHomeScreen(){
-        let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-        let loggedInViewController = storyBoard.instantiateViewController(withIdentifier: "LoggedInViewController") as! LoggedInViewController
-        self.present(loggedInViewController, animated: true, completion: nil)
+//        let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+//        let loginViewController = storyBoard.instantiateViewController(withIdentifier: "loginViewController") as! loginViewController
+//        self.present(loginViewController, animated: true, completion: nil)
     }
 
-    @IBOutlet weak var usernameText: UITextField!
-    
-    @IBOutlet weak var passwdText: UITextField!
+    @IBOutlet weak var usernameLabel: UILabel!
+    @IBOutlet weak var passwordLabel: UILabel!
+    @IBOutlet weak var usernameTextField: UITextField!
+    @IBOutlet weak var passwordTextField: UITextField!
     
     @IBAction func login(_ sender: Any) {
-        
+
     }
-    
+
     @IBAction func signup(_ sender: Any) {
-        
+
     }
 }
 

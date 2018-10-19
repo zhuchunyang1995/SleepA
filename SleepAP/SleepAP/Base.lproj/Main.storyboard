@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -9,10 +9,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Login View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="SleepAP" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="loginViewController" id="BYZ-38-t0r" customClass="loginViewController" customModule="SleepAP" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -37,6 +37,9 @@
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="usernameTextField:" destination="BYZ-38-t0r" eventType="editingDidEnd" id="Yr0-lW-ZzK"/>
+                                </connections>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="WKD-4t-um2">
                                 <rect key="frame" x="159" y="205" width="173" height="30"/>
@@ -67,8 +70,10 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
-                        <outlet property="passwdtext" destination="WKD-4t-um2" id="ml2-eS-Hui"/>
-                        <outlet property="usernameText" destination="T63-9v-MwI" id="sdD-Qw-pXV"/>
+                        <outlet property="passwordLabel" destination="MVs-eb-j97" id="HZK-2g-Z86"/>
+                        <outlet property="passwordTextField" destination="WKD-4t-um2" id="Fam-vL-i7g"/>
+                        <outlet property="usernameLabel" destination="Fng-uK-bPW" id="Est-Gd-xph"/>
+                        <outlet property="usernameTextField" destination="T63-9v-MwI" id="3kk-PJ-gRb"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -99,10 +104,10 @@
             </objects>
             <point key="canvasLocation" x="1074.4000000000001" y="139.880059970015"/>
         </scene>
-        <!--View Controller-->
+        <!--Register View Controller-->
         <scene sceneID="yC6-TX-PHK">
             <objects>
-                <viewController id="06i-QX-iLx" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="registerViewController" id="06i-QX-iLx" customClass="registerViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Oii-w5-vnN">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

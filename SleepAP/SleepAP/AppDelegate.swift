@@ -17,13 +17,26 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+        // configuration for back4app backend flow
         let configuration = ParseClientConfiguration {
             $0.applicationId = "2cswjZuSxFiTPkXpE6g2ONBTfSlctCYZkEFbW1Ou"
             $0.clientKey = "ZKRSrROOYbfKc9l2CKyUdZ6GPoZvQoDwuijVitMD$"
             $0.server = "https://parseapi.back4app.com"
         }
         Parse.initialize(with: configuration)
+        
+        // show the main storyboard depending on the status of user
+        window = UIWindow(frame: UIScreen.main.bounds)
+        let isUserLoggedIn = false
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        
+        if isUserLoggedIn {
+            window?.rootViewController = storyboard.instantiateViewController(withIdentifier: "loginViewController")
+        } else {
+            // TODO: change to the dashboard controller
+            window?.rootViewController = storyboard.instantiateViewController(withIdentifier: "loginViewController")
+        }
+        window?.makeKeyAndVisible()
 
         return true
     }

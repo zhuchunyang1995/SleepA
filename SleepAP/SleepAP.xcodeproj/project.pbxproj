@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 48;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -11,7 +11,7 @@
 		3F7A9A940D2E9EC734B6593D /* Pods_SleepAP.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F47D98F4B02F42C8FD42348E /* Pods_SleepAP.framework */; };
 		47DF0B15BA1622061F7DBC92 /* Pods_SleepAPUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4FDB393460CD8643CBDBCDD8 /* Pods_SleepAPUITests.framework */; };
 		C6F5977F2176C8AE003592C3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6F5977E2176C8AE003592C3 /* AppDelegate.swift */; };
-		C6F597812176C8AE003592C3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6F597802176C8AE003592C3 /* ViewController.swift */; };
+		C6F597812176C8AE003592C3 /* loginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6F597802176C8AE003592C3 /* loginViewController.swift */; };
 		C6F597842176C8AE003592C3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C6F597822176C8AE003592C3 /* Main.storyboard */; };
 		C6F597862176C8AF003592C3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C6F597852176C8AF003592C3 /* Assets.xcassets */; };
 		C6F597892176C8AF003592C3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C6F597872176C8AF003592C3 /* LaunchScreen.storyboard */; };
@@ -46,7 +46,7 @@
 		822A3AD7704DAF26EE878169 /* Pods_SleepAPTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SleepAPTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C6F5977B2176C8AE003592C3 /* SleepAP.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SleepAP.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C6F5977E2176C8AE003592C3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		C6F597802176C8AE003592C3 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		C6F597802176C8AE003592C3 /* loginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = loginViewController.swift; sourceTree = "<group>"; };
 		C6F597832176C8AE003592C3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		C6F597852176C8AF003592C3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C6F597882176C8AF003592C3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -125,7 +125,7 @@
 			isa = PBXGroup;
 			children = (
 				C6F5977E2176C8AE003592C3 /* AppDelegate.swift */,
-				C6F597802176C8AE003592C3 /* ViewController.swift */,
+				C6F597802176C8AE003592C3 /* loginViewController.swift */,
 				C6F597822176C8AE003592C3 /* Main.storyboard */,
 				C6F597852176C8AF003592C3 /* Assets.xcassets */,
 				C6F597872176C8AF003592C3 /* LaunchScreen.storyboard */,
@@ -239,19 +239,22 @@
 				TargetAttributes = {
 					C6F5977A2176C8AE003592C3 = {
 						CreatedOnToolsVersion = 10.0;
+						ProvisioningStyle = Automatic;
 					};
 					C6F5978E2176C8AF003592C3 = {
 						CreatedOnToolsVersion = 10.0;
+						ProvisioningStyle = Automatic;
 						TestTargetID = C6F5977A2176C8AE003592C3;
 					};
 					C6F597992176C8AF003592C3 = {
 						CreatedOnToolsVersion = 10.0;
+						ProvisioningStyle = Automatic;
 						TestTargetID = C6F5977A2176C8AE003592C3;
 					};
 				};
 			};
 			buildConfigurationList = C6F597762176C8AE003592C3 /* Build configuration list for PBXProject "SleepAP" */;
-			compatibilityVersion = "Xcode 9.3";
+			compatibilityVersion = "Xcode 8.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -419,7 +422,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C6F597812176C8AE003592C3 /* ViewController.swift in Sources */,
+				C6F597812176C8AE003592C3 /* loginViewController.swift in Sources */,
 				C6F5977F2176C8AE003592C3 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -585,8 +588,7 @@
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
-				SWIFT_COMPILATION_MODE = wholemodule;
-				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -598,10 +600,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = SleepAP/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = SAPTeam.SleepAP;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
@@ -616,10 +615,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = SleepAP/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = SAPTeam.SleepAP;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
@@ -635,11 +631,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = SleepAPTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = SAPTeam.SleepAPTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
@@ -656,11 +648,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = SleepAPTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = SAPTeam.SleepAPTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
@@ -676,11 +664,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = SleepAPUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = SAPTeam.SleepAPUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
@@ -696,11 +680,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = SleepAPUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = SAPTeam.SleepAPUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
