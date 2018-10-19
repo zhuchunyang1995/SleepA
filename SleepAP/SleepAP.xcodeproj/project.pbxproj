@@ -12,11 +12,12 @@
 		47DF0B15BA1622061F7DBC92 /* Pods_SleepAPUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4FDB393460CD8643CBDBCDD8 /* Pods_SleepAPUITests.framework */; };
 		C6F5977F2176C8AE003592C3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6F5977E2176C8AE003592C3 /* AppDelegate.swift */; };
 		C6F597812176C8AE003592C3 /* loginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6F597802176C8AE003592C3 /* loginViewController.swift */; };
-		C6F597842176C8AE003592C3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C6F597822176C8AE003592C3 /* Main.storyboard */; };
+		C6F597842176C8AE003592C3 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C6F597822176C8AE003592C3 /* Login.storyboard */; };
 		C6F597862176C8AF003592C3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C6F597852176C8AF003592C3 /* Assets.xcassets */; };
 		C6F597892176C8AF003592C3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C6F597872176C8AF003592C3 /* LaunchScreen.storyboard */; };
 		C6F597942176C8AF003592C3 /* SleepAPTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6F597932176C8AF003592C3 /* SleepAPTests.swift */; };
 		C6F5979F2176C8AF003592C3 /* SleepAPUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6F5979E2176C8AF003592C3 /* SleepAPUITests.swift */; };
+		D3B14B0921797CD6002B91F6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D3B14B0721797CD6002B91F6 /* Main.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,7 +48,7 @@
 		C6F5977B2176C8AE003592C3 /* SleepAP.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SleepAP.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C6F5977E2176C8AE003592C3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C6F597802176C8AE003592C3 /* loginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = loginViewController.swift; sourceTree = "<group>"; };
-		C6F597832176C8AE003592C3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		C6F597832176C8AE003592C3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Login.storyboard; sourceTree = "<group>"; };
 		C6F597852176C8AF003592C3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C6F597882176C8AF003592C3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C6F5978A2176C8AF003592C3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -57,6 +58,7 @@
 		C6F5979A2176C8AF003592C3 /* SleepAPUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SleepAPUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C6F5979E2176C8AF003592C3 /* SleepAPUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SleepAPUITests.swift; sourceTree = "<group>"; };
 		C6F597A02176C8AF003592C3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D3B14B0821797CD6002B91F6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		E8649FFE3845830806EEE3B8 /* Pods-SleepAP.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SleepAP.release.xcconfig"; path = "Pods/Target Support Files/Pods-SleepAP/Pods-SleepAP.release.xcconfig"; sourceTree = "<group>"; };
 		F47D98F4B02F42C8FD42348E /* Pods_SleepAP.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SleepAP.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -125,8 +127,9 @@
 			isa = PBXGroup;
 			children = (
 				C6F5977E2176C8AE003592C3 /* AppDelegate.swift */,
+				D3B14B0721797CD6002B91F6 /* Main.storyboard */,
+				C6F597822176C8AE003592C3 /* Login.storyboard */,
 				C6F597802176C8AE003592C3 /* loginViewController.swift */,
-				C6F597822176C8AE003592C3 /* Main.storyboard */,
 				C6F597852176C8AF003592C3 /* Assets.xcassets */,
 				C6F597872176C8AF003592C3 /* LaunchScreen.storyboard */,
 				C6F5978A2176C8AF003592C3 /* Info.plist */,
@@ -280,7 +283,8 @@
 			files = (
 				C6F597892176C8AF003592C3 /* LaunchScreen.storyboard in Resources */,
 				C6F597862176C8AF003592C3 /* Assets.xcassets in Resources */,
-				C6F597842176C8AE003592C3 /* Main.storyboard in Resources */,
+				C6F597842176C8AE003592C3 /* Login.storyboard in Resources */,
+				D3B14B0921797CD6002B91F6 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -459,12 +463,12 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		C6F597822176C8AE003592C3 /* Main.storyboard */ = {
+		C6F597822176C8AE003592C3 /* Login.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				C6F597832176C8AE003592C3 /* Base */,
 			);
-			name = Main.storyboard;
+			name = Login.storyboard;
 			sourceTree = "<group>";
 		};
 		C6F597872176C8AF003592C3 /* LaunchScreen.storyboard */ = {
@@ -473,6 +477,14 @@
 				C6F597882176C8AF003592C3 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		D3B14B0721797CD6002B91F6 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D3B14B0821797CD6002B91F6 /* Base */,
+			);
+			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

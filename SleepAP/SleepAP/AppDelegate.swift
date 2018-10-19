@@ -12,9 +12,8 @@ import Bolts
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
-
+    
     var window: UIWindow?
-
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // configuration for back4app backend flow
@@ -28,13 +27,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // show the main storyboard depending on the status of user
         window = UIWindow(frame: UIScreen.main.bounds)
         let isUserLoggedIn = false
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        
         if isUserLoggedIn {
-            window?.rootViewController = storyboard.instantiateViewController(withIdentifier: "loginViewController")
+            window?.rootViewController = AppStoryboard.Main.instance
+                .instantiateViewController(withIdentifier: "loginViewController")
         } else {
             // TODO: change to the dashboard controller
-            window?.rootViewController = storyboard.instantiateViewController(withIdentifier: "loginViewController")
+            window?.rootViewController = AppStoryboard.Login.instance.instantiateViewController(withIdentifier: "loginViewController")
         }
         window?.makeKeyAndVisible()
 
@@ -63,6 +61,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
 
-
+    // MARK: - helpers
+    enum AppStoryboard : String {
+        case Login, Main
+        var instance : UIStoryboard {
+            return UIStoryboard(name: self.rawValue, bundle: Bundle.main)
+        }
+    }
 }
 
