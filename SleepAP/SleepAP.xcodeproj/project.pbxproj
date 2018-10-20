@@ -24,6 +24,7 @@
 		D3B14B13217A6082002B91F6 /* buttonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3B14B12217A6082002B91F6 /* buttonView.swift */; };
 		D3B14B15217A66ED002B91F6 /* sleepRelatedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3B14B14217A66ED002B91F6 /* sleepRelatedViewController.swift */; };
 		D3B14B18217AA5E4002B91F6 /* Roboto-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D3B14B17217AA5E4002B91F6 /* Roboto-Medium.ttf */; };
+		D3B14B1A217AA91A002B91F6 /* MontserratAlternates-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = D3B14B19217AA91A002B91F6 /* MontserratAlternates-Regular.otf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -71,6 +72,7 @@
 		D3B14B12217A6082002B91F6 /* buttonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = buttonView.swift; sourceTree = "<group>"; };
 		D3B14B14217A66ED002B91F6 /* sleepRelatedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = sleepRelatedViewController.swift; sourceTree = "<group>"; };
 		D3B14B17217AA5E4002B91F6 /* Roboto-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Medium.ttf"; sourceTree = "<group>"; };
+		D3B14B19217AA91A002B91F6 /* MontserratAlternates-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MontserratAlternates-Regular.otf"; sourceTree = "<group>"; };
 		E8649FFE3845830806EEE3B8 /* Pods-SleepAP.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SleepAP.release.xcconfig"; path = "Pods/Target Support Files/Pods-SleepAP/Pods-SleepAP.release.xcconfig"; sourceTree = "<group>"; };
 		F47D98F4B02F42C8FD42348E /* Pods_SleepAP.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SleepAP.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -140,13 +142,13 @@
 			children = (
 				D3B14B16217AA577002B91F6 /* Resources */,
 				D3B14B14217A66ED002B91F6 /* sleepRelatedViewController.swift */,
-				D3B14B0C21797F3E002B91F6 /* beginSleepViewController.swift */,
 				D3B14B0E217A3853002B91F6 /* wakeupViewController.swift */,
 				C6F5977E2176C8AE003592C3 /* AppDelegate.swift */,
 				D3B14B0721797CD6002B91F6 /* Main.storyboard */,
-				D3B14B12217A6082002B91F6 /* buttonView.swift */,
 				C6F597822176C8AE003592C3 /* Login.storyboard */,
 				C6F597802176C8AE003592C3 /* loginViewController.swift */,
+				D3B14B12217A6082002B91F6 /* buttonView.swift */,
+				D3B14B0C21797F3E002B91F6 /* beginSleepViewController.swift */,
 				C6F597852176C8AF003592C3 /* Assets.xcassets */,
 				C6F597872176C8AF003592C3 /* LaunchScreen.storyboard */,
 				C6F5978A2176C8AF003592C3 /* Info.plist */,
@@ -175,6 +177,7 @@
 		D3B14B16217AA577002B91F6 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				D3B14B19217AA91A002B91F6 /* MontserratAlternates-Regular.otf */,
 				D3B14B17217AA5E4002B91F6 /* Roboto-Medium.ttf */,
 				D3B14B10217A605B002B91F6 /* buttonView.xib */,
 			);
@@ -310,6 +313,7 @@
 				C6F597892176C8AF003592C3 /* LaunchScreen.storyboard in Resources */,
 				C6F597862176C8AF003592C3 /* Assets.xcassets in Resources */,
 				D3B14B18217AA5E4002B91F6 /* Roboto-Medium.ttf in Resources */,
+				D3B14B1A217AA91A002B91F6 /* MontserratAlternates-Regular.otf in Resources */,
 				C6F597842176C8AE003592C3 /* Login.storyboard in Resources */,
 				D3B14B11217A605B002B91F6 /* buttonView.xib in Resources */,
 				D3B14B0921797CD6002B91F6 /* Main.storyboard in Resources */,

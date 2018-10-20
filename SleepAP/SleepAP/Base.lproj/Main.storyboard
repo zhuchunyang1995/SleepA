@@ -24,15 +24,24 @@
                                     <constraint firstAttribute="height" constant="200" id="fM4-Du-8oz"/>
                                 </constraints>
                             </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3kx-rF-xhU">
+                                <rect key="frame" x="186" y="598" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="NEE-AP-vBD" firstAttribute="centerX" secondItem="mR9-eX-Lum" secondAttribute="centerX" id="47l-m7-Eze"/>
                             <constraint firstItem="NEE-AP-vBD" firstAttribute="centerY" secondItem="mR9-eX-Lum" secondAttribute="centerY" id="Ho4-Kh-ro7"/>
+                            <constraint firstItem="3kx-rF-xhU" firstAttribute="top" secondItem="NEE-AP-vBD" secondAttribute="bottom" constant="50" id="dCA-GQ-FSb"/>
+                            <constraint firstItem="3kx-rF-xhU" firstAttribute="centerX" secondItem="mR9-eX-Lum" secondAttribute="centerX" id="i90-tM-5Mg"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="1Mt-Yu-q3g"/>
                     </view>
                     <connections>
+                        <outlet property="additionalDescription" destination="3kx-rF-xhU" id="s9n-yI-7bd"/>
                         <outlet property="sleepView" destination="NEE-AP-vBD" id="9q1-4o-0s6"/>
                     </connections>
                 </viewController>
