@@ -29,7 +29,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let isUserLoggedIn = true
         if isUserLoggedIn {
             window?.rootViewController = AppStoryboard.Main.instance
-                .instantiateViewController(withIdentifier: "beginSleepViewController")
+                .instantiateViewController(withIdentifier: "wakeupViewController")
         } else {
             // TODO: change to the dashboard controller
             window?.rootViewController = AppStoryboard.Login.instance.instantiateViewController(withIdentifier: "loginViewController")

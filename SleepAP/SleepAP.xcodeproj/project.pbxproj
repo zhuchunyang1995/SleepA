@@ -142,12 +142,12 @@
 			children = (
 				D3B14B16217AA577002B91F6 /* Resources */,
 				D3B14B14217A66ED002B91F6 /* sleepRelatedViewController.swift */,
-				D3B14B0E217A3853002B91F6 /* wakeupViewController.swift */,
 				C6F5977E2176C8AE003592C3 /* AppDelegate.swift */,
 				D3B14B0721797CD6002B91F6 /* Main.storyboard */,
 				C6F597822176C8AE003592C3 /* Login.storyboard */,
 				C6F597802176C8AE003592C3 /* loginViewController.swift */,
 				D3B14B12217A6082002B91F6 /* buttonView.swift */,
+				D3B14B0E217A3853002B91F6 /* wakeupViewController.swift */,
 				D3B14B0C21797F3E002B91F6 /* beginSleepViewController.swift */,
 				C6F597852176C8AF003592C3 /* Assets.xcassets */,
 				C6F597872176C8AF003592C3 /* LaunchScreen.storyboard */,

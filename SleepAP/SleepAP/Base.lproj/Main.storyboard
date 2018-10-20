@@ -57,24 +57,38 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="26u-6z-6iy">
-                                <rect key="frame" x="88" y="125" width="42" height="90"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="26u-6z-6iy">
+                                <rect key="frame" x="186.33333333333334" y="598" width="41.666666666666657" height="20.333333333333371"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="p3d-q8-GLb" customClass="buttonView" customModule="SleepAP" customModuleProvider="target">
+                                <rect key="frame" x="107" y="348" width="200" height="200"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="200" id="1xd-Ak-dZd"/>
+                                    <constraint firstAttribute="height" constant="200" id="UUG-0d-Ftc"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="p3d-q8-GLb" firstAttribute="centerX" secondItem="rlH-2c-U1T" secondAttribute="centerX" id="QqU-By-LeU"/>
+                            <constraint firstItem="26u-6z-6iy" firstAttribute="top" secondItem="p3d-q8-GLb" secondAttribute="bottom" constant="50" id="qld-jO-hm6"/>
+                            <constraint firstItem="26u-6z-6iy" firstAttribute="centerX" secondItem="rlH-2c-U1T" secondAttribute="centerX" id="rDb-Yf-I9e"/>
+                            <constraint firstItem="p3d-q8-GLb" firstAttribute="centerY" secondItem="rlH-2c-U1T" secondAttribute="centerY" id="vH2-9F-eTJ"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="m8j-rX-ecO"/>
                     </view>
                     <connections>
-                        <outlet property="hi" destination="26u-6z-6iy" id="tjp-z7-IG2"/>
+                        <outlet property="additionalDescription" destination="26u-6z-6iy" id="Oaf-lf-gCO"/>
+                        <outlet property="wakeupView" destination="p3d-q8-GLb" id="HrM-be-Vc5"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="laY-on-BLn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="666.66666666666674" y="20.758928571428569"/>
+            <point key="canvasLocation" x="777" y="27"/>
         </scene>
     </scenes>
 </document>

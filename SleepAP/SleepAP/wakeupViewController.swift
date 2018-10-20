@@ -8,25 +8,20 @@
 
 import UIKit
 
-class wakeupViewController: UIViewController {
+class wakeupViewController: sleepRelatedViewController {
 
-    @IBOutlet weak var f: UILabel!
+    @IBOutlet weak var wakeupView: buttonView!
+    @IBOutlet weak var additionalDescription: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
+        additionalDescription.text = "🔆 It’s time to fulfill your whole day..."
+        additionalDescription.textAlignment = .center
+        additionalDescription.textColor = UIColor(red: 255, green: 255, blue: 255, alpha: 0.7)
+        additionalDescription.font = UIFont(name: "MontserratAlternates", size: 14)
+        
+        wakeupView.label.text = "Wake Up"
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
