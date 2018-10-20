@@ -12,7 +12,7 @@
         <!--Begin Sleep View Controller-->
         <scene sceneID="9Zu-D9-tdv">
             <objects>
-                <viewController storyboardIdentifier="beginSleepViewController" id="fQx-hM-HJ0" customClass="beginSleepViewController" customModule="SleepAP" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController restorationIdentifier="beginSleepViewController" storyboardIdentifier="beginSleepViewController" id="fQx-hM-HJ0" customClass="beginSleepViewController" customModule="SleepAP" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="mR9-eX-Lum">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -52,7 +52,7 @@
         <!--Wakeup View Controller-->
         <scene sceneID="DS5-Qj-e2k">
             <objects>
-                <viewController storyboardIdentifier="wakeupViewController" id="ryB-26-n5I" customClass="wakeupViewController" customModule="SleepAP" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController restorationIdentifier="wakeupViewController" storyboardIdentifier="wakeupViewController" id="ryB-26-n5I" customClass="wakeupViewController" customModule="SleepAP" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="rlH-2c-U1T">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -89,6 +89,87 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="laY-on-BLn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="777" y="27"/>
+        </scene>
+        <!--Sleep Duration View Controller-->
+        <scene sceneID="SIt-pO-LLy">
+            <objects>
+                <viewController restorationIdentifier="sleepDurationViewController" storyboardIdentifier="sleepDurationViewController" id="9yC-15-bh3" customClass="sleepDurationViewController" customModule="SleepAP" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="KDf-Xf-uns">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rGK-jp-C9s">
+                                <rect key="frame" x="198" y="150" width="42" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5xs-Cf-UMH">
+                                <rect key="frame" x="40" y="447.66666666666669" width="334" height="1"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="1" id="Hve-f5-5qh"/>
+                                </constraints>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ce0-C4-SQk">
+                                <rect key="frame" x="186.33333333333334" y="549.33333333333337" width="41.666666666666657" height="20.333333333333371"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="n4d-Xm-I61">
+                                <rect key="frame" x="82" y="619.66666666666663" width="250" height="100"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Rwb-B6-spk" customClass="buttonView" customModule="SleepAP" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
+                                        <color key="backgroundColor" red="0.97941154239999995" green="0.93589848279999999" blue="0.50577992199999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="100" id="fpT-uY-OK0"/>
+                                        </constraints>
+                                    </view>
+                                    <view tag="5" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ggZ-RX-mvc" customClass="buttonView" customModule="SleepAP" customModuleProvider="target">
+                                        <rect key="frame" x="150" y="0.0" width="100" height="100"/>
+                                        <color key="backgroundColor" red="0.97941154239999995" green="0.93589848279999999" blue="0.50577992199999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="100" id="zJN-rL-R59"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="ggZ-RX-mvc" firstAttribute="centerY" secondItem="n4d-Xm-I61" secondAttribute="centerY" id="Aa7-g9-PuY"/>
+                                    <constraint firstItem="Rwb-B6-spk" firstAttribute="centerY" secondItem="n4d-Xm-I61" secondAttribute="centerY" id="EdH-OB-wgo"/>
+                                    <constraint firstItem="Rwb-B6-spk" firstAttribute="leading" secondItem="n4d-Xm-I61" secondAttribute="leading" id="JB2-NO-cvg"/>
+                                    <constraint firstAttribute="height" constant="100" id="oqc-cq-qd5"/>
+                                    <constraint firstAttribute="width" constant="250" id="rEo-f9-o1U"/>
+                                    <constraint firstAttribute="trailing" secondItem="ggZ-RX-mvc" secondAttribute="trailing" id="xpL-er-reR"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="5xs-Cf-UMH" firstAttribute="centerX" secondItem="KDf-Xf-uns" secondAttribute="centerX" id="5nk-2O-Zyw"/>
+                            <constraint firstItem="5xs-Cf-UMH" firstAttribute="leading" secondItem="KDf-Xf-uns" secondAttribute="leadingMargin" constant="20" id="Cj9-TX-f7l"/>
+                            <constraint firstItem="ce0-C4-SQk" firstAttribute="centerX" secondItem="KDf-Xf-uns" secondAttribute="centerX" id="CtG-Nn-8A0"/>
+                            <constraint firstItem="ce0-C4-SQk" firstAttribute="top" secondItem="KDf-Xf-uns" secondAttribute="topMargin" constant="505.32999999999998" id="Li6-S8-hJz"/>
+                            <constraint firstItem="n4d-Xm-I61" firstAttribute="top" secondItem="ce0-C4-SQk" secondAttribute="bottom" constant="50" id="Y1o-kN-GWQ"/>
+                            <constraint firstItem="n4d-Xm-I61" firstAttribute="centerX" secondItem="KDf-Xf-uns" secondAttribute="centerX" id="fTY-Va-8EI"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="5xs-Cf-UMH" secondAttribute="trailing" constant="20" id="gvg-YR-4CB"/>
+                            <constraint firstItem="5xs-Cf-UMH" firstAttribute="centerY" secondItem="KDf-Xf-uns" secondAttribute="centerY" id="uab-x5-yu0"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="9uZ-DP-ZtQ"/>
+                    </view>
+                    <connections>
+                        <outlet property="noButton" destination="ggZ-RX-mvc" id="BzU-u3-RYC"/>
+                        <outlet property="questionLabel" destination="ce0-C4-SQk" id="iYc-7C-Tio"/>
+                        <outlet property="questionLabelTopMargin" destination="Li6-S8-hJz" id="0pf-KK-exe"/>
+                        <outlet property="sleepDurationLabel" destination="rGK-jp-C9s" id="y0s-qq-ivP"/>
+                        <outlet property="yesButton" destination="Rwb-B6-spk" id="fTH-25-AV1"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="d4H-6F-YAR" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1515.9420289855075" y="26.785714285714285"/>
         </scene>
     </scenes>
 </document>

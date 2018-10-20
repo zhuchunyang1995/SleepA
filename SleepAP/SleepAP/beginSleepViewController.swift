@@ -20,5 +20,7 @@ class beginSleepViewController: sleepRelatedViewController {
         additionalDescription.textAlignment = .center
         additionalDescription.textColor = UIColor(red: 255, green: 255, blue: 255, alpha: 0.7)
         additionalDescription.font = UIFont(name: "MontserratAlternates", size: 14)
+        
+        sleepView.setLabelWithText(text: "Sleep")
     }
 }

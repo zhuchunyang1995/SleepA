@@ -21,7 +21,7 @@ class wakeupViewController: sleepRelatedViewController {
         additionalDescription.textColor = UIColor(red: 255, green: 255, blue: 255, alpha: 0.7)
         additionalDescription.font = UIFont(name: "MontserratAlternates", size: 14)
         
-        wakeupView.label.text = "Wake Up"
+        wakeupView.setLabelWithText(text: "Wake Up")
     }
 
 }
