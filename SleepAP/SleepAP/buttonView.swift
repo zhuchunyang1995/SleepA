@@ -12,8 +12,8 @@ import UIKit
 
 class buttonView: UIView {
     @IBOutlet var buttonView: UIView!
-    @IBOutlet var button: UIButton!
-    @IBOutlet weak var backgroundView: UIView!
+    @IBOutlet var button: UIButton! // round button
+    @IBOutlet weak var backgroundView: UIView! // introduce this view to create shadows
     var label = UILabel()
     
     required init?(coder aDecoder: NSCoder) {
@@ -50,5 +50,21 @@ class buttonView: UIView {
         label.font = UIFont(name: "Roboto-Medium", size: 36)
         label.textColor = .white
         button.addSubview(label)
+    }
+    
+    func resize(width: CGFloat, height: CGFloat, textSize: CGFloat) {
+        self.bounds = CGRect(x: 0, y: 0, width: width, height: height)
+        buttonView.frame = self.bounds
+        backgroundView.frame = self.bounds
+        backgroundView.layer.cornerRadius = 0.5 * backgroundView.bounds.size.width
+        button.frame = self.bounds
+        button.layer.cornerRadius = 0.5 * button.bounds.size.width
+        label.font = UIFont(name: "Roboto-Medium", size: textSize)
+        label.center = button.center
+        label.textAlignment = .center
+    }
+    
+    func setLabelWithText(text: String) {
+        label.text = text
     }
 }
