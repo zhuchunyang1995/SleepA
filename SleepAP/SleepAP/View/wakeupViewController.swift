@@ -8,7 +8,7 @@
 
 import UIKit
 
-class wakeupViewController: sleepRelatedViewController {
+class wakeupViewController: sleepParentViewController {
 
     @IBOutlet weak var wakeupView: buttonView!
     @IBOutlet weak var additionalDescription: UILabel!

@@ -29,7 +29,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let isUserLoggedIn = true
         if isUserLoggedIn {
             window?.rootViewController = AppStoryboard.Main.instance
-                .instantiateViewController(withIdentifier: "sleepDurationViewController")
+                .instantiateViewController(withIdentifier: "tabBarViewController")
         } else {
             // TODO: change to the dashboard controller
             window?.rootViewController = AppStoryboard.Login.instance.instantiateViewController(withIdentifier: "loginViewController")
@@ -63,7 +63,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     // MARK: - helpers
     enum AppStoryboard : String {
-        case Login, Main
+        case Login, Main, Sleep, Record, Statistics, Reminder
         var instance : UIStoryboard {
             return UIStoryboard(name: self.rawValue, bundle: Bundle.main)
         }

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class sleepDurationViewController: sleepRelatedViewController {
+class sleepDurationViewController: sleepParentViewController {
 
     @IBOutlet weak var sleepDurationLabel: UILabel!
     @IBOutlet weak var questionLabel: UILabel!
