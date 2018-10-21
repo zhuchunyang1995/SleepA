@@ -11,7 +11,7 @@
 
 import UIKit
 
-class sleepRelatedViewController: UIViewController {
+class sleepParentViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
