@@ -26,8 +26,8 @@
 		D3327102217CBDBC00E0CC79 /* recordTableItemModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3327101217CBDBC00E0CC79 /* recordTableItemModel.swift */; };
 		D3327104217D189B00E0CC79 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3327103217D189B00E0CC79 /* Constants.swift */; };
 		D3327106217D1B0C00E0CC79 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3327105217D1B0C00E0CC79 /* Extensions.swift */; };
+		D3327108217D524A00E0CC79 /* beginSleepViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3327107217D524A00E0CC79 /* beginSleepViewController.swift */; };
 		D3B14B0921797CD6002B91F6 /* Sleep.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D3B14B0721797CD6002B91F6 /* Sleep.storyboard */; };
-		D3B14B0D21797F3E002B91F6 /* beginSleepViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3B14B0C21797F3E002B91F6 /* beginSleepViewController.swift */; };
 		D3B14B0F217A3853002B91F6 /* wakeupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3B14B0E217A3853002B91F6 /* wakeupViewController.swift */; };
 		D3B14B11217A605B002B91F6 /* buttonView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D3B14B10217A605B002B91F6 /* buttonView.xib */; };
 		D3B14B13217A6082002B91F6 /* buttonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3B14B12217A6082002B91F6 /* buttonView.swift */; };
@@ -84,8 +84,8 @@
 		D3327101217CBDBC00E0CC79 /* recordTableItemModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = recordTableItemModel.swift; sourceTree = "<group>"; };
 		D3327103217D189B00E0CC79 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		D3327105217D1B0C00E0CC79 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		D3327107217D524A00E0CC79 /* beginSleepViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = beginSleepViewController.swift; sourceTree = "<group>"; };
 		D3B14B0821797CD6002B91F6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Sleep.storyboard; sourceTree = "<group>"; };
-		D3B14B0C21797F3E002B91F6 /* beginSleepViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = beginSleepViewController.swift; path = /Users/xiayisun/Desktop/UMICH/441/SleepAP/SleepAP/SleepAP/beginSleepViewController.swift; sourceTree = "<absolute>"; };
 		D3B14B0E217A3853002B91F6 /* wakeupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = wakeupViewController.swift; sourceTree = "<group>"; };
 		D3B14B10217A605B002B91F6 /* buttonView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = buttonView.xib; sourceTree = "<group>"; };
 		D3B14B12217A6082002B91F6 /* buttonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = buttonView.swift; sourceTree = "<group>"; };
@@ -190,6 +190,7 @@
 		D33270FF217CBD6900E0CC79 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				D3327107217D524A00E0CC79 /* beginSleepViewController.swift */,
 				C6F5977E2176C8AE003592C3 /* AppDelegate.swift */,
 				C6F597872176C8AF003592C3 /* LaunchScreen.storyboard */,
 				C6F597822176C8AE003592C3 /* Login.storyboard */,
@@ -197,7 +198,6 @@
 				D3B14B0721797CD6002B91F6 /* Sleep.storyboard */,
 				D3B14B12217A6082002B91F6 /* buttonView.swift */,
 				D3B14B14217A66ED002B91F6 /* sleepParentViewController.swift */,
-				D3B14B0C21797F3E002B91F6 /* beginSleepViewController.swift */,
 				D3B14B0E217A3853002B91F6 /* wakeupViewController.swift */,
 				D3B14B1B217AB0C5002B91F6 /* sleepDurationViewController.swift */,
 				D33270ED217BCE1000E0CC79 /* Record.storyboard */,
@@ -510,6 +510,7 @@
 			files = (
 				C6F597812176C8AE003592C3 /* loginViewController.swift in Sources */,
 				D3327104217D189B00E0CC79 /* Constants.swift in Sources */,
+				D3327108217D524A00E0CC79 /* beginSleepViewController.swift in Sources */,
 				D3327102217CBDBC00E0CC79 /* recordTableItemModel.swift in Sources */,
 				D3B14B0F217A3853002B91F6 /* wakeupViewController.swift in Sources */,
 				D3B14B15217A66ED002B91F6 /* sleepParentViewController.swift in Sources */,
@@ -519,7 +520,6 @@
 				D3B14B13217A6082002B91F6 /* buttonView.swift in Sources */,
 				D33270F4217BD5B900E0CC79 /* recordViewController.swift in Sources */,
 				C6F5977F2176C8AE003592C3 /* AppDelegate.swift in Sources */,
-				D3B14B0D21797F3E002B91F6 /* beginSleepViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
