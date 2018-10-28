@@ -190,7 +190,6 @@
 		D33270FF217CBD6900E0CC79 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				D3327107217D524A00E0CC79 /* beginSleepViewController.swift */,
 				C6F5977E2176C8AE003592C3 /* AppDelegate.swift */,
 				C6F597872176C8AF003592C3 /* LaunchScreen.storyboard */,
 				C6F597822176C8AE003592C3 /* Login.storyboard */,
@@ -198,6 +197,7 @@
 				D3B14B0721797CD6002B91F6 /* Sleep.storyboard */,
 				D3B14B12217A6082002B91F6 /* buttonView.swift */,
 				D3B14B14217A66ED002B91F6 /* sleepParentViewController.swift */,
+				D3327107217D524A00E0CC79 /* beginSleepViewController.swift */,
 				D3B14B0E217A3853002B91F6 /* wakeupViewController.swift */,
 				D3B14B1B217AB0C5002B91F6 /* sleepDurationViewController.swift */,
 				D33270ED217BCE1000E0CC79 /* Record.storyboard */,

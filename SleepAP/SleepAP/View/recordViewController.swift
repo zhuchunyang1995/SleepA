@@ -10,6 +10,7 @@ import UIKit
 
 private let leftRightMargin : CGFloat = 20.0
 private let labelTopMargin: CGFloat = 10.0
+private let tableViewCellHeight : CGFloat = 100.0
 private let slideBarBottomMargin: CGFloat = 20.0
 private let thumbImageSize: CGFloat = 40.0
 private let labelColor : UIColor = UIColor(red:0.96, green:0.93, blue:0.55, alpha:1.0)
@@ -21,6 +22,10 @@ class slideBarItemCell: UITableViewCell {
     @IBOutlet weak var slideBarItemName: UILabel!
     @IBOutlet weak var slideBarPercentNumber: UILabel!
     @IBOutlet weak var slideBar: customSlider!
+
+    @IBAction func valueChanged(_ sender: customSlider) {
+        slideBarPercentNumber.text = String(Int(sender.value * 100)) + "%"
+    }
     
     var item: slideBarItem?  {
         didSet {
@@ -47,33 +52,13 @@ class slideBarItemCell: UITableViewCell {
         slideBarPercentNumber.textAlignment = .left
         let percentSize = slideBarPercentNumber.intrinsicContentSize
         slideBarPercentNumber.frame = CGRect(x: self.contentView.frame.width - leftRightMargin - percentSize.width, y: labelTopMargin, width: percentSize.width, height: percentSize.height)
+        slideBarPercentNumber.text = "0%"
         
-        slideBar.value = 0.5
+        slideBar.value = 0.0
+        slideBar.isContinuous = true
         slideBar.tintColor = UIColor(red:0.96, green:0.93, blue:0.55, alpha:1.0)
         let slideWidth = self.contentView.frame.width - 2 * leftRightMargin
         slideBar.frame = CGRect(x: leftRightMargin, y: self.contentView.frame.height - slideBarBottomMargin - slideBarHeight, width: slideWidth, height: slideBarHeight)
-    }
-}
-
-class numberInputItemCell: UITableViewCell {
-    
-    @IBOutlet weak var numberInputItemName: UILabel!
-    @IBOutlet weak var numberInputText: UITextField!
-    
-    var itemString: String = ""  {
-        didSet {
-            numberInputItemName.text = itemString
-        }
-    }
-    
-    override func layoutSubviews() {
-        super.layoutSubviews()
-        
-        numberInputItemName.textColor = labelColor
-        numberInputItemName.font = UIFont(name: "Chalkduster", size: 22)
-        numberInputItemName.textAlignment = .left
-        let nameSize = numberInputItemName.intrinsicContentSize
-        numberInputItemName.frame = CGRect(x: leftRightMargin, y: labelTopMargin, width: nameSize.width, height: nameSize.height)
     }
 }
 
@@ -87,7 +72,8 @@ class recordViewController: UIViewController, UITableViewDelegate, UITableViewDa
         super.viewDidLoad()
 
         self.view.backgroundColor = tableViewBackgroundColor
-        tableView.rowHeight = 100
+        tableView.frame = CGRect(x: 0, y: 0, width: self.view.bounds.width, height: tableViewCellHeight * 5)
+        tableView.rowHeight = tableViewCellHeight
         tableView.layoutMargins = UIEdgeInsets.zero
         tableView.separatorInset = UIEdgeInsets.zero
         tableView.backgroundColor = .clear
@@ -104,22 +90,15 @@ class recordViewController: UIViewController, UITableViewDelegate, UITableViewDa
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let item = viewModel.recordItems[indexPath.section]
-        switch item.type {
-        case .slideBar:
-            if let cell = tableView.dequeueReusableCell(withIdentifier: "slideBarItemCell", for: indexPath) as? slideBarItemCell {
-                    cell.item = viewModel.slideBar[indexPath.row]
-                    cell.layoutMargins = UIEdgeInsets.zero
-                    cell.backgroundColor = cellBackgroundColor
-                    return cell
-                }
-        case .numberInput:
-            if let cell = tableView.dequeueReusableCell(withIdentifier: "numberInputItemCell", for: indexPath) as? numberInputItemCell {
-                    cell.itemString = viewModel.nameInputItems[indexPath.row]
-                    cell.layoutMargins = UIEdgeInsets.zero
-                    cell.backgroundColor = cellBackgroundColor
-                }
-        }
+        if let cell = tableView.dequeueReusableCell(withIdentifier: "slideBarItemCell", for: indexPath) as? slideBarItemCell {
+                cell.item = viewModel.slideBar[indexPath.row]
+                cell.layoutMargins = UIEdgeInsets.zero
+                cell.backgroundColor = cellBackgroundColor
+                cell.selectionStyle = .none
+                tableView.tableFooterView = UIView(frame: CGRect(x: 0, y: 0, width: tableView.frame.size.width, height: 1))
+
+                return cell
+            }
         
         return UITableViewCell()
     }
