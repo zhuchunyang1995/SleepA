@@ -12,7 +12,6 @@ import Foundation
 
 enum recordItemType {
     case slideBar
-    case numberInput
 }
 
 protocol recordViewModelItems {
@@ -32,21 +31,6 @@ class slideBarItems: recordViewModelItems {
     
     init(slideBarArray: [slideBarItem]) {
         self.slideBarArray = slideBarArray
-    }
-}
-
-class numberInputItems: recordViewModelItems {
-    var type: recordItemType {
-        return .numberInput
-    }
-    var rowCount: Int {
-        return numberInputNameArray.count
-    }
-    
-    var numberInputNameArray: [String]
-    
-    init(numberInputNameArray: [String]) {
-        self.numberInputNameArray = numberInputNameArray
     }
 }
 
@@ -75,7 +59,6 @@ class recordViewModel: NSObject {
         super.init()
         
         recordItems.append(slideBarItems(slideBarArray: slideBar))
-        recordItems.append(numberInputItems(numberInputNameArray: nameInputItems))
     }
 }
 

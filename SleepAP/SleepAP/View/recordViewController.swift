@@ -55,28 +55,6 @@ class slideBarItemCell: UITableViewCell {
     }
 }
 
-class numberInputItemCell: UITableViewCell {
-    
-    @IBOutlet weak var numberInputItemName: UILabel!
-    @IBOutlet weak var numberInputText: UITextField!
-    
-    var itemString: String = ""  {
-        didSet {
-            numberInputItemName.text = itemString
-        }
-    }
-    
-    override func layoutSubviews() {
-        super.layoutSubviews()
-        
-        numberInputItemName.textColor = labelColor
-        numberInputItemName.font = UIFont(name: "Chalkduster", size: 22)
-        numberInputItemName.textAlignment = .left
-        let nameSize = numberInputItemName.intrinsicContentSize
-        numberInputItemName.frame = CGRect(x: leftRightMargin, y: labelTopMargin, width: nameSize.width, height: nameSize.height)
-    }
-}
-
 class recordViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     @IBOutlet weak var tableView: UITableView!
@@ -104,22 +82,12 @@ class recordViewController: UIViewController, UITableViewDelegate, UITableViewDa
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let item = viewModel.recordItems[indexPath.section]
-        switch item.type {
-        case .slideBar:
-            if let cell = tableView.dequeueReusableCell(withIdentifier: "slideBarItemCell", for: indexPath) as? slideBarItemCell {
-                    cell.item = viewModel.slideBar[indexPath.row]
-                    cell.layoutMargins = UIEdgeInsets.zero
-                    cell.backgroundColor = cellBackgroundColor
-                    return cell
-                }
-        case .numberInput:
-            if let cell = tableView.dequeueReusableCell(withIdentifier: "numberInputItemCell", for: indexPath) as? numberInputItemCell {
-                    cell.itemString = viewModel.nameInputItems[indexPath.row]
-                    cell.layoutMargins = UIEdgeInsets.zero
-                    cell.backgroundColor = cellBackgroundColor
-                }
-        }
+        if let cell = tableView.dequeueReusableCell(withIdentifier: "slideBarItemCell", for: indexPath) as? slideBarItemCell {
+                cell.item = viewModel.slideBar[indexPath.row]
+                cell.layoutMargins = UIEdgeInsets.zero
+                cell.backgroundColor = cellBackgroundColor
+                return cell
+            }
         
         return UITableViewCell()
     }
