@@ -51,9 +51,8 @@ class recordViewModel: NSObject {
                          slideBarItem(name: "Health", imageName: "health"),
                          slideBarItem(name: "Productivity", imageName: "productivity"),
                          slideBarItem(name: "Energy", imageName: "energy"),
-                         slideBarItem(name: "Mood", imageName: "mood")]
-    
-    let nameInputItems = ["Weight", "Blood Pressure", "Heart Rate"]
+                         slideBarItem(name: "Mood", imageName: "mood")
+    ]
     
     override init() {
         super.init()
