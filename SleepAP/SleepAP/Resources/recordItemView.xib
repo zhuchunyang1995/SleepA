@@ -43,7 +43,7 @@
             <point key="canvasLocation" x="-19" y="-314"/>
         </label>
         <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="1" id="ikv-Pw-bvQ" customClass="customSlider" customModule="SleepAP" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="462" height="30"/>
+            <rect key="frame" x="0.0" y="-1" width="462" height="30"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <point key="canvasLocation" x="308.80000000000001" y="-226.23688155922042"/>
         </slider>
