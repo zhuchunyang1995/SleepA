@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="fQx-hM-HJ0">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="AU6-jL-JEX">
     <device id="retina6_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -40,6 +40,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="1Mt-Yu-q3g"/>
                     </view>
+                    <navigationItem key="navigationItem" id="0N9-HR-Wby"/>
                     <connections>
                         <outlet property="additionalDescription" destination="3kx-rF-xhU" id="s9n-yI-7bd"/>
                         <outlet property="sleepView" destination="NEE-AP-vBD" id="9q1-4o-0s6"/>
@@ -47,7 +48,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x9b-g1-cIz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="53.600000000000001" y="27.436281859070466"/>
+            <point key="canvasLocation" x="1872.4637681159422" y="26.785714285714285"/>
         </scene>
         <!--Wakeup View Controller-->
         <scene sceneID="DS5-Qj-e2k">
@@ -88,7 +89,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="laY-on-BLn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="777" y="27"/>
+            <point key="canvasLocation" x="2597.1014492753625" y="26.785714285714285"/>
         </scene>
         <!--Sleep Duration View Controller-->
         <scene sceneID="SIt-pO-LLy">
@@ -169,7 +170,29 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="d4H-6F-YAR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1515.9420289855075" y="26.785714285714285"/>
+            <point key="canvasLocation" x="3336.2318840579715" y="26.785714285714285"/>
+        </scene>
+        <!--Sleep-->
+        <scene sceneID="rOn-bX-RUr">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="AU6-jL-JEX" customClass="SleepNavigationViewController" customModule="SleepAP" customModuleProvider="target" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Sleep" image="record" id="8l0-Br-q4I"/>
+                    <toolbarItems/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="ad5-tb-xur">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="fQx-hM-HJ0" kind="relationship" relationship="rootViewController" id="w3c-hv-ssl"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qPh-WA-ftU" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="962.31884057971024" y="26.785714285714285"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="record" width="24" height="24"/>
+    </resources>
 </document>

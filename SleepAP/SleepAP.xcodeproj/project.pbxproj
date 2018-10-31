@@ -17,6 +17,7 @@
 		C6F597892176C8AF003592C3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C6F597872176C8AF003592C3 /* LaunchScreen.storyboard */; };
 		C6F597942176C8AF003592C3 /* SleepAPTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6F597932176C8AF003592C3 /* SleepAPTests.swift */; };
 		C6F5979F2176C8AF003592C3 /* SleepAPUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6F5979E2176C8AF003592C3 /* SleepAPUITests.swift */; };
+		D31FA02B218631D5005B30B0 /* SleepNavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D31FA02A218631D5005B30B0 /* SleepNavigationViewController.swift */; };
 		D33270EE217BCE1000E0CC79 /* Record.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D33270ED217BCE1000E0CC79 /* Record.storyboard */; };
 		D33270F0217BD2B500E0CC79 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D33270EF217BD2B500E0CC79 /* Main.storyboard */; };
 		D33270F4217BD5B900E0CC79 /* recordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D33270F3217BD5B900E0CC79 /* recordViewController.swift */; };
@@ -75,6 +76,7 @@
 		C6F5979A2176C8AF003592C3 /* SleepAPUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SleepAPUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C6F5979E2176C8AF003592C3 /* SleepAPUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SleepAPUITests.swift; sourceTree = "<group>"; };
 		C6F597A02176C8AF003592C3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D31FA02A218631D5005B30B0 /* SleepNavigationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SleepNavigationViewController.swift; sourceTree = "<group>"; };
 		D33270ED217BCE1000E0CC79 /* Record.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Record.storyboard; sourceTree = "<group>"; };
 		D33270EF217BD2B500E0CC79 /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		D33270F3217BD5B900E0CC79 /* recordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = recordViewController.swift; sourceTree = "<group>"; };
@@ -197,6 +199,7 @@
 				D3B14B0721797CD6002B91F6 /* Sleep.storyboard */,
 				D3B14B12217A6082002B91F6 /* buttonView.swift */,
 				D3B14B14217A66ED002B91F6 /* sleepParentViewController.swift */,
+				D31FA02A218631D5005B30B0 /* SleepNavigationViewController.swift */,
 				D3327107217D524A00E0CC79 /* beginSleepViewController.swift */,
 				D3B14B0E217A3853002B91F6 /* wakeupViewController.swift */,
 				D3B14B1B217AB0C5002B91F6 /* sleepDurationViewController.swift */,
@@ -511,6 +514,7 @@
 				C6F597812176C8AE003592C3 /* loginViewController.swift in Sources */,
 				D3327104217D189B00E0CC79 /* Constants.swift in Sources */,
 				D3327108217D524A00E0CC79 /* beginSleepViewController.swift in Sources */,
+				D31FA02B218631D5005B30B0 /* SleepNavigationViewController.swift in Sources */,
 				D3327102217CBDBC00E0CC79 /* recordTableItemModel.swift in Sources */,
 				D3B14B0F217A3853002B91F6 /* wakeupViewController.swift in Sources */,
 				D3B14B15217A66ED002B91F6 /* sleepParentViewController.swift in Sources */,

@@ -65,6 +65,7 @@ class slideBarItemCell: UITableViewCell {
 class recordViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var submitButton: UIButton!
     
     let viewModel = recordViewModel()
     
@@ -79,6 +80,12 @@ class recordViewController: UIViewController, UITableViewDelegate, UITableViewDa
         tableView.backgroundColor = .clear
         tableView.dataSource = self
         tableView.delegate = self
+        
+        submitButton.setTitleColor(labelColor, for: .normal)
+        submitButton.titleLabel?.font = UIFont(name: "Chalkduster", size: 22)
+        submitButton.titleLabel?.textAlignment = .center
+        let buttonSize = submitButton.intrinsicContentSize
+        submitButton.frame = CGRect(x: self.view.bounds.width / 2 - buttonSize.width / 2, y: self.view.bounds.height - buttonSize.height - 100, width: buttonSize.width, height: buttonSize.height)
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -101,5 +108,18 @@ class recordViewController: UIViewController, UITableViewDelegate, UITableViewDa
             }
         
         return UITableViewCell()
+    }
+    
+    
+    @IBAction func submit(_ sender: UIButton) {
+        for i in 0...4 {
+            cellSingleton.sharedInstance.cells.append(
+                tableView.cellForRow(at: IndexPath(row: i, section: 0)) as! slideBarItemCell)
+        }
+        let sleepQualityScore = cellSingleton.sharedInstance.cells[0].slideBarPercentNumber.text
+        let health = cellSingleton.sharedInstance.cells[1].slideBarPercentNumber.text
+        let productivity = cellSingleton.sharedInstance.cells[2].slideBarPercentNumber.text
+        let energy = cellSingleton.sharedInstance.cells[3].slideBarPercentNumber.text
+        let mood = cellSingleton.sharedInstance.cells[4].slideBarPercentNumber.text
     }
 }

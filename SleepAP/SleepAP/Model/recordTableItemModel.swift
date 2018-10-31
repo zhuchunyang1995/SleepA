@@ -56,9 +56,11 @@ class recordViewModel: NSObject {
     
     override init() {
         super.init()
-        
         recordItems.append(slideBarItems(slideBarArray: slideBar))
     }
 }
 
-
+class cellSingleton {
+    static let sharedInstance = cellSingleton()
+    var cells = [slideBarItemCell]()
+}

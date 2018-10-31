@@ -17,8 +17,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="146" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="sh3-DJ-yTl">
-                                <rect key="frame" x="0.0" y="44" width="414" height="769"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="146" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="sh3-DJ-yTl">
+                                <rect key="frame" x="0.0" y="44" width="414" height="668"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="slideBarItemCell" rowHeight="146" id="rLg-D2-3eB" customClass="slideBarItemCell" customModule="SleepAP" customModuleProvider="target">
@@ -61,19 +62,22 @@
                                 </prototypes>
                                 <sections/>
                             </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8mB-Kc-fQ8">
+                                <rect key="frame" x="174" y="755" width="49" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Submit"/>
+                                <connections>
+                                    <action selector="submit:" destination="AyX-o7-V1R" eventType="touchUpInside" id="Ica-up-4l8"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <constraints>
-                            <constraint firstItem="sh3-DJ-yTl" firstAttribute="bottom" secondItem="DLB-1F-LXX" secondAttribute="bottom" id="Q6n-N4-ZWZ"/>
-                            <constraint firstItem="sh3-DJ-yTl" firstAttribute="top" secondItem="DLB-1F-LXX" secondAttribute="top" id="Zhd-lM-Zbp"/>
-                            <constraint firstAttribute="trailing" secondItem="sh3-DJ-yTl" secondAttribute="trailing" id="eOZ-uW-nDF"/>
-                            <constraint firstItem="sh3-DJ-yTl" firstAttribute="leading" secondItem="whx-6Q-CrY" secondAttribute="leading" id="gBp-Vx-eat"/>
-                        </constraints>
                         <viewLayoutGuide key="safeArea" id="DLB-1F-LXX"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Record" image="record" id="5nH-Xx-oMh"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="submitButton" destination="8mB-Kc-fQ8" id="Xs7-S3-fRE"/>
                         <outlet property="tableView" destination="sh3-DJ-yTl" id="dtx-BX-A4W"/>
                     </connections>
                 </viewController>
