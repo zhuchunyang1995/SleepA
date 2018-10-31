@@ -71,7 +71,7 @@ class recordViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         self.view.backgroundColor = tableViewBackgroundColor
         tableView.frame = CGRect(x: 0, y: 0, width: self.view.bounds.width, height: tableViewCellHeight * 5)
         tableView.rowHeight = tableViewCellHeight
@@ -112,9 +112,11 @@ class recordViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     
     @IBAction func submit(_ sender: UIButton) {
-        for i in 0...4 {
-            cellSingleton.sharedInstance.cells.append(
-                tableView.cellForRow(at: IndexPath(row: i, section: 0)) as! slideBarItemCell)
+        if (cellSingleton.sharedInstance.cells.isEmpty) {
+            for i in 0...4 {
+                cellSingleton.sharedInstance.cells.append(
+                    tableView.cellForRow(at: IndexPath(row: i, section: 0)) as! slideBarItemCell)
+            }
         }
         let sleepQualityScore = cellSingleton.sharedInstance.cells[0].slideBarPercentNumber.text
         let health = cellSingleton.sharedInstance.cells[1].slideBarPercentNumber.text
