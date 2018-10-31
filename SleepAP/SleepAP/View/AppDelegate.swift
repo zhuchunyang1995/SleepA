@@ -19,14 +19,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // configuration for back4app backend flow
         let configuration = ParseClientConfiguration {
             $0.applicationId = "2cswjZuSxFiTPkXpE6g2ONBTfSlctCYZkEFbW1Ou"
-            $0.clientKey = "ZKRSrROOYbfKc9l2CKyUdZ6GPoZvQoDwuijVitMD$"
+            $0.clientKey = "ZKRSrROOYbfKc9l2CKyUdZ6GPoZvQoDwuijVitMD"
             $0.server = "https://parseapi.back4app.com"
         }
         Parse.initialize(with: configuration)
         
         // show the main storyboard depending on the status of user
         window = UIWindow(frame: UIScreen.main.bounds)
-        let isUserLoggedIn = true
+        let isUserLoggedIn = false
         if isUserLoggedIn {
             window?.rootViewController = AppStoryboard.Main.instance
                 .instantiateViewController(withIdentifier: "tabBarViewController")
