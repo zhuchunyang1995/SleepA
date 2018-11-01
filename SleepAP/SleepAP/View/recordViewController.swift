@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Parse
 
 private let leftRightMargin : CGFloat = 20.0
 private let labelTopMargin: CGFloat = 10.0
@@ -118,10 +119,41 @@ class recordViewController: UIViewController, UITableViewDelegate, UITableViewDa
                     tableView.cellForRow(at: IndexPath(row: i, section: 0)) as! slideBarItemCell)
             }
         }
-        let sleepQualityScore = cellSingleton.sharedInstance.cells[0].slideBarPercentNumber.text
-        let health = cellSingleton.sharedInstance.cells[1].slideBarPercentNumber.text
-        let productivity = cellSingleton.sharedInstance.cells[2].slideBarPercentNumber.text
-        let energy = cellSingleton.sharedInstance.cells[3].slideBarPercentNumber.text
-        let mood = cellSingleton.sharedInstance.cells[4].slideBarPercentNumber.text
+        let sleepQualityScore = cellSingleton.sharedInstance.cells[0].slideBarPercentNumber.text!
+        let health = cellSingleton.sharedInstance.cells[1].slideBarPercentNumber.text!
+        let productivity = cellSingleton.sharedInstance.cells[2].slideBarPercentNumber.text!
+        let energy = cellSingleton.sharedInstance.cells[3].slideBarPercentNumber.text!
+        let mood = cellSingleton.sharedInstance.cells[4].slideBarPercentNumber.text!
+        
+        // Push the record to backend
+        let doubleSleepQualityScore = Double(String(sleepQualityScore.dropLast()))! * 0.01
+        let doubleHealthScore = Double(String(health.dropLast()))! * 0.01
+        let doubleProductivityScore = Double(String(productivity.dropLast()))! * 0.01
+        let doubleEnergyScore = Double(String(energy.dropLast()))! * 0.01
+        let doubleMoodScore = Double(String(mood.dropLast()))! * 0.01
+        let averageScore = (doubleSleepQualityScore+doubleHealthScore+doubleProductivityScore+doubleEnergyScore+doubleMoodScore) * 0.2
+        
+        let user = PFUser.current()
+        
+        var summary = PFObject(className:"Summary")
+        summary["User"] = user
+        summary["SleepQualityScore"] = doubleSleepQualityScore
+        summary["HealthScore"] = doubleHealthScore
+        summary["ProductivityScore"] = doubleProductivityScore
+        summary["EnergyScore"] = doubleEnergyScore
+        summary["MoodScore"] = doubleMoodScore
+        summary["AverageScore"] = averageScore
+        summary.saveInBackground {
+            (success, error) in
+            if (success) {
+                // The object has been saved.
+                // ToDo: jump to the main page
+            } else {
+                // There was a problem, check error.description
+            }
+        }
+        
     }
+    
+    
 }
