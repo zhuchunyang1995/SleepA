@@ -131,7 +131,8 @@ class recordViewController: UIViewController, UITableViewDelegate, UITableViewDa
         let doubleProductivityScore = Double(String(productivity.dropLast()))! * 0.01
         let doubleEnergyScore = Double(String(energy.dropLast()))! * 0.01
         let doubleMoodScore = Double(String(mood.dropLast()))! * 0.01
-        let diviosr = 1 / (Double((doubleSleepQualityScore != 0) as NSNumber) + Double((doubleHealthScore != 0) as NSNumber) + Double((doubleProductivityScore != 0) as NSNumber) + Double((doubleEnergyScore != 0) as NSNumber) + Double((doubleMoodScore != 0)as NSNumber))
+        let denominator = (Double((doubleSleepQualityScore != 0) as NSNumber) + Double((doubleHealthScore != 0) as NSNumber) + Double((doubleProductivityScore != 0) as NSNumber) + Double((doubleEnergyScore != 0) as NSNumber) + Double((doubleMoodScore != 0)as NSNumber))
+        let diviosr = denominator != 0.0 ? 1 / denominator : 0.0
         let averageScore = (doubleSleepQualityScore+doubleHealthScore+doubleProductivityScore+doubleEnergyScore+doubleMoodScore) * diviosr
         
         let user = PFUser.current()
