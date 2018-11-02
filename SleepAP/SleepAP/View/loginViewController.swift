@@ -40,7 +40,7 @@ class loginViewController: UIViewController {
     func loadHomeScreen(){
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let vc = storyboard.instantiateViewController(withIdentifier: "tabBarViewController") as UIViewController
-        present(vc, animated: true, completion: nil)
+        present(vc, animated: false, completion: nil)
     }
 
     
