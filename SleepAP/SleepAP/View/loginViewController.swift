@@ -15,22 +15,10 @@ class loginViewController: UIViewController {
     @IBOutlet weak var passwordLabel: UILabel!
     @IBOutlet weak var usernameTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
-    @IBOutlet weak var myView: UIView!
-    @IBOutlet weak var customButtonLogin: UIButton!
-    @IBOutlet weak var customButtonSignup: UIButton!
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        let color1 = UIColor(rgb: 0x667eea)
-        let color2 = UIColor(rgb: 0x764ba2)
-        myView.setGradientBackground(colorOne: color1, colorTwo: color2)
-        
-        //buttons
-        customButtonLogin.backgroundColor = UIColor.white
-        customButtonSignup.backgroundColor = UIColor.white
-        customButtonLogin.layer.cornerRadius = 7
-        customButtonSignup.layer.cornerRadius = 7
         usernameTextField.text = ""
         passwordTextField.text = ""
         
@@ -39,7 +27,7 @@ class loginViewController: UIViewController {
         let currentUser = PFUser.current()
         if currentUser != nil {
             //@TODO
-            //loadHomeScreen()
+            loadHomeScreen()
         }
     }
     
