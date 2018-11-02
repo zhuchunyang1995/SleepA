@@ -18,3 +18,9 @@ extension UIImage {
         return scaledImage!
     }
 }
+
+extension Double {
+    func format(f: String) -> String {
+        return String(format: "%\(f)f", self)
+    }
+}
