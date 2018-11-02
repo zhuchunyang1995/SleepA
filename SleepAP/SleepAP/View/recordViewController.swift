@@ -74,7 +74,6 @@ class recordViewController: UIViewController, UITableViewDelegate, UITableViewDa
         super.viewDidLoad()
         
         self.view.backgroundColor = tableViewBackgroundColor
-        tableView.frame = CGRect(x: 0, y: 0, width: self.view.bounds.width, height: tableViewCellHeight * 5)
         tableView.rowHeight = tableViewCellHeight
         tableView.layoutMargins = UIEdgeInsets.zero
         tableView.separatorInset = UIEdgeInsets.zero
@@ -86,7 +85,7 @@ class recordViewController: UIViewController, UITableViewDelegate, UITableViewDa
         submitButton.titleLabel?.font = UIFont(name: "Chalkduster", size: 22)
         submitButton.titleLabel?.textAlignment = .center
         let buttonSize = submitButton.intrinsicContentSize
-        submitButton.frame = CGRect(x: self.view.bounds.width / 2 - buttonSize.width / 2, y: self.view.bounds.height - buttonSize.height - 100, width: buttonSize.width, height: buttonSize.height)
+        submitButton.frame = CGRect(x: self.view.bounds.width / 2 - buttonSize.width / 2, y: tableView.bounds.height + 50, width: buttonSize.width, height: buttonSize.height)
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -131,7 +130,8 @@ class recordViewController: UIViewController, UITableViewDelegate, UITableViewDa
         let doubleProductivityScore = Double(String(productivity.dropLast()))! * 0.01
         let doubleEnergyScore = Double(String(energy.dropLast()))! * 0.01
         let doubleMoodScore = Double(String(mood.dropLast()))! * 0.01
-        let diviosr = 1 / (Double((doubleSleepQualityScore != 0) as NSNumber) + Double((doubleHealthScore != 0) as NSNumber) + Double((doubleProductivityScore != 0) as NSNumber) + Double((doubleEnergyScore != 0) as NSNumber) + Double((doubleMoodScore != 0)as NSNumber))
+        let denominator = (Double((doubleSleepQualityScore != 0) as NSNumber) + Double((doubleHealthScore != 0) as NSNumber) + Double((doubleProductivityScore != 0) as NSNumber) + Double((doubleEnergyScore != 0) as NSNumber) + Double((doubleMoodScore != 0)as NSNumber))
+        let diviosr = denominator != 0.0 ? 1 / denominator : 0.0
         let averageScore = (doubleSleepQualityScore+doubleHealthScore+doubleProductivityScore+doubleEnergyScore+doubleMoodScore) * diviosr
         
         let user = PFUser.current()

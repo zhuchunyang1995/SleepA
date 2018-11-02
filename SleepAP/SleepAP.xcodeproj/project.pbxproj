@@ -22,7 +22,6 @@
 		D33270EE217BCE1000E0CC79 /* Record.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D33270ED217BCE1000E0CC79 /* Record.storyboard */; };
 		D33270F0217BD2B500E0CC79 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D33270EF217BD2B500E0CC79 /* Main.storyboard */; };
 		D33270F4217BD5B900E0CC79 /* recordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D33270F3217BD5B900E0CC79 /* recordViewController.swift */; };
-		D33270F6217BD63200E0CC79 /* recordItemView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D33270F5217BD63200E0CC79 /* recordItemView.xib */; };
 		D33270FA217BDDF500E0CC79 /* Chalkduster.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D33270F9217BDDF400E0CC79 /* Chalkduster.ttf */; };
 		D33270FC217CA6F500E0CC79 /* customSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = D33270FB217CA6F500E0CC79 /* customSlider.swift */; };
 		D3327102217CBDBC00E0CC79 /* recordTableItemModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3327101217CBDBC00E0CC79 /* recordTableItemModel.swift */; };
@@ -82,7 +81,6 @@
 		D33270ED217BCE1000E0CC79 /* Record.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Record.storyboard; sourceTree = "<group>"; };
 		D33270EF217BD2B500E0CC79 /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		D33270F3217BD5B900E0CC79 /* recordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = recordViewController.swift; sourceTree = "<group>"; };
-		D33270F5217BD63200E0CC79 /* recordItemView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = recordItemView.xib; sourceTree = "<group>"; };
 		D33270F9217BDDF400E0CC79 /* Chalkduster.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Chalkduster.ttf; sourceTree = "<group>"; };
 		D33270FB217CA6F500E0CC79 /* customSlider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = customSlider.swift; path = SleepAP/View/customSlider.swift; sourceTree = SOURCE_ROOT; };
 		D3327101217CBDBC00E0CC79 /* recordTableItemModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = recordTableItemModel.swift; sourceTree = "<group>"; };
@@ -198,8 +196,8 @@
 				C6F597872176C8AF003592C3 /* LaunchScreen.storyboard */,
 				C6F597822176C8AE003592C3 /* Login.storyboard */,
 				C6F597802176C8AE003592C3 /* loginViewController.swift */,
-				D3B14B0721797CD6002B91F6 /* Sleep.storyboard */,
 				C126C6D421855B580039C374 /* RegisterViewController.swift */,
+				D3B14B0721797CD6002B91F6 /* Sleep.storyboard */,
 				D3B14B12217A6082002B91F6 /* buttonView.swift */,
 				D3B14B14217A66ED002B91F6 /* sleepParentViewController.swift */,
 				D31FA02A218631D5005B30B0 /* SleepNavigationViewController.swift */,
@@ -231,7 +229,6 @@
 				D3B14B19217AA91A002B91F6 /* MontserratAlternates-Regular.otf */,
 				D3B14B17217AA5E4002B91F6 /* Roboto-Medium.ttf */,
 				D3B14B10217A605B002B91F6 /* buttonView.xib */,
-				D33270F5217BD63200E0CC79 /* recordItemView.xib */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -371,7 +368,6 @@
 				D33270FA217BDDF500E0CC79 /* Chalkduster.ttf in Resources */,
 				D33270F0217BD2B500E0CC79 /* Main.storyboard in Resources */,
 				D3B14B0921797CD6002B91F6 /* Sleep.storyboard in Resources */,
-				D33270F6217BD63200E0CC79 /* recordItemView.xib in Resources */,
 				D33270EE217BCE1000E0CC79 /* Record.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
