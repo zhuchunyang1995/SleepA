@@ -10,16 +10,23 @@
 
 import UIKit
 
+protocol segueDelegate {
+    func performSegueToNextVC()
+}
+
 class buttonView: UIView {
     @IBOutlet var buttonView: UIView!
     @IBOutlet var button: UIButton! // round button
     @IBOutlet weak var backgroundView: UIView! // introduce this view to create shadows
     var label = UILabel()
+    var segueName : String = ""
+    var viewControllerDelegate : segueDelegate!
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         UINib(nibName: "buttonView", bundle: nil).instantiate(withOwner: self, options: nil)
         self.backgroundColor = .clear
+        self.isUserInteractionEnabled = true
         addSubview(buttonView)
         buttonView.frame = self.bounds
         
@@ -66,5 +73,13 @@ class buttonView: UIView {
     
     func setLabelWithText(text: String) {
         label.text = text
+    }
+    
+    func setSegueName(text: String) {
+        segueName = text
+    }
+    
+    @IBAction func showNextViewController(_ sender: UIButton) {
+        viewControllerDelegate.performSegueToNextVC()
     }
 }

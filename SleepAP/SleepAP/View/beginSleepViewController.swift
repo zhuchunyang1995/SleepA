@@ -7,7 +7,7 @@
 
 import UIKit
 
-class beginSleepViewController: sleepParentViewController {
+class beginSleepViewController: sleepParentViewController, segueDelegate {
     
     @IBOutlet weak var sleepView: buttonView!
     @IBOutlet weak var additionalDescription: UILabel!
@@ -21,5 +21,11 @@ class beginSleepViewController: sleepParentViewController {
         additionalDescription.font = UIFont(name: "MontserratAlternates", size: 14)
         
         sleepView.setLabelWithText(text: "Sleep")
+        sleepView.viewControllerDelegate = self
+        sleepView.setSegueName(text: "beginSleepSegue")
+    }
+
+    func performSegueToNextVC() {
+        performSegue(withIdentifier: sleepView.segueName, sender: nil)
     }
 }

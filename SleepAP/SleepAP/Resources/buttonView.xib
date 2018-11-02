@@ -23,6 +23,9 @@
             <state key="normal">
                 <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             </state>
+            <connections>
+                <action selector="showNextViewController:" destination="-1" eventType="touchUpInside" id="hkJ-Py-tGf"/>
+            </connections>
             <point key="canvasLocation" x="574" y="-57"/>
         </button>
         <view contentMode="scaleToFill" id="iN0-l3-epB">
