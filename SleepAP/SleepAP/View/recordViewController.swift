@@ -74,7 +74,6 @@ class recordViewController: UIViewController, UITableViewDelegate, UITableViewDa
         super.viewDidLoad()
         
         self.view.backgroundColor = tableViewBackgroundColor
-        tableView.frame = CGRect(x: 0, y: 0, width: self.view.bounds.width, height: tableViewCellHeight * 5)
         tableView.rowHeight = tableViewCellHeight
         tableView.layoutMargins = UIEdgeInsets.zero
         tableView.separatorInset = UIEdgeInsets.zero
@@ -86,7 +85,7 @@ class recordViewController: UIViewController, UITableViewDelegate, UITableViewDa
         submitButton.titleLabel?.font = UIFont(name: "Chalkduster", size: 22)
         submitButton.titleLabel?.textAlignment = .center
         let buttonSize = submitButton.intrinsicContentSize
-        submitButton.frame = CGRect(x: self.view.bounds.width / 2 - buttonSize.width / 2, y: self.view.bounds.height - buttonSize.height - 100, width: buttonSize.width, height: buttonSize.height)
+        submitButton.frame = CGRect(x: self.view.bounds.width / 2 - buttonSize.width / 2, y: tableView.bounds.height + 50, width: buttonSize.width, height: buttonSize.height)
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {

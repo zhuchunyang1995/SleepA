@@ -17,10 +17,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="146" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="sh3-DJ-yTl">
-                                <rect key="frame" x="0.0" y="44" width="414" height="668"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="100" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="sh3-DJ-yTl">
+                                <rect key="frame" x="0.0" y="44" width="414" height="500"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="500" id="JTG-MC-uFS"/>
+                                </constraints>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="slideBarItemCell" rowHeight="146" id="rLg-D2-3eB" customClass="slideBarItemCell" customModule="SleepAP" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="414" height="146"/>
@@ -72,6 +74,11 @@
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="sh3-DJ-yTl" firstAttribute="leading" secondItem="DLB-1F-LXX" secondAttribute="leading" id="Bnq-vD-iUs"/>
+                            <constraint firstItem="sh3-DJ-yTl" firstAttribute="top" secondItem="DLB-1F-LXX" secondAttribute="top" id="Q7a-Mi-2ZX"/>
+                            <constraint firstItem="sh3-DJ-yTl" firstAttribute="trailing" secondItem="DLB-1F-LXX" secondAttribute="trailing" id="te4-bF-wv1"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="DLB-1F-LXX"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Record" image="record" id="5nH-Xx-oMh"/>
