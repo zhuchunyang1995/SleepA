@@ -14,18 +14,17 @@ class RegisterViewController: UIViewController {
     @IBOutlet weak var usernmForReg: UITextField!
     @IBOutlet weak var pswdForReg: UITextField!
     @IBOutlet weak var pswdForComfirm: UITextField!
-    
+    @IBOutlet weak var myView: UIView!
+    @IBOutlet weak var signUpBt: UIView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
         // Do any additional setup after loading the view.
-    }
-    
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        usernmForReg.resignFirstResponder()
-        pswdForReg.resignFirstResponder()
-        pswdForComfirm.resignFirstResponder()
+        let color1 = UIColor(rgb: 0x667eea)
+        let color2 = UIColor(rgb: 0x764ba2)
+        myView.setGradientBackground(colorOne: color1, colorTwo: color2)
+        signUpBt.backgroundColor = UIColor.white
+        signUpBt.layer.cornerRadius = 7
     }
     
 
@@ -41,7 +40,22 @@ class RegisterViewController: UIViewController {
     
     
     
+
+    func showLogin () {
+        let storyboard = UIStoryboard(name: "Login", bundle: nil)
+        let vc = storyboard.instantiateViewController(withIdentifier: "loginViewController") as UIViewController
+        self.present(vc, animated: true, completion: nil)
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        usernmForReg.resignFirstResponder()
+        pswdForReg.resignFirstResponder()
+        pswdForComfirm.resignFirstResponder()
+    }
     //actions
+    @IBAction func goBack(_ sender: Any) {
+        self.showLogin()
+    }
     @IBAction func signUp(_ sender: Any) {
         //check if username and password are nil
         
@@ -59,17 +73,44 @@ class RegisterViewController: UIViewController {
             user.signUpInBackground {
                 (succeeded, error) -> Void in
                 if (error == nil) && (succeeded == true){
-                    // sucessful!!
-                    let storyboard = UIStoryboard(name: "Login", bundle: nil)
-                    let vc = storyboard.instantiateViewController(withIdentifier: "loginViewController") as UIViewController
-                    self.present(vc, animated: true, completion: nil)
+                    let alert = UIAlertController(title: "Sucessful", message: "Now you can login with you acount",  preferredStyle: .alert)
+                    
+                    alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: { action in
+                        self.showLogin()
+                    }))
+                    
+                    self.present(alert, animated: true)
+                    
                 } else {
                     // Show the errorString somewhere and let the user try again.
                     let errorString = error!._userInfo?["error"] as? NSString
                     //TODO: show the error srting to the user
+                    let alert = UIAlertController(title: "SignUp Failed", message: errorString! as String,  preferredStyle: .alert)
+                    
+                    alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: { action in
+                        self.usernmForReg.text = ""
+                        self.pswdForReg.text = ""
+                        self.pswdForComfirm.text = ""
+                    }))
+                    self.present(alert, animated: true)
                     
                 }
             }
+            
+            
+        }
+        
+        else {
+            let errorString = "Two input passwords are diffrerent"
+            //TODO: show the error srting to the user
+            let alert = UIAlertController(title: "SignUp Failed", message: errorString as String,  preferredStyle: .alert)
+            
+            alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: { action in
+                self.usernmForReg.text = ""
+                self.pswdForReg.text = ""
+                self.pswdForComfirm.text = ""
+            }))
+            self.present(alert, animated: true)
         }
         
         
