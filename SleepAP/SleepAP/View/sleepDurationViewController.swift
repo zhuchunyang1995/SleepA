@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Parse
 
 class sleepDurationViewController: sleepParentViewController, segueDelegate {
 
@@ -53,6 +54,34 @@ class sleepDurationViewController: sleepParentViewController, segueDelegate {
     func performSegueToNextVC() {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let vc = storyboard.instantiateViewController(withIdentifier: "tabBarViewController") as UIViewController
+        
+        //save data to backend
+        if let user = PFUser.current() {
+            user["lastNightSleepHour"] = Double(sleepDurationString)
+            let sleephr = PFObject(className:"SleepHour")
+            sleephr["user"] = user
+            sleephr["sleepHour"] = Double(sleepDurationString)
+            user.saveInBackground {
+                (success, error) in
+                if (success) {
+                    // The object has been saved.
+                    // ToDo: jump to the main page
+                } else {
+                    // There was a problem, check error.description
+                }
+            }
+            sleephr.saveInBackground {
+                (success, error) in
+                if (success) {
+                    // The object has been saved.
+                    // ToDo: jump to the main page
+                } else {
+                    // There was a problem, check error.description
+                }
+            }
+        }
+        
+        
         present(vc, animated: false, completion: nil)
     }
 }
