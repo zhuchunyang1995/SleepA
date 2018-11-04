@@ -137,7 +137,7 @@ class recordViewController: UIViewController, UITableViewDelegate, UITableViewDa
         let user = PFUser.current()
         
         
-        var summary = PFObject(className:"Summary")
+        let summary = PFObject(className:"Summary")
         summary["User"] = user
         summary["SleepQualityScore"] = doubleSleepQualityScore
         summary["HealthScore"] = doubleHealthScore
