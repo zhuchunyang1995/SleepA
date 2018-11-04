@@ -10,14 +10,11 @@
 		1FCE016B8F3D50426FD55230 /* Pods_SleepAPTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 822A3AD7704DAF26EE878169 /* Pods_SleepAPTests.framework */; };
 		3F7A9A940D2E9EC734B6593D /* Pods_SleepAP.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F47D98F4B02F42C8FD42348E /* Pods_SleepAP.framework */; };
 		47DF0B15BA1622061F7DBC92 /* Pods_SleepAPUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4FDB393460CD8643CBDBCDD8 /* Pods_SleepAPUITests.framework */; };
-<<<<<<< HEAD
 		C126C6D521855B580039C374 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C126C6D421855B580039C374 /* RegisterViewController.swift */; };
-=======
 		6F8F043C2186485E00D4C8EB /* Summary.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6F8F043B2186485E00D4C8EB /* Summary.storyboard */; };
 		6F8F044021864A2400D4C8EB /* summaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F8F043F21864A2400D4C8EB /* summaryViewController.swift */; };
 		6F8F0460218AAB2800D4C8EB /* Charts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F8F045D218AAB0200D4C8EB /* Charts.framework */; };
 		6F8F0461218AAB2800D4C8EB /* Charts.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6F8F045D218AAB0200D4C8EB /* Charts.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
->>>>>>> summary
 		C6F5977F2176C8AE003592C3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6F5977E2176C8AE003592C3 /* AppDelegate.swift */; };
 		C6F597812176C8AE003592C3 /* loginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6F597802176C8AE003592C3 /* loginViewController.swift */; };
 		C6F597842176C8AE003592C3 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C6F597822176C8AE003592C3 /* Login.storyboard */; };
