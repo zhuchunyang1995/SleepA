@@ -10,14 +10,32 @@ import UIKit
 import Charts
 
 
-class summaryViewController: UIViewController {
-
+class summaryViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 4
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let myCell = UITableViewCell()
+        myCell.textLabel?.text = "Points"
+        myCell.detailTextLabel?.text = "8.0"
+        return myCell
+    }
+    
+    
+    let list = ["Your Score", "recommend "]
+    
     @IBOutlet weak var lineChartView: LineChartView!
+    
+    @IBOutlet weak var TableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+    
         
         // Do any additional setup after loading the view.
+        navigationItem.title = "Summary"
+        
         let Days = ["Mon","Tue","Wed","Thr","Fri","Sat","Sun"]
         let Points = [20.0, 4.0, 6.0, 3.0, 12.0, 16.0,17.0]
         
