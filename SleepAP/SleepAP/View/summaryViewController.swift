@@ -36,8 +36,8 @@ class summaryViewController: UIViewController,UITableViewDelegate,UITableViewDat
         // Do any additional setup after loading the view.
         navigationItem.title = "Summary"
         
-        let Days = ["Mon","Tue","Wed","Thr","Fri","Sat","Sun"]
-        let Points = [20.0, 4.0, 6.0, 3.0, 12.0, 16.0,17.0]
+        let Days = ["1","2","3","4","5","6","7","8","9","10"]
+        let Points = [4.0, 4.0, 6.0, 3.0, 7.0, 6.0,5.0,7.0,4.0,9.0]
         
         setChart(dataPoints: Days, values: Points)
     }
@@ -55,6 +55,8 @@ class summaryViewController: UIViewController,UITableViewDelegate,UITableViewDat
         data.addDataSet(line1)
         lineChartView.data = data;
         lineChartView.chartDescription?.text = "Summary"
+        lineChartView.xAxis.labelPosition = XAxis.LabelPosition.bottom;
+//        lineChartView.xAxis.valueFormatter = IndexAxisValueFormatter(values: ["Points","  /Sleeping Hours"])
     }
     
 
