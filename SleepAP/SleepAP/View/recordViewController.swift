@@ -14,8 +14,9 @@ private let labelTopMargin: CGFloat = 10.0
 private let tableViewCellHeight : CGFloat = 100.0
 private let slideBarBottomMargin: CGFloat = 20.0
 private let thumbImageSize: CGFloat = 40.0
-private let labelColor : UIColor = UIColor(red:0.96, green:0.93, blue:0.55, alpha:1.0)
-private let tableViewBackgroundColor : UIColor = UIColor(red:0.21, green:0.22, blue:0.27, alpha:1.0)
+private let labelColor : UIColor = UIColor(red:0.83, green:0.83, blue:0.83, alpha:1.0)
+private let slideBarColor : UIColor = UIColor(red:0.96, green:0.93, blue:0.55, alpha:1.0)
+private let tableViewBackgroundColor : UIColor = UIColor(red:0.21, green:0.20, blue:0.48, alpha:1.0)
 private let cellBackgroundColor : UIColor = .clear
 
 class slideBarItemCell: UITableViewCell {
@@ -57,7 +58,7 @@ class slideBarItemCell: UITableViewCell {
         
         slideBar.value = 0.0
         slideBar.isContinuous = true
-        slideBar.tintColor = UIColor(red:0.96, green:0.93, blue:0.55, alpha:1.0)
+        slideBar.tintColor = slideBarColor
         let slideWidth = self.contentView.frame.width - 2 * leftRightMargin
         slideBar.frame = CGRect(x: leftRightMargin, y: self.contentView.frame.height - slideBarBottomMargin - slideBarHeight, width: slideWidth, height: slideBarHeight)
     }

@@ -33,7 +33,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 .instantiateViewController(withIdentifier: "tabBarViewController")
         } else {
             // TODO: change to the dashboard controller
-            window?.rootViewController = AppStoryboard.Login.instance.instantiateViewController(withIdentifier: "loginViewController")
+            window?.rootViewController = AppStoryboard.Summary.instance.instantiateViewController(withIdentifier: "summaryinViewController")
         }
         window?.makeKeyAndVisible()
 
@@ -64,7 +64,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     // MARK: - helpers
     enum AppStoryboard : String {
-        case Login, Main, Sleep, Record, Statistics, Reminder
+        case Login, Main, Sleep, Record,Summary, Statistics, Reminder
         var instance : UIStoryboard {
             return UIStoryboard(name: self.rawValue, bundle: Bundle.main)
         }
