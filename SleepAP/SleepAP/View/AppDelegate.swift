@@ -32,8 +32,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             window?.rootViewController = AppStoryboard.Main.instance
                 .instantiateViewController(withIdentifier: "tabBarViewController")
         } else {
-            // TODO: change to the dashboard controller
-            window?.rootViewController = AppStoryboard.Summary.instance.instantiateViewController(withIdentifier: "summaryinViewController")
+            window?.rootViewController = AppStoryboard.Login.instance.instantiateViewController(withIdentifier: "loginViewController")
         }
         window?.makeKeyAndVisible()
 
