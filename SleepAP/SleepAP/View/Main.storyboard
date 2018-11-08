@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina4_7" orientation="portrait">
+    <device id="retina6_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -22,6 +22,7 @@
                     <connections>
                         <segue destination="PrF-YZ-Ak8" kind="relationship" relationship="viewControllers" id="yUm-6w-bdw"/>
                         <segue destination="zlW-hm-hxw" kind="relationship" relationship="viewControllers" id="aNs-3j-qlr"/>
+                        <segue destination="BpC-s5-Bgl" kind="relationship" relationship="viewControllers" id="Nm2-gd-Ig4"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RJZ-tM-JSf" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -36,7 +37,7 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jyg-IB-5Dj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1846" y="282"/>
+            <point key="canvasLocation" x="1826" y="-11"/>
         </scene>
         <!--Record-->
         <scene sceneID="Ws3-Fm-mEu">
@@ -46,7 +47,17 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NIo-85-RL1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1737" y="-155"/>
+            <point key="canvasLocation" x="1833" y="189"/>
+        </scene>
+        <!--Summary-->
+        <scene sceneID="iR9-pv-IN2">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Summary" id="BpC-s5-Bgl" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="WZk-ee-6cl"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fxA-Zj-rq3" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1846" y="408"/>
         </scene>
     </scenes>
 </document>

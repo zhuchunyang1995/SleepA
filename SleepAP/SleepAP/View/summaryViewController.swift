@@ -8,6 +8,7 @@
 
 import UIKit
 import Charts
+import Parse
 
 
 class summaryViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {
@@ -36,6 +37,27 @@ class summaryViewController: UIViewController,UITableViewDelegate,UITableViewDat
         // Do any additional setup after loading the view.
         navigationItem.title = "Summary"
         
+        // Get data from backend
+        var query = PFQuery(className:"SleepHour")
+        query.whereKey("objectID", equalTo:"MDelt7QayZ")
+        query.findObjectsInBackground {
+            (objects, error) -> Void in
+            
+            if error == nil {
+                // The find succeeded.
+                print("Successfully retrieved \(objects!.count) scores.")
+                // Do something with the found objects
+                if let objects = objects {
+                    print(objects[0])
+                }
+            } else {
+                // Log details of the failure
+                print("failed")
+            }
+        }
+        let user = PFUser.current()
+        
+        print(user)
         let Days = ["1","2","3","4","5","6","7","8","9","10"]
         let Points = [4.0, 4.0, 6.0, 3.0, 7.0, 6.0,5.0,7.0,4.0,9.0]
         
