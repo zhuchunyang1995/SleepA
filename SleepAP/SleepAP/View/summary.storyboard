@@ -18,16 +18,46 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gx5-Dh-cCz" customClass="LineChartView" customModule="Charts">
-                                <rect key="frame" x="32" y="206" width="311" height="298"/>
+                                <rect key="frame" x="-2" y="165" width="379" height="337"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1Ut-yR-8At" customClass="LineChartView" customModule="Charts">
+                                <rect key="frame" x="0.0" y="165" width="375" height="337"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                            <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7PY-30-P50">
+                                <rect key="frame" x="137" y="69" width="100" height="30"/>
+                            </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0ZC-UK-Xd8">
+                                <rect key="frame" x="191" y="69" width="46" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Weeks"/>
+                                <connections>
+                                    <action selector="daysButton:" destination="BaM-lT-UNa" eventType="touchUpInside" id="fqI-sS-dpJ"/>
+                                    <action selector="weeksButton:" destination="BaM-lT-UNa" eventType="touchUpInside" id="Dzk-Wh-NPM"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ikj-Zx-WZa">
+                                <rect key="frame" x="143" y="69" width="34" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Days"/>
+                                <connections>
+                                    <action selector="daysButton:" destination="BaM-lT-UNa" eventType="touchUpInside" id="VDQ-ei-feM"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="7PY-30-P50" firstAttribute="centerX" secondItem="rJP-20-UwI" secondAttribute="centerX" id="cLe-OC-6Id"/>
+                            <constraint firstItem="7PY-30-P50" firstAttribute="top" secondItem="Cg9-G1-Mmo" secondAttribute="top" constant="20" id="e6W-gu-omF"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="Cg9-G1-Mmo"/>
                     </view>
                     <connections>
                         <outlet property="lineChartView" destination="gx5-Dh-cCz" id="hr8-dg-TTs"/>
+                        <outlet property="weeksLineCharView" destination="1Ut-yR-8At" id="4KD-zG-lV6"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rVO-BA-Evn" userLabel="First Responder" sceneMemberID="firstResponder"/>
