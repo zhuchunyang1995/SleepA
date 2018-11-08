@@ -68,12 +68,15 @@ class RegisterViewController: UIViewController {
         let user = PFUser()
         user.username = usernmForReg.text!
         user.password = pswdForReg.text!
+        user.email = usernmForReg.text!
+        user["last7SleepHour"] = [0.0,0.0,0.0,0.0,0.0,0.0,0.0]
+        user["last7AverageScore"] = [0.0,0.0,0.0,0.0,0.0,0.0,0.0]
         
         if (pswdForComfirm.text! == pswdForReg.text!) {
             user.signUpInBackground {
                 (succeeded, error) -> Void in
                 if (error == nil) && (succeeded == true){
-                    let alert = UIAlertController(title: "Sucessful", message: "Now you can login with you acount",  preferredStyle: .alert)
+                    let alert = UIAlertController(title: "Success", message: "Please check your email for the verification",  preferredStyle: .alert)
                     
                     alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: { action in
                         self.showLogin()

@@ -68,14 +68,83 @@ class loginViewController: UIViewController {
         let vc = storyboard.instantiateViewController(withIdentifier: "tabBarViewController") as UIViewController
         present(vc, animated: false, completion: nil)
     }
+    func loadSingUpScreen(){
+        let storyboard = UIStoryboard(name: "Login", bundle: nil)
+        let vc = storyboard.instantiateViewController(withIdentifier: "RegisterViewController") as UIViewController
+        present(vc, animated: false, completion: nil)
+    }
 
+    @IBAction func skipSingup(_ sender: Any) {
+        PFUser.logOut()
+        if let uuid = UIDevice.current.identifierForVendor?.uuidString {
+            var query = PFQuery(className:"User")
+            query.whereKey("username", equalTo:uuid)
+            query.findObjectsInBackground {
+                (objects, error) -> Void in
+                if error == nil {
+                    // The find succeeded.
+                    if (objects != nil) && (objects!.count > 0) {
+                        let user = objects![0] as! PFUser
+                        let username = user.username
+                        let passwd = user.password
+                        PFUser.logInWithUsername(inBackground: username!, password: passwd!) {
+                            (user, error) -> Void in
+                            if let loggeduser = user {
+                                self.loadHomeScreen()
+                            }
+                        }
+                        
+                    }
+                    else {
+                        let user = PFUser()
+                        user.username = uuid
+                        user.password = "000"
+                        user.email = ""
+                        user["last7SleepHour"] = [0.0,0.0,0.0,0.0,0.0,0.0,0.0]
+                        user["last7AverageScore"] = [0.0,0.0,0.0,0.0,0.0,0.0,0.0]
+                        
+                        user.signUpInBackground {
+                            (succeeded, error) -> Void in
+                            if (error == nil) && (succeeded == true){
+                                //logint
+                                PFUser.logInWithUsername(inBackground: uuid, password: "000") {
+                                    (user, error) -> Void in
+                                    if let loggeduser = user {
+                                        self.loadHomeScreen()
+                                    }
+                                }
+                                
+                            }
+                        }
+                    }
+                }
+                else {
+                    print(error!._userInfo?["error"] as? String)
+                }
+                
+            }
+        }
+        else {
+            let alert = UIAlertController(title: "Something's Wrong", message: "Sorry but you could not skip the login process",  preferredStyle: .alert)
+            
+            alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
+            self.present(alert, animated: true)
+        }
+    }
     
     @IBAction func login(_ sender: Any) {
         if (usernameTextField.text != nil) && (passwordTextField.text != nil) {
             PFUser.logInWithUsername(inBackground: usernameTextField.text!, password: passwordTextField.text!) {
                 (user, error) -> Void in
                 if let loggeduser = user {
-                    //@TODO
+                    if loggeduser["emailVerified"] as! Bool == false {
+                        // Not verified email
+                        let alert = UIAlertController(title: "Email not verified", message: "Please check the verification email",  preferredStyle: .alert)
+                        
+                        alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
+                        self.present(alert, animated: true)
+                    }
+
                     self.loadHomeScreen()
                 } else {
                     // The login failed. Check error to see why.
