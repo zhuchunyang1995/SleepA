@@ -175,6 +175,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="tabbar_sleep" width="30" height="30"/>
+        <image name="tabbar_sleep" width="22.5" height="22.5"/>
     </resources>
 </document>

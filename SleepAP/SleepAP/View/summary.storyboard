@@ -47,6 +47,20 @@
                                     <action selector="daysButton:" destination="BaM-lT-UNa" eventType="touchUpInside" id="VDQ-ei-feM"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kur-Jp-Bs4">
+                                <rect key="frame" x="39" y="528" width="262" height="47"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QMs-4p-4mS">
+                                <rect key="frame" x="39" y="583" width="262" height="43"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -57,12 +71,14 @@
                     </view>
                     <connections>
                         <outlet property="lineChartView" destination="gx5-Dh-cCz" id="hr8-dg-TTs"/>
+                        <outlet property="recomend" destination="Kur-Jp-Bs4" id="lu1-hm-DVO"/>
+                        <outlet property="recommendtext" destination="QMs-4p-4mS" id="boo-CA-9bz"/>
                         <outlet property="weeksLineCharView" destination="1Ut-yR-8At" id="4KD-zG-lV6"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rVO-BA-Evn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-679.20000000000005" y="392.65367316341832"/>
+            <point key="canvasLocation" x="-306.39999999999998" y="392.65367316341832"/>
         </scene>
     </scenes>
 </document>

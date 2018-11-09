@@ -12,6 +12,9 @@ import Charts
 
 class summaryViewController: UIViewController {
 
+    @IBOutlet weak var recommendtext: UILabel!
+    
+    @IBOutlet weak var recomend: UILabel!
     
     let list = ["Your Score", "recommend "]
     
@@ -31,7 +34,14 @@ class summaryViewController: UIViewController {
         
         setChart(dataPoints: Days, values: Points)
         setWeeksChar(dataPoints: Days, values: Points)
+        setLabel()
     }
+    func setLabel(){
+        recomend.text! = "Recommendations"
+        
+        recommendtext.text! = "Sleep time:    8 hours"
+    }
+
     func setChart(dataPoints: [String], values: [Double]){
         var dataEntries: [ChartDataEntry] = []
         
@@ -77,7 +87,6 @@ class summaryViewController: UIViewController {
         weeksLineCharView.isHidden = false;
        
     }
-    
     /*
     // MARK: - Navigation
 
