@@ -14,7 +14,7 @@ private let labelTopMargin: CGFloat = 10.0
 private let tableViewCellHeight : CGFloat = 100.0
 private let slideBarBottomMargin: CGFloat = 20.0
 private let thumbImageSize: CGFloat = 40.0
-private let labelColor : UIColor = UIColor(red:0.83, green:0.83, blue:0.83, alpha:1.0)
+private let slideBarlabelColor : UIColor = UIColor(red:0.83, green:0.83, blue:0.83, alpha:1.0)
 private let slideBarColor : UIColor = UIColor(red:0.96, green:0.93, blue:0.55, alpha:1.0)
 private let tableViewBackgroundColor : UIColor = UIColor(red:0.21, green:0.20, blue:0.48, alpha:1.0)
 private let cellBackgroundColor : UIColor = .clear
@@ -43,13 +43,13 @@ class slideBarItemCell: UITableViewCell {
     override func layoutSubviews() {
         super.layoutSubviews()
         
-        slideBarItemName.textColor = labelColor
+        slideBarItemName.textColor = slideBarlabelColor
         slideBarItemName.font = UIFont(name: "Chalkduster", size: 22)
         slideBarItemName.textAlignment = .left
         let nameSize = slideBarItemName.intrinsicContentSize
         slideBarItemName.frame = CGRect(x: leftRightMargin, y: labelTopMargin, width: nameSize.width, height: nameSize.height)
         
-        slideBarPercentNumber.textColor = labelColor
+        slideBarPercentNumber.textColor = slideBarlabelColor
         slideBarPercentNumber.font = UIFont(name: "Chalkduster", size: 22)
         slideBarPercentNumber.textAlignment = .left
         let percentSize = slideBarPercentNumber.intrinsicContentSize
@@ -82,7 +82,7 @@ class recordViewController: UIViewController, UITableViewDelegate, UITableViewDa
         tableView.dataSource = self
         tableView.delegate = self
         
-        submitButton.setTitleColor(labelColor, for: .normal)
+        submitButton.setTitleColor(slideBarlabelColor, for: .normal)
         submitButton.titleLabel?.font = UIFont(name: "Chalkduster", size: 22)
         submitButton.titleLabel?.textAlignment = .center
         let buttonSize = submitButton.intrinsicContentSize
