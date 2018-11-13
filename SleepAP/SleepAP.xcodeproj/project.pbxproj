@@ -22,6 +22,7 @@
 		C6F597892176C8AF003592C3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C6F597872176C8AF003592C3 /* LaunchScreen.storyboard */; };
 		C6F597942176C8AF003592C3 /* SleepAPTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6F597932176C8AF003592C3 /* SleepAPTests.swift */; };
 		C6F5979F2176C8AF003592C3 /* SleepAPUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6F5979E2176C8AF003592C3 /* SleepAPUITests.swift */; };
+		D312C750219B42F2009ECB85 /* District.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D312C74F219B42F2009ECB85 /* District.ttf */; };
 		D31FA02B218631D5005B30B0 /* SleepNavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D31FA02A218631D5005B30B0 /* SleepNavigationViewController.swift */; };
 		D32D2E5821989B1E005446E0 /* ReminderNavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D32D2E5721989B1E005446E0 /* ReminderNavigationViewController.swift */; };
 		D32D2E5B21989C62005446E0 /* reminderTimeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D32D2E5A21989C62005446E0 /* reminderTimeViewController.swift */; };
@@ -128,6 +129,7 @@
 		C6F5979A2176C8AF003592C3 /* SleepAPUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SleepAPUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C6F5979E2176C8AF003592C3 /* SleepAPUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SleepAPUITests.swift; sourceTree = "<group>"; };
 		C6F597A02176C8AF003592C3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D312C74F219B42F2009ECB85 /* District.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = District.ttf; sourceTree = "<group>"; };
 		D31FA02A218631D5005B30B0 /* SleepNavigationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SleepNavigationViewController.swift; sourceTree = "<group>"; };
 		D32D2E5721989B1E005446E0 /* ReminderNavigationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderNavigationViewController.swift; sourceTree = "<group>"; };
 		D32D2E5A21989C62005446E0 /* reminderTimeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = reminderTimeViewController.swift; sourceTree = "<group>"; };
@@ -305,6 +307,7 @@
 		D3B14B16217AA577002B91F6 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				D312C74F219B42F2009ECB85 /* District.ttf */,
 				D32D2E602198ADD4005446E0 /* Quicksand-Regular.otf */,
 				D32D2E5E2198AD38005446E0 /* Quicksand-Bold.otf */,
 				D33270F9217BDDF400E0CC79 /* Chalkduster.ttf */,
@@ -479,6 +482,7 @@
 				D32D2E5F2198AD38005446E0 /* Quicksand-Bold.otf in Resources */,
 				D3B14B0921797CD6002B91F6 /* Sleep.storyboard in Resources */,
 				D33270EE217BCE1000E0CC79 /* Record.storyboard in Resources */,
+				D312C750219B42F2009ECB85 /* District.ttf in Resources */,
 				6F8F043C2186485E00D4C8EB /* Summary.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

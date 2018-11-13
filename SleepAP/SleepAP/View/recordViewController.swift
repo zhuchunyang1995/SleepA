@@ -13,9 +13,10 @@ private let leftRightMargin : CGFloat = 20.0
 private let labelTopMargin: CGFloat = 10.0
 private let tableViewCellHeight : CGFloat = 100.0
 private let slideBarBottomMargin: CGFloat = 20.0
-private let thumbImageSize: CGFloat = 40.0
+private let thumbImageSize: CGFloat = 35.0
 private let slideBarlabelColor : UIColor = .black
-private let slideBarColor : UIColor = UIColor(red:0.96, green:0.93, blue:0.55, alpha:1.0)
+private let slideBarMinTrackColor : UIColor = UIColor(red:0.69, green:0.89, blue:0.86, alpha:1.0)
+private let slideBarMaxTrackColor : UIColor = UIColor(red:0.82, green:0.82, blue:0.82, alpha:1.0)
 private let tableViewBackgroundColor : UIColor = UIColor(red:0.21, green:0.20, blue:0.48, alpha:1.0)
 private let cellBackgroundColor : UIColor = .clear
 
@@ -58,7 +59,8 @@ class slideBarItemCell: UITableViewCell {
         
         slideBar.value = 0.0
         slideBar.isContinuous = true
-        slideBar.tintColor = slideBarColor
+        slideBar.minimumTrackTintColor = slideBarMinTrackColor
+        slideBar.maximumTrackTintColor = slideBarMaxTrackColor
         let slideWidth = self.contentView.frame.width - 2 * leftRightMargin
         slideBar.frame = CGRect(x: leftRightMargin, y: self.contentView.frame.height - slideBarBottomMargin - slideBarHeight, width: slideWidth, height: slideBarHeight)
     }
@@ -83,10 +85,10 @@ class recordViewController: UIViewController, UITableViewDelegate, UITableViewDa
         tableView.delegate = self
         
         submitButton.setTitleColor(slideBarlabelColor, for: .normal)
-        submitButton.titleLabel?.font = UIFont(name: labelFontName, size: 22)
+        submitButton.titleLabel?.font = UIFont(name: "District", size: 50)
         submitButton.titleLabel?.textAlignment = .center
         let buttonSize = submitButton.intrinsicContentSize
-        submitButton.frame = CGRect(x: self.view.bounds.width / 2 - buttonSize.width / 2, y: tableView.bounds.height + 50, width: buttonSize.width, height: buttonSize.height)
+        submitButton.frame = CGRect(x: self.view.bounds.width / 2 - buttonSize.width / 2, y: tableView.bounds.height + 20, width: buttonSize.width, height: buttonSize.height)
         
         let backgroundImageView = UIImageView(frame: UIScreen.main.bounds)
         backgroundImageView.image = UIImage(named: "cloud5")
