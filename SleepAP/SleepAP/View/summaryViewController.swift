@@ -26,6 +26,10 @@ class summaryViewController: UIViewController {
     let Hours = [1.0,2.0,3.0,4.0,5.0,6.0,7.0,8.0,9.0,10.0]
     let Points = [4.0, 4.0, 6.0, 3.0, 7.0, 6.0,5.0,7.0,4.0,9.0]
     
+    // Based on average week points calculation
+    var weeksHours = [1.0]
+    var weeklyPoints = [1.0]
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     
