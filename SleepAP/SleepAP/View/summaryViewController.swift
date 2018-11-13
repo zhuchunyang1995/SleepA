@@ -20,6 +20,14 @@ class summaryViewController: recordSummaryParentViewController {
     @IBOutlet weak var weeksButton: UIButton!
     @IBOutlet weak var pieChartView: PieChartView!
     
+    // connect to the database to get the weekly data
+    let Hours = [1.0,2.0,3.0,4.0,5.0,6.0,7.0,8.0,9.0,10.0]
+    let Points = [4.0, 4.0, 6.0, 3.0, 7.0, 6.0,5.0,7.0,4.0,9.0]
+    
+    // Based on average week points calculation
+    var weeklyHours = [1.0]
+    var weeklyPoints = [1.0]
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     
@@ -59,6 +67,34 @@ class summaryViewController: recordSummaryParentViewController {
     }
     
     func setChart(dataPoints: [String], values: [Double]){
+        setChart(dataPoints: Hours, values: Points)
+        setWeeksChar(dataPoints: weeklyHours, values: weeklyPoints)
+        setLabel()
+    }
+    
+    
+    func setLabel(){
+        var pos = 0;
+        //find the maxium point of in current week
+        if (Hours.isEmpty){
+
+            recomend.text! = "Recommendations"
+            recommendtext.text! = "Sleep time: " + "8.0"  + "  hours"
+        }
+        else{
+            let points = lineChartView.leftAxis.axisMaximum;
+            for (index, element) in Points.enumerated(){
+                if element - points < 0.001{
+                    pos = index
+                }
+            }
+            let str = String(Hours[pos]);
+            recomend.text! = "Recommendations"
+            recommendtext.text! = "Sleep time: " + str + "  hours"
+        }
+    }
+
+    func setChart(dataPoints: [Double], values: [Double]){
         var dataEntries: [ChartDataEntry] = []
         
         for i in 0..<dataPoints.count {
@@ -77,6 +113,18 @@ class summaryViewController: recordSummaryParentViewController {
     }
     
     func setWeeksChar(dataPoints:[String],values:[Double]){
+        lineChartView.data = data;
+        lineChartView.chartDescription?.text = "Hours"
+        lineChartView.xAxis.labelPosition = XAxis.LabelPosition.bottom;
+        
+        // Set the Range
+        lineChartView.xAxis.axisMaximum = 12.0
+        lineChartView.leftAxis.axisMaximum = 10.0
+        lineChartView.xAxis.axisMinimum = 0
+        lineChartView.leftAxis.axisMinimum = 0
+//        lineChartView.xAxis.valueFormatter = IndexAxisValueFormatter(values: ["Points","  /Sleeping Hours"])
+    }
+    func setWeeksChar(dataPoints:[Double],values:[Double]){
         var dataEntries:[ChartDataEntry] = []
         for i in 0..<dataPoints.count {
             let dataEntry = ChartDataEntry(x: Double(i), y: values[i])
@@ -86,9 +134,16 @@ class summaryViewController: recordSummaryParentViewController {
         let data = LineChartData()
         data.addDataSet(line1)
         weeksLineCharView.data = data
-        weeksLineCharView.chartDescription?.text = "Weeks"
+        weeksLineCharView.chartDescription?.text = "Hours"
         weeksLineCharView.xAxis.labelPosition = XAxis.LabelPosition.bottom
         weeksLineCharView.isHidden = true
+        
+        weeksLineCharView.xAxis.axisMaximum = 12.0
+        weeksLineCharView.leftAxis.axisMaximum = 10.0
+        weeksLineCharView.xAxis.axisMinimum = 0
+        weeksLineCharView.leftAxis.axisMinimum = 0
+        
+        
     }
     
     @IBAction func daysButton(_ sender: UIButton) {
