@@ -27,16 +27,22 @@ class reminderTimeViewController: reminderParentViewController, UIPickerViewDele
     @IBOutlet weak var doneView: UIView!
     
     let musicList = ["Piano", "Guitar", "Violin", "Rock", "News"]
+    var isSleepReminderOn : Bool = false
+    var sleepReminderTimeString : String = "00:00 AM"
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        setUpTimeView()
-        setUpMusicView()
-        
         doneView.backgroundColor = UIColor(red:1.00, green:1.00, blue:1.00, alpha:0.4)
         doneView.layer.cornerRadius = 0.5 * doneView.bounds.width
         doneView.clipsToBounds = true
+        
+        // Tianyuan:
+        // isSleepReminderOn = getBoolValueFromBackend
+        // sleepReminderTimeString = getStringFromBackend
+        
+        setUpTimeView()
+        setUpMusicView()
     }
     
     override func viewDidLayoutSubviews() {
@@ -73,11 +79,13 @@ class reminderTimeViewController: reminderParentViewController, UIPickerViewDele
             
             UNUserNotificationCenter.current().add(request, withCompletionHandler: nil)
         } else {
-            // TODO: TEST THIS
-            isSleepReminderOn = false
             sleepReminderTimeString = "00:00 AM"
             UNUserNotificationCenter.current().removePendingNotificationRequests(withIdentifiers: ["sleepReminder"])
         }
+        
+        // Tianyuan:
+        // boolValueFromBackend = isSleepReminderOn
+        // stringFromBackend = sleepReminderTimeString
         
         // show main tab bar
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
