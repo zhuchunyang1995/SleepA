@@ -13,6 +13,8 @@ import Parse
 var sleepStart : Date = Date()
 var sleepEnd : Date = Date()
 var sleepDurationString : String = ""
+var isSleepReminderOn : Bool = false
+var sleepReminderTimeString : String = "00:00 AM"
 
 // global functions
 func convertToHourString(hour: Int, mins: Int) -> String {
