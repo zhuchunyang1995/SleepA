@@ -22,6 +22,9 @@ class summaryViewController: UIViewController {
     
     @IBOutlet weak var lineChartView: LineChartView!
     
+    let Hours = [1.0,2.0,3.0,4.0,5.0,6.0,7.0,8.0,9.0,10.0]
+    let Points = [4.0, 4.0, 6.0, 3.0, 7.0, 6.0,5.0,7.0,4.0,9.0]
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     
@@ -29,20 +32,29 @@ class summaryViewController: UIViewController {
         // Do any additional setup after loading the view.
         navigationItem.title = "Summary"
         
-        let Days = ["1","2","3","4","5","6","7","8","9","10"]
-        let Points = [4.0, 4.0, 6.0, 3.0, 7.0, 6.0,5.0,7.0,4.0,9.0]
-        
-        setChart(dataPoints: Days, values: Points)
-        setWeeksChar(dataPoints: Days, values: Points)
+        // connect to the database to get the weekly data
+
+        setChart(dataPoints: Hours, values: Points)
+        setWeeksChar(dataPoints: Hours, values: Points)
         setLabel()
     }
     func setLabel(){
-        recomend.text! = "Recommendations"
+        var pos = 0;
         
-        recommendtext.text! = "Sleep time:    8 hours"
+        //find the maxium point of weeks
+        let points = lineChartView.leftAxis.axisMaximum;
+        for (index, element) in Points.enumerated(){
+            if element - points < 0.001{
+                pos = index
+            }
+        }
+        
+        let str = String(Hours[pos]);
+        recomend.text! = "Recommendations"
+        recommendtext.text! = "Sleep time: " + str + "  hours"
     }
 
-    func setChart(dataPoints: [String], values: [Double]){
+    func setChart(dataPoints: [Double], values: [Double]){
         var dataEntries: [ChartDataEntry] = []
         
         for i in 0..<dataPoints.count {
@@ -59,7 +71,7 @@ class summaryViewController: UIViewController {
         lineChartView.xAxis.labelPosition = XAxis.LabelPosition.bottom;
 //        lineChartView.xAxis.valueFormatter = IndexAxisValueFormatter(values: ["Points","  /Sleeping Hours"])
     }
-    func setWeeksChar(dataPoints:[String],values:[Double]){
+    func setWeeksChar(dataPoints:[Double],values:[Double]){
         var dataEntries:[ChartDataEntry] = []
         for i in 0..<dataPoints.count {
             let dataEntry = ChartDataEntry(x: Double(i), y: values[i])
