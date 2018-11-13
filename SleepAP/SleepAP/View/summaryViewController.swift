@@ -27,7 +27,7 @@ class summaryViewController: UIViewController {
     let Points = [4.0, 4.0, 6.0, 3.0, 7.0, 6.0,5.0,7.0,4.0,9.0]
     
     // Based on average week points calculation
-    var weeksHours = [1.0]
+    var weeklyHours = [1.0]
     var weeklyPoints = [1.0]
     
     override func viewDidLoad() {
@@ -39,7 +39,7 @@ class summaryViewController: UIViewController {
         
 
         setChart(dataPoints: Hours, values: Points)
-        setWeeksChar(dataPoints: Hours, values: Points)
+        setWeeksChar(dataPoints: weeklyHours, values: weeklyPoints)
         setLabel()
     }
     
@@ -78,8 +78,14 @@ class summaryViewController: UIViewController {
         let data = LineChartData()
         data.addDataSet(line1)
         lineChartView.data = data;
-        lineChartView.chartDescription?.text = "Days"
+        lineChartView.chartDescription?.text = "Hours"
         lineChartView.xAxis.labelPosition = XAxis.LabelPosition.bottom;
+        
+        // Set the Range
+        lineChartView.xAxis.axisMaximum = 12.0
+        lineChartView.leftAxis.axisMaximum = 10.0
+        lineChartView.xAxis.axisMinimum = 0
+        lineChartView.leftAxis.axisMinimum = 0
 //        lineChartView.xAxis.valueFormatter = IndexAxisValueFormatter(values: ["Points","  /Sleeping Hours"])
     }
     func setWeeksChar(dataPoints:[Double],values:[Double]){
@@ -92,9 +98,14 @@ class summaryViewController: UIViewController {
         let data = LineChartData()
         data.addDataSet(line1)
         weeksLineCharView.data = data
-        weeksLineCharView.chartDescription?.text = "Weeks"
+        weeksLineCharView.chartDescription?.text = "Hours"
         weeksLineCharView.xAxis.labelPosition = XAxis.LabelPosition.bottom
         weeksLineCharView.isHidden = true
+        
+        weeksLineCharView.xAxis.axisMaximum = 12.0
+        weeksLineCharView.leftAxis.axisMaximum = 10.0
+        weeksLineCharView.xAxis.axisMinimum = 0
+        weeksLineCharView.leftAxis.axisMinimum = 0
         
         
     }
