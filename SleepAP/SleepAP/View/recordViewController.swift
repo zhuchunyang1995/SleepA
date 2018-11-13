@@ -66,7 +66,7 @@ class slideBarItemCell: UITableViewCell {
     }
 }
 
-class recordViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class recordViewController: recordSummaryParentViewController, UITableViewDelegate, UITableViewDataSource {
 
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var submitButton: UIButton!
@@ -89,12 +89,6 @@ class recordViewController: UIViewController, UITableViewDelegate, UITableViewDa
         submitButton.titleLabel?.textAlignment = .center
         let buttonSize = submitButton.intrinsicContentSize
         submitButton.frame = CGRect(x: self.view.bounds.width / 2 - buttonSize.width / 2, y: tableView.bounds.height + 20, width: buttonSize.width, height: buttonSize.height)
-        
-        let backgroundImageView = UIImageView(frame: UIScreen.main.bounds)
-        backgroundImageView.image = UIImage(named: "cloud5")
-        backgroundImageView.contentMode = .scaleAspectFill
-        backgroundImageView.alpha = 0.3
-        self.view.insertSubview(backgroundImageView, at: 0)
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
