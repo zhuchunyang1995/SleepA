@@ -8,7 +8,7 @@
 import UIKit
 
 class beginSleepViewController: sleepParentViewController, segueDelegate {
-    
+
     @IBOutlet weak var sleepView: buttonView!
     @IBOutlet weak var additionalDescription: UILabel!
     
@@ -17,15 +17,17 @@ class beginSleepViewController: sleepParentViewController, segueDelegate {
         
         additionalDescription.text = "😴 It’s time to go to sleep..."
         additionalDescription.textAlignment = .center
-        additionalDescription.textColor = UIColor(red: 255, green: 255, blue: 255, alpha: 0.7)
-        additionalDescription.font = UIFont(name: "MontserratAlternates", size: 14)
+        additionalDescription.textColor = labelColor
+        additionalDescription.font = UIFont(name: labelFontName, size: 18)
         
         sleepView.setLabelWithText(text: "Sleep")
         sleepView.viewControllerDelegate = self
         sleepView.setSegueName(text: "beginSleepSegue")
     }
 
-    func performSegueToNextVC() {
+    func performSegueToNextVC(segueName: String) {
+        let date = Date()
+        sleepStart = date
         performSegue(withIdentifier: sleepView.segueName, sender: nil)
     }
 }
