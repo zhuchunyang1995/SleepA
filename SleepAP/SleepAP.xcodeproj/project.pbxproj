@@ -11,7 +11,6 @@
 		3F7A9A940D2E9EC734B6593D /* Pods_SleepAP.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F47D98F4B02F42C8FD42348E /* Pods_SleepAP.framework */; };
 		47DF0B15BA1622061F7DBC92 /* Pods_SleepAPUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4FDB393460CD8643CBDBCDD8 /* Pods_SleepAPUITests.framework */; };
 		6F3ECF24219107A300049121 /* daysSummaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F3ECF23219107A300049121 /* daysSummaryView.swift */; };
-		6F8F043C2186485E00D4C8EB /* Summary.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6F8F043B2186485E00D4C8EB /* Summary.storyboard */; };
 		6F8F044021864A2400D4C8EB /* summaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F8F043F21864A2400D4C8EB /* summaryViewController.swift */; };
 		6F8F0460218AAB2800D4C8EB /* Charts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F8F045D218AAB0200D4C8EB /* Charts.framework */; };
 		6F8F0461218AAB2800D4C8EB /* Charts.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6F8F045D218AAB0200D4C8EB /* Charts.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -111,7 +110,6 @@
 		4FDB393460CD8643CBDBCDD8 /* Pods_SleepAPUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SleepAPUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		57B78463B6C9E775DC228544 /* Pods-SleepAPTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SleepAPTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-SleepAPTests/Pods-SleepAPTests.release.xcconfig"; sourceTree = "<group>"; };
 		6F3ECF23219107A300049121 /* daysSummaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = daysSummaryView.swift; sourceTree = "<group>"; };
-		6F8F043B2186485E00D4C8EB /* Summary.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Summary.storyboard; sourceTree = "<group>"; };
 		6F8F043F21864A2400D4C8EB /* summaryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = summaryViewController.swift; sourceTree = "<group>"; };
 		6F8F0457218AAB0200D4C8EB /* Charts.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Charts.xcodeproj; path = "Charts-3.2.1/Charts.xcodeproj"; sourceTree = "<group>"; };
 		70E754EA466C3BF54BAC8BA2 /* Pods-SleepAP.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SleepAP.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SleepAP/Pods-SleepAP.debug.xcconfig"; sourceTree = "<group>"; };
@@ -280,7 +278,6 @@
 				D3B14B0E217A3853002B91F6 /* wakeupViewController.swift */,
 				D3B14B1B217AB0C5002B91F6 /* sleepDurationViewController.swift */,
 				D32D2E6621992B96005446E0 /* sleepStartTimeViewController.swift */,
-				6F8F043B2186485E00D4C8EB /* Summary.storyboard */,
 				6F8F043F21864A2400D4C8EB /* summaryViewController.swift */,
 				6F3ECF23219107A300049121 /* daysSummaryView.swift */,
 				D33270ED217BCE1000E0CC79 /* Record.storyboard */,
@@ -486,7 +483,6 @@
 				D3B14B0921797CD6002B91F6 /* Sleep.storyboard in Resources */,
 				D33270EE217BCE1000E0CC79 /* Record.storyboard in Resources */,
 				D312C750219B42F2009ECB85 /* District.ttf in Resources */,
-				6F8F043C2186485E00D4C8EB /* Summary.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
