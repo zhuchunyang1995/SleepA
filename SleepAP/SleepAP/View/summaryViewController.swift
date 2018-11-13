@@ -22,6 +22,7 @@ class summaryViewController: UIViewController {
     
     @IBOutlet weak var lineChartView: LineChartView!
     
+    // connect to the database to get the weekly data
     let Hours = [1.0,2.0,3.0,4.0,5.0,6.0,7.0,8.0,9.0,10.0]
     let Points = [4.0, 4.0, 6.0, 3.0, 7.0, 6.0,5.0,7.0,4.0,9.0]
     
@@ -32,26 +33,32 @@ class summaryViewController: UIViewController {
         // Do any additional setup after loading the view.
         navigationItem.title = "Summary"
         
-        // connect to the database to get the weekly data
 
         setChart(dataPoints: Hours, values: Points)
         setWeeksChar(dataPoints: Hours, values: Points)
         setLabel()
     }
+    
+    
     func setLabel(){
         var pos = 0;
-        
-        //find the maxium point of weeks
-        let points = lineChartView.leftAxis.axisMaximum;
-        for (index, element) in Points.enumerated(){
-            if element - points < 0.001{
-                pos = index
-            }
+        //find the maxium point of in current week
+        if (Hours.isEmpty){
+
+            recomend.text! = "Recommendations"
+            recommendtext.text! = "Sleep time: " + "8.0"  + "  hours"
         }
-        
-        let str = String(Hours[pos]);
-        recomend.text! = "Recommendations"
-        recommendtext.text! = "Sleep time: " + str + "  hours"
+        else{
+            let points = lineChartView.leftAxis.axisMaximum;
+            for (index, element) in Points.enumerated(){
+                if element - points < 0.001{
+                    pos = index
+                }
+            }
+            let str = String(Hours[pos]);
+            recomend.text! = "Recommendations"
+            recommendtext.text! = "Sleep time: " + str + "  hours"
+        }
     }
 
     func setChart(dataPoints: [Double], values: [Double]){
