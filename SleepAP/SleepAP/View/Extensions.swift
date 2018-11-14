@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import Charts
 
 extension UIImage {
     class func scaleImageToSize(image: UIImage, size: CGSize) -> UIImage {
@@ -56,5 +57,11 @@ extension UIColor {
             green: (rgb >> 8) & 0xFF,
             blue: rgb & 0xFF
         )
+    }
+}
+
+extension NSUIColor {
+    convenience init(hex: Int) {
+        self.init(red: (hex >> 16) & 0xFF, green: (hex >> 8) & 0xFF, blue: hex >> 0xFF)
     }
 }

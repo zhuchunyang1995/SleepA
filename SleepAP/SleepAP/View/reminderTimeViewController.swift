@@ -8,6 +8,7 @@
 
 import UIKit
 import UserNotifications
+import Parse
 
 private let reminderLabelColor : UIColor = .white
 
@@ -27,17 +28,25 @@ class reminderTimeViewController: reminderParentViewController, UIPickerViewDele
     @IBOutlet weak var doneView: UIView!
     
     let musicList = ["Piano", "Guitar", "Violin", "Rock", "News"]
-    var isNotificationOn = false
+    var isSleepReminderOn : Bool = false
+    var sleepReminderTimeString : String = "00:00 AM"
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        setUpTimeView()
-        setUpMusicView()
-        
         doneView.backgroundColor = UIColor(red:1.00, green:1.00, blue:1.00, alpha:0.4)
         doneView.layer.cornerRadius = 0.5 * doneView.bounds.width
         doneView.clipsToBounds = true
+        
+        // Get data from backend
+        if let user = PFUser.current() {
+            isSleepReminderOn = user["reminderOn"] as! Bool
+            sleepReminderTimeString = user["reminderTime"] as! String
+        }
+
+        
+        setUpTimeView()
+        setUpMusicView()
     }
     
     override func viewDidLayoutSubviews() {
@@ -48,7 +57,13 @@ class reminderTimeViewController: reminderParentViewController, UIPickerViewDele
     }
     
     @IBAction func doneButtonTapped(_ sender: UIButton) {
-        if (isNotificationOn) {
+        if (isSleepReminderOn) {
+            sleepReminderTimeString = hourMiniteStringFrom(date: timePickerView.date)
+            
+            // first remove the previous notification, if one exists
+            UNUserNotificationCenter.current().removePendingNotificationRequests(withIdentifiers: ["sleepReminder"])
+
+            // create a new notification
             let content = UNMutableNotificationContent()
             content.title = "Time to sleep!"
             content.body = "Early sleep makes you healthier and wiser. If you haven't finished your work today, get up early tomorrow to finish them! If you are playing games, well then..."
@@ -68,31 +83,49 @@ class reminderTimeViewController: reminderParentViewController, UIPickerViewDele
             
             UNUserNotificationCenter.current().add(request, withCompletionHandler: nil)
         } else {
-            // TODO: TEST THIS
-            UNUserNotificationCenter.current().getPendingNotificationRequests { (notificationRequests) in
-                var identifiers: [String] = []
-                for notification: UNNotificationRequest in notificationRequests {
-                    if notification.identifier == "sleepReminder" {
-                        identifiers.append(notification.identifier)
-                    }
-                }
-                UNUserNotificationCenter.current().removePendingNotificationRequests(withIdentifiers: identifiers)
-            }
+            sleepReminderTimeString = "00:00 AM"
+            UNUserNotificationCenter.current().removePendingNotificationRequests(withIdentifiers: ["sleepReminder"])
         }
         
-        // show main tab bar
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let vc = storyboard.instantiateViewController(withIdentifier: "tabBarViewController") as UIViewController
-        present(vc, animated: false, completion: nil)
+        // Save Data to the backend
+        if let user = PFUser.current() {
+            user["reminderOn"] = isSleepReminderOn
+            user["reminderTime"] = sleepReminderTimeString
+            user.saveInBackground {
+                (success, error) in
+                if (success) {
+                    let alert = UIAlertController(title: "Successed", message: "The reminder is on",  preferredStyle: .alert)
+                    
+                    alert.addAction(UIAlertAction(title: "Ok", style: .default, handler:{action in
+                        // show main tab bar
+                        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                        let vc = storyboard.instantiateViewController(withIdentifier: "tabBarViewController") as UIViewController
+                        self.present(vc, animated: false, completion: nil)
+                    }))
+                    
+                    self.present(alert, animated: true)
+                } else {
+                    // There was a problem, check error.description
+                    let alert = UIAlertController(title: "Failed", message: "Please try again",  preferredStyle: .alert)
+                    
+                    alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
+                    self.present(alert, animated: true)
+                }
+            }
+            
+        }
+        
     }
+    
+    
     
     // turn on/off the switch
     @IBAction func switchTapped(_ sender: UISwitch) {
         if (sender.isOn) {
-            isNotificationOn = true
+            isSleepReminderOn = true
         }
         else {
-            isNotificationOn = false
+            isSleepReminderOn = false
         }
     }
     
@@ -136,27 +169,27 @@ class reminderTimeViewController: reminderParentViewController, UIPickerViewDele
         switchReminder.isHidden = true
     }
     
-    @objc func timeChanged(timePickerView: UIDatePicker) {
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "HH:mm a"
-        timeLabel.text = dateFormatter.string(from: timePickerView.date)
-    }
-    
     @objc func dismissTimePicker(gestureRecognizer: UIGestureRecognizer) {
         timePickerView.isHidden = true
         timeLabel.isHidden = false
         changeButton.isHidden = false
         textLabel.isHidden = false
         switchReminder.isHidden = false
+        timeLabel.text = hourMiniteStringFrom(date: timePickerView.date)
     }
     
     func setUpTimeView() {
+        switchReminder.isOn = isSleepReminderOn
         switchReminder.transform = CGAffineTransform(scaleX: 0.55, y: 0.5)
         switchReminder.onTintColor = UIColor(red:1.00, green:0.91, blue:0.87, alpha:1.0)
         
         timePickerView.isHidden = true
-        timePickerView.addTarget(self, action: #selector(timeChanged(timePickerView:)), for: .valueChanged)
         timePickerView.setValue(UIColor(red:1.00, green:1.00, blue:1.00, alpha:1.0), forKeyPath: "textColor")
+        
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "HH:mm"
+        let date = dateFormatter.date(from: sleepReminderTimeString.components(separatedBy: " ")[0])
+        timePickerView.date = date!
         timePickerView.subviews[0].subviews[1].isHidden = true
         timePickerView.subviews[0].subviews[2].isHidden = true
         
@@ -170,7 +203,7 @@ class reminderTimeViewController: reminderParentViewController, UIPickerViewDele
         
         timeLabel.textColor = reminderLabelColor
         timeLabel.font = UIFont(name: labelFontName, size: 40)
-        timeLabel.text = "00:00 AM"
+        timeLabel.text = sleepReminderTimeString
         
         changeButton.setTitleColor(reminderLabelColor, for: .normal)
         changeButton.titleLabel?.font = UIFont(name: labelFontName, size: 15);
@@ -186,12 +219,6 @@ class reminderTimeViewController: reminderParentViewController, UIPickerViewDele
         musicLabel.isHidden = true
         changeMusicButton.isHidden = true
         musicDescriptionTextLabel.isHidden = true
-    }
-    
-    @objc func musicChanged(musicPickerView: UIDatePicker) {
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "HH:mm a"
-        timeLabel.text = dateFormatter.string(from: timePickerView.date)
     }
     
     @objc func dismissMusicPicker(gestureRecognizer: UIGestureRecognizer) {
@@ -225,5 +252,11 @@ class reminderTimeViewController: reminderParentViewController, UIPickerViewDele
         musicView.backgroundColor = UIColor(red:1.00, green:1.00, blue:1.00, alpha:0.4)
         musicView.layer.cornerRadius = 20
         musicView.clipsToBounds = true
+    }
+    
+    func hourMiniteStringFrom(date: Date) -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "HH:mm a"
+        return dateFormatter.string(from: date)
     }
 }
