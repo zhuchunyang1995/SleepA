@@ -77,17 +77,15 @@ class loginViewController: UIViewController {
     @IBAction func skipSingup(_ sender: Any) {
         PFUser.logOut()
         if let uuid = UIDevice.current.identifierForVendor?.uuidString {
-            var query = PFQuery(className:"User")
-            query.whereKey("username", equalTo:uuid)
-            query.findObjectsInBackground {
+            let query = PFUser.query()
+            query!.whereKey("username", equalTo:uuid)
+            query!.findObjectsInBackground {
                 (objects, error) -> Void in
                 if error == nil {
                     // The find succeeded.
-                    if (objects != nil) && (objects!.count > 0) {
+                    if ((objects != nil) && (objects!.count > 0)) {
                         let user = objects![0] as! PFUser
-                        let username = user.username
-                        let passwd = user.password
-                        PFUser.logInWithUsername(inBackground: username!, password: passwd!) {
+                        PFUser.logInWithUsername(inBackground: user.username!, password: "000") {
                             (user, error) -> Void in
                             if let loggeduser = user {
                                 self.loadHomeScreen()
@@ -99,7 +97,6 @@ class loginViewController: UIViewController {
                         let user = PFUser()
                         user.username = uuid
                         user.password = "000"
-                        user.email = ""
                         user["last7SleepHour"] = [0.0,0.0,0.0,0.0,0.0,0.0,0.0]
                         user["last7AverageScore"] = [0.0,0.0,0.0,0.0,0.0,0.0,0.0]
                         user["reminderOn"] = false
