@@ -28,7 +28,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // show the main storyboard depending on the status of user
         window = UIWindow(frame: UIScreen.main.bounds)
         let currentUser = PFUser.current()
-        let isUserLoggedIn = false//currentUser != nil ? true : false
+        let isUserLoggedIn = currentUser != nil ? true : false
         if isUserLoggedIn {
             window?.rootViewController = AppStoryboard.Main.instance
                 .instantiateViewController(withIdentifier: "tabBarViewController")
