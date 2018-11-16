@@ -188,11 +188,11 @@
             </objects>
             <point key="canvasLocation" x="962.39999999999998" y="-1121.2893553223389"/>
         </scene>
-        <!--Item-->
+        <!--Reminder-->
         <scene sceneID="ID7-DA-j6F">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="G8S-GR-UP4" customClass="ReminderNavigationViewController" customModule="SleepAP" customModuleProvider="target" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="EYq-RX-0oy"/>
+                    <tabBarItem key="tabBarItem" title="Reminder" image="reminder" id="EYq-RX-0oy"/>
                     <toolbarItems/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="ARf-wu-Wd2">
@@ -210,5 +210,6 @@
     </scenes>
     <resources>
         <image name="done" width="48" height="48"/>
+        <image name="reminder" width="33" height="33"/>
     </resources>
 </document>

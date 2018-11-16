@@ -94,6 +94,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="record" width="24" height="24"/>
+        <image name="record" width="25" height="25"/>
     </resources>
 </document>
