@@ -13,6 +13,8 @@ import Parse
 var sleepStart : Date = Date()
 var sleepEnd : Date = Date()
 var sleepDurationString : String = ""
+var isSleeped : Bool = false
+var isReported : Bool = false
 
 // global functions
 func convertToHourString(hour: Int, mins: Int) -> String {
@@ -46,4 +48,27 @@ func saveSleepHours() {
             }
         }
     }
+}
+
+// If today is Monday, update the data
+func weeklyUpdate() {
+    // TODO: transfer time zone
+//    let dateFormatter = DateFormatter()
+//    dateFormatter.dateFormat = "EEE, MMM d, yyyy - h:mm a"
+//    dateFormatter.timeZone = NSTimeZone.local
+    let dateFormatter = DateFormatter()
+    dateFormatter.timeZone = TimeZone.current
+    dateFormatter.setLocalizedDateFormatFromTemplate("EEE")
+    if (dateFormatter.string(from: Date()) == "Mon") {
+        if let user = PFUser.current() {
+            let weeklyHour = user["weeklyHour"]
+            let weeklyScore = user["weeklyScore"]
+            let last7SleepHour = user["last7SleepHour"]
+            let last7AverageScore = user["last7AverageScore"]
+        }
+    }
+    
+    
+
+    
 }

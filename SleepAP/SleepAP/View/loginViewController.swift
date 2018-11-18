@@ -101,6 +101,8 @@ class loginViewController: UIViewController {
                         user["last7AverageScore"] = [0.0,0.0,0.0,0.0,0.0,0.0,0.0]
                         user["reminderOn"] = false
                         user["reminderTime"] = "00:00 AM"
+                        user["weeklyHour"] = [0.0,0.0,0.0,0.0,0.0,0.0,0.0]
+                        user["weeklyScore"] = [0.0,0.0,0.0,0.0,0.0,0.0,0.0]
                         
                         user.signUpInBackground {
                             (succeeded, error) -> Void in

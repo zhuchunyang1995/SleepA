@@ -73,6 +73,8 @@ class RegisterViewController: UIViewController {
         user["last7AverageScore"] = [0.0,0.0,0.0,0.0,0.0,0.0,0.0]
         user["reminderOn"] = false
         user["reminderTime"] = "00:00 AM"
+        user["weeklyHour"] = [0.0,0.0,0.0,0.0,0.0,0.0,0.0]
+        user["weeklyScore"] = [0.0,0.0,0.0,0.0,0.0,0.0,0.0]
         
         if (pswdForComfirm.text! == pswdForReg.text!) {
             user.signUpInBackground {

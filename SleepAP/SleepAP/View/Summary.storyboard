@@ -9,20 +9,162 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Summary View Controller-->
+        <!--Summary-->
         <scene sceneID="OkM-jL-wT8">
             <objects>
                 <viewController storyboardIdentifier="Summary" useStoryboardIdentifierAsRestorationIdentifier="YES" id="22Z-M0-YHp" customClass="summaryViewController" customModule="SleepAP" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="djF-YK-91f">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="dPJ-ir-J8a">
+                                <rect key="frame" x="122.5" y="40" width="130" height="30"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QeO-Gv-HiT">
+                                        <rect key="frame" x="0.0" y="0.0" width="34" height="30"/>
+                                        <state key="normal" title="Days">
+                                            <color key="titleColor" red="0.16615983840000001" green="0.1949082613" blue="0.24314463140000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="daysButton:" destination="22Z-M0-YHp" eventType="touchUpInside" id="lQA-47-83J"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VzV-AP-UQI">
+                                        <rect key="frame" x="84" y="0.0" width="46" height="30"/>
+                                        <state key="normal" title="Weeks">
+                                            <color key="titleColor" red="0.16615983840000001" green="0.1949082613" blue="0.24314463140000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="weeksButton:" destination="22Z-M0-YHp" eventType="touchUpInside" id="Zjt-DK-w8S"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KbH-k7-G5p" customClass="LineChartView" customModule="Charts">
+                                <rect key="frame" x="30" y="90" width="315" height="200"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="200" id="Pii-ue-fdA"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sOp-sD-sYc" customClass="LineChartView" customModule="Charts">
+                                <rect key="frame" x="30" y="90" width="315" height="200"/>
+                                <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="200" id="nff-9i-CEm"/>
+                                </constraints>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Recommendations" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fng-CH-Qyj">
+                                <rect key="frame" x="30" y="394.5" width="315" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Y9i-rg-xns">
+                                <rect key="frame" x="30" y="372.5" width="315" height="2"/>
+                                <color key="backgroundColor" red="0.94910544159999999" green="0.94890707730000001" blue="0.95294338460000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="2" id="keC-Hd-kMO"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pLm-Uv-TVO">
+                                <rect key="frame" x="30" y="310" width="315" height="2"/>
+                                <color key="backgroundColor" red="0.94910544159999999" green="0.94890707730000001" blue="0.95294338460000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="2" id="9TX-iM-1n4"/>
+                                </constraints>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g9L-fD-1ft">
+                                <rect key="frame" x="30" y="332" width="315" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sleep Duration" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tEE-ya-R3T">
+                                <rect key="frame" x="30" y="453.5" width="120" height="20.5"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="120" id="vDD-wE-uFX"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sleep Time" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rEW-qj-tJU">
+                                <rect key="frame" x="30" y="425" width="120" height="20.5"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="120" id="zR5-3M-Z4m"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="11:12 pm" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oWV-fq-c60">
+                                <rect key="frame" x="230" y="425" width="66" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="8 hours" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iJO-o0-1U6">
+                                <rect key="frame" x="230" y="453.5" width="58.5" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="pLm-Uv-TVO" firstAttribute="top" secondItem="KbH-k7-G5p" secondAttribute="bottom" constant="20" id="0tn-Yr-Kxd"/>
+                            <constraint firstItem="Y9i-rg-xns" firstAttribute="top" secondItem="g9L-fD-1ft" secondAttribute="bottom" constant="20" id="1eD-zX-XlU"/>
+                            <constraint firstItem="g9L-fD-1ft" firstAttribute="trailing" secondItem="sOp-sD-sYc" secondAttribute="trailing" id="40u-SQ-9Vl"/>
+                            <constraint firstItem="dPJ-ir-J8a" firstAttribute="centerX" secondItem="djF-YK-91f" secondAttribute="centerX" id="4Bq-gb-MbX"/>
+                            <constraint firstItem="Fng-CH-Qyj" firstAttribute="leading" secondItem="sOp-sD-sYc" secondAttribute="leading" id="5op-Sn-rWt"/>
+                            <constraint firstItem="KbH-k7-G5p" firstAttribute="top" secondItem="dPJ-ir-J8a" secondAttribute="bottom" constant="20" id="AU7-Ux-cy0"/>
+                            <constraint firstItem="tEE-ya-R3T" firstAttribute="top" secondItem="rEW-qj-tJU" secondAttribute="bottom" constant="8" id="CVh-Rh-hGZ"/>
+                            <constraint firstItem="KbH-k7-G5p" firstAttribute="leading" secondItem="xUJ-bD-boK" secondAttribute="leading" constant="30" id="Cy2-SD-bYu"/>
+                            <constraint firstItem="sOp-sD-sYc" firstAttribute="top" secondItem="dPJ-ir-J8a" secondAttribute="bottom" constant="20" id="DYt-SC-aOI"/>
+                            <constraint firstItem="sOp-sD-sYc" firstAttribute="leading" secondItem="xUJ-bD-boK" secondAttribute="leading" constant="30" id="JZl-Zu-Ers"/>
+                            <constraint firstItem="oWV-fq-c60" firstAttribute="top" secondItem="Fng-CH-Qyj" secondAttribute="bottom" constant="10" id="K8d-hv-bcy"/>
+                            <constraint firstItem="tEE-ya-R3T" firstAttribute="leading" secondItem="rEW-qj-tJU" secondAttribute="leading" id="Kf0-th-vZ0"/>
+                            <constraint firstItem="pLm-Uv-TVO" firstAttribute="leading" secondItem="sOp-sD-sYc" secondAttribute="leading" id="R87-3Y-QcK"/>
+                            <constraint firstItem="Y9i-rg-xns" firstAttribute="trailing" secondItem="sOp-sD-sYc" secondAttribute="trailing" id="W0k-mc-BsN"/>
+                            <constraint firstItem="xUJ-bD-boK" firstAttribute="trailing" secondItem="KbH-k7-G5p" secondAttribute="trailing" constant="30" id="XmL-Io-CYM"/>
+                            <constraint firstItem="dPJ-ir-J8a" firstAttribute="top" secondItem="xUJ-bD-boK" secondAttribute="top" constant="20" id="Yro-Bf-mzt"/>
+                            <constraint firstItem="rEW-qj-tJU" firstAttribute="leading" secondItem="Fng-CH-Qyj" secondAttribute="leading" id="gFg-lu-e4e"/>
+                            <constraint firstItem="rEW-qj-tJU" firstAttribute="top" secondItem="Fng-CH-Qyj" secondAttribute="bottom" constant="10" id="gpJ-ee-KMK"/>
+                            <constraint firstItem="Y9i-rg-xns" firstAttribute="leading" secondItem="sOp-sD-sYc" secondAttribute="leading" id="iLY-vR-7Dk"/>
+                            <constraint firstItem="g9L-fD-1ft" firstAttribute="leading" secondItem="sOp-sD-sYc" secondAttribute="leading" id="k2h-zV-7yF"/>
+                            <constraint firstItem="iJO-o0-1U6" firstAttribute="top" secondItem="oWV-fq-c60" secondAttribute="bottom" constant="8" id="ngE-jR-mZb"/>
+                            <constraint firstItem="xUJ-bD-boK" firstAttribute="trailing" secondItem="sOp-sD-sYc" secondAttribute="trailing" constant="30" id="nol-sj-Ylx"/>
+                            <constraint firstItem="oWV-fq-c60" firstAttribute="leading" secondItem="rEW-qj-tJU" secondAttribute="trailing" constant="80" id="qF3-xa-M1D"/>
+                            <constraint firstItem="pLm-Uv-TVO" firstAttribute="trailing" secondItem="sOp-sD-sYc" secondAttribute="trailing" id="qdg-Sa-Va2"/>
+                            <constraint firstItem="iJO-o0-1U6" firstAttribute="leading" secondItem="tEE-ya-R3T" secondAttribute="trailing" constant="80" id="uEb-N7-j58"/>
+                            <constraint firstItem="Fng-CH-Qyj" firstAttribute="trailing" secondItem="sOp-sD-sYc" secondAttribute="trailing" id="uIc-18-hDd"/>
+                            <constraint firstItem="Fng-CH-Qyj" firstAttribute="top" secondItem="Y9i-rg-xns" secondAttribute="bottom" constant="20" id="vq7-bF-rKa"/>
+                            <constraint firstItem="g9L-fD-1ft" firstAttribute="top" secondItem="pLm-Uv-TVO" secondAttribute="bottom" constant="20" id="zvg-0T-owW"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="xUJ-bD-boK"/>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Summary" image="statistics" id="PbH-dV-ncy"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="daysButton" destination="QeO-Gv-HiT" id="Sbq-jl-Pif"/>
+                        <outlet property="daysLineChartView" destination="sOp-sD-sYc" id="YMa-CS-MwC"/>
+                        <outlet property="recommendationLabel" destination="Fng-CH-Qyj" id="WhM-dh-SBs"/>
+                        <outlet property="sleepDurationContent" destination="iJO-o0-1U6" id="RGh-QN-aCj"/>
+                        <outlet property="sleepDurationLabel" destination="tEE-ya-R3T" id="NKd-RV-3yZ"/>
+                        <outlet property="sleepTimeContent" destination="oWV-fq-c60" id="VCV-hI-zUD"/>
+                        <outlet property="sleepTimeLabel" destination="rEW-qj-tJU" id="BSI-dX-9Ja"/>
+                        <outlet property="targetSleepLabel" destination="g9L-fD-1ft" id="rmf-aq-K6R"/>
+                        <outlet property="weeksButton" destination="VzV-AP-UQI" id="w8g-dL-jNQ"/>
+                        <outlet property="weeksLineChartView" destination="KbH-k7-G5p" id="uWE-68-hQC"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="y8d-o1-uAR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="29" y="-30"/>
+            <point key="canvasLocation" x="28" y="-30.134932533733135"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="statistics" width="37.5" height="37.5"/>
+    </resources>
 </document>

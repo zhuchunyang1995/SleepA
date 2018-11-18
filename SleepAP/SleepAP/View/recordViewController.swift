@@ -148,13 +148,26 @@ class recordViewController: recordSummaryParentViewController, UITableViewDelega
         summary["EnergyScore"] = doubleEnergyScore
         summary["MoodScore"] = doubleMoodScore
         summary["AverageScore"] = averageScore
+        var last7AverageScore = user!["last7AverageScore"] as! [Double]
+        last7AverageScore.remove(at: 0)
+        last7AverageScore.append(averageScore)
+        user!["last7AverageScore"] = last7AverageScore
         summary.saveInBackground {
             (success, error) in
             if (success) {
-                // The object has been saved.
-                // ToDo: jump to the main page
+                user!.saveInBackground {
+                    (success, error) in
+                    if (success) {
+                        let alert = UIAlertController(title: "Successful", message: "Your summary has been submitted",  preferredStyle: .alert)
+                        
+                        alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
+                        self.present(alert, animated: true)
+                    } else {
+                       
+                    }
+                }
             } else {
-                // There was a problem, check error.description
+                
             }
         }
         

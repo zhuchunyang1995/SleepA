@@ -51,6 +51,7 @@
 		D3B14B18217AA5E4002B91F6 /* Roboto-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D3B14B17217AA5E4002B91F6 /* Roboto-Medium.ttf */; };
 		D3B14B1A217AA91A002B91F6 /* MontserratAlternates-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = D3B14B19217AA91A002B91F6 /* MontserratAlternates-Regular.otf */; };
 		D3B14B1C217AB0C5002B91F6 /* sleepDurationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3B14B1B217AB0C5002B91F6 /* sleepDurationViewController.swift */; };
+		D3E32BEF219E667D00F2C02A /* Summary.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D3E32BEE219E667D00F2C02A /* Summary.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -159,6 +160,7 @@
 		D3B14B17217AA5E4002B91F6 /* Roboto-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Medium.ttf"; sourceTree = "<group>"; };
 		D3B14B19217AA91A002B91F6 /* MontserratAlternates-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MontserratAlternates-Regular.otf"; sourceTree = "<group>"; };
 		D3B14B1B217AB0C5002B91F6 /* sleepDurationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = sleepDurationViewController.swift; sourceTree = "<group>"; };
+		D3E32BEE219E667D00F2C02A /* Summary.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Summary.storyboard; sourceTree = "<group>"; };
 		E8649FFE3845830806EEE3B8 /* Pods-SleepAP.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SleepAP.release.xcconfig"; path = "Pods/Target Support Files/Pods-SleepAP/Pods-SleepAP.release.xcconfig"; sourceTree = "<group>"; };
 		F47D98F4B02F42C8FD42348E /* Pods_SleepAP.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SleepAP.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -280,6 +282,7 @@
 				D3B14B0E217A3853002B91F6 /* wakeupViewController.swift */,
 				D3B14B1B217AB0C5002B91F6 /* sleepDurationViewController.swift */,
 				D32D2E6621992B96005446E0 /* sleepStartTimeViewController.swift */,
+				D3E32BEE219E667D00F2C02A /* Summary.storyboard */,
 				6F8F043F21864A2400D4C8EB /* summaryViewController.swift */,
 				6F3ECF23219107A300049121 /* daysSummaryView.swift */,
 				D33270ED217BCE1000E0CC79 /* Record.storyboard */,
@@ -476,6 +479,7 @@
 				D3B14B18217AA5E4002B91F6 /* Roboto-Medium.ttf in Resources */,
 				D3B14B1A217AA91A002B91F6 /* MontserratAlternates-Regular.otf in Resources */,
 				D32D2E612198ADD4005446E0 /* Quicksand-Regular.otf in Resources */,
+				D3E32BEF219E667D00F2C02A /* Summary.storyboard in Resources */,
 				D32D2E652198EFDE005446E0 /* Assets.xcassets in Resources */,
 				C15C1F7F219E5F5D00BA69D8 /* Summary.storyboard in Resources */,
 				C6F597842176C8AE003592C3 /* Login.storyboard in Resources */,

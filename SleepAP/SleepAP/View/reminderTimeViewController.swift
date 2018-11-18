@@ -91,27 +91,35 @@ class reminderTimeViewController: reminderParentViewController, UIPickerViewDele
         if let user = PFUser.current() {
             user["reminderOn"] = isSleepReminderOn
             user["reminderTime"] = sleepReminderTimeString
-            user.saveInBackground {
-                (success, error) in
-                if (success) {
-                    let alert = UIAlertController(title: "Successed", message: "The reminder is on",  preferredStyle: .alert)
-                    
-                    alert.addAction(UIAlertAction(title: "Ok", style: .default, handler:{action in
-                        // show main tab bar
-                        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-                        let vc = storyboard.instantiateViewController(withIdentifier: "tabBarViewController") as UIViewController
-                        self.present(vc, animated: false, completion: nil)
-                    }))
-                    
-                    self.present(alert, animated: true)
-                } else {
-                    // There was a problem, check error.description
-                    let alert = UIAlertController(title: "Failed", message: "Please try again",  preferredStyle: .alert)
-                    
-                    alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
-                    self.present(alert, animated: true)
+            if (isSleepReminderOn == true) {
+                user.saveInBackground {
+                    (success, error) in
+                    if (success) {
+                        let alert = UIAlertController(title: "Successed", message: "The reminder is on",  preferredStyle: .alert)
+                        
+                        alert.addAction(UIAlertAction(title: "Ok", style: .default, handler:{action in
+                            // show main tab bar
+                            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                            let vc = storyboard.instantiateViewController(withIdentifier: "tabBarViewController") as UIViewController
+                            self.present(vc, animated: false, completion: nil)
+                        }))
+                        
+                        self.present(alert, animated: true)
+                    } else {
+                        // There was a problem, check error.description
+                        let alert = UIAlertController(title: "Failed", message: "Please try again",  preferredStyle: .alert)
+                        
+                        alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
+                        self.present(alert, animated: true)
+                    }
                 }
             }
+            else {
+                let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                let vc = storyboard.instantiateViewController(withIdentifier: "tabBarViewController") as UIViewController
+                self.present(vc, animated: false, completion: nil)
+            }
+            
             
         }
         
