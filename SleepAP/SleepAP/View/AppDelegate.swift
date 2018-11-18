@@ -25,10 +25,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         Parse.initialize(with: configuration)
         
+        
         // show the main storyboard depending on the status of user
         window = UIWindow(frame: UIScreen.main.bounds)
         let currentUser = PFUser.current()
-        let isUserLoggedIn = currentUser != nil ? true : false
+        let isUserLoggedIn = false//currentUser != nil ? true : false
         if isUserLoggedIn {
             window?.rootViewController = AppStoryboard.Main.instance
                 .instantiateViewController(withIdentifier: "tabBarViewController")
@@ -39,8 +40,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         // set up notifications
         UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .badge, .sound], completionHandler: {(granted, error) in })
+        
+        //Update when Monday
+        //weeklyUpdate()
         return true
     }
+    
+    
 
     func applicationWillResignActive(_ application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
@@ -66,7 +72,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     // MARK: - helpers
     enum AppStoryboard : String {
-        case Login, Main, Sleep, Record,Summary, Statistics, Reminder
+        case Login, Main, Sleep, Record, Summary, Statistics, Reminder
         var instance : UIStoryboard {
             return UIStoryboard(name: self.rawValue, bundle: Bundle.main)
         }

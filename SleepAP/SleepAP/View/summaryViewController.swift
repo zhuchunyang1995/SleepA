@@ -25,25 +25,31 @@ class summaryViewController: recordSummaryParentViewController {
     @IBOutlet weak var sleepDurationLabel: UILabel!
     @IBOutlet weak var recommendationLabel: UILabel!
     
-    let Hours = [1.0,2.0,3.0,4.0,5.0,6.0,7.0,8.0,9.0,10.0]
-    let Points = [4.0, 4.0, 6.0, 3.0, 7.0, 6.0,5.0,7.0,4.0,9.0]
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         navigationItem.title = "Summary"
-
-        let Days = ["1","2","3","4","5","6","7","8","9","10"]
-        let Points = [4.0, 4.0, 6.0, 3.0, 7.0, 6.0,5.0,7.0,4.0,9.0]
-        var sleepDaysWithinOneHourOfTargetedTime = 5
-        var sleepTotalDays = 10
-        setChart(dataPoints: Days, values: Points)
-        setWeeksChart(dataPoints: Hours, values: Points)
-        //setUpPieChart()
+        
+        let user = PFUser.current()
+        let dayHours =  user!["last7SleepHour"] as! [Double]
+        let weekHours =  user!["weeklyHour"] as! [Double]
+        let dayScores = user!["last7AverageScore"] as! [Double]
+        let weekScores = user!["weeklyScore"] as! [Double]
+        
+        setChart(dataPoints: dayHours, values: dayScores)
+        setWeeksChart(dataPoints: weekHours, values: weekScores)
+        
+        let recommendSleepHour = calcBestHour(dayHours, dayScores, weekHours, weekScores)
+        sleepDurationContent.text = String(recommendSleepHour) + " Hours"
+        
+        let (underDays, totalDays) = findUnderDays(dayHours, recommendSleepHour)
+        let sleepDaysWithinOneHourOfTargetedTime = underDays
+        let sleepTotalDays = totalDays
         
         daysButton.titleLabel?.font =  UIFont(name: labelFontName, size: 20)
         weeksButton.titleLabel?.font =  UIFont(name: labelFontName, size: 20)
-        targetSleepLabel.text = "During \(sleepDaysWithinOneHourOfTargetedTime) out of \(sleepTotalDays) days, you have slept within one hour of your targeted sleep time."
+        targetSleepLabel.text = "During \(sleepDaysWithinOneHourOfTargetedTime) out of the past \(sleepTotalDays) days, you have slept within one hour of your targeted sleep time."
         targetSleepLabel.font = UIFont(name: labelFontName, size: 20)
         recommendationLabel.font = UIFont(name: labelFontNameBold, size: 20)
         sleepTimeLabel.font = UIFont(name: labelFontName, size: 15)
@@ -51,28 +57,44 @@ class summaryViewController: recordSummaryParentViewController {
         sleepDurationLabel.font = UIFont(name: labelFontName, size: 15)
         sleepDurationContent.font = UIFont(name: labelFontName, size: 15)
 
-        var query = PFQuery(className:"SleepHour")
-        query.whereKey("objectID", equalTo:"MDelt7QayZ")
-        query.findObjectsInBackground {
-            (objects, error) -> Void in
 
-            if error == nil {
-                // The find succeeded.
-                print("Successfully retrieved \(objects!.count) scores.")
-                // Do something with the found objects
-                if let objects = objects {
-                    print(objects[0])
-                }
-            } else {
-                // Log details of the failure
-                print("failed")
+    }
+    
+    func calcBestHour(_ dayHours: [Double], _ dayScores: [Double],_ weekHours: [Double], _ weekScores: [Double]) -> Int {
+        var totalScore = 0.0
+        var bestHour = 0.0
+        var usefulPoints:[(hour: Double, score: Double)] = []
+        for i in 0..<dayHours.count {
+            if ((dayHours[i] != 0.0) || (dayScores[i] != 0.0)) {
+                usefulPoints += [(hour: dayHours[i], score: dayScores[i])]
+                totalScore += dayScores[i]
             }
         }
-        let user = PFUser.current()
-
-        print(user)
-
-        setChart(dataPoints: Days, values: Points)
+        for i in 0..<weekHours.count {
+            if ((weekHours[i] != 0.0) || (weekScores[i] != 0.0)) {
+                usefulPoints += [(hour: weekHours[i], score: weekScores[i])]
+                totalScore += weekScores[i]
+            }
+        }
+        for i in 0..<usefulPoints.count {
+            bestHour += usefulPoints[i].0 * (usefulPoints[i].1/totalScore)
+        }
+        return Int(bestHour)
+        
+    }
+    
+    func findUnderDays(_ dayHours: [Double], _ recommendSleepHour: Int) -> (Int, Int) {
+        var underDays = 0
+        var totalDays = 0
+        for i in 0..<dayHours.count {
+            if (dayHours[i] != 0.0) {
+                totalDays += 1
+                if (dayHours[i] < Double(recommendSleepHour)) {
+                    underDays += 1
+                }
+            }
+        }
+        return (underDays, totalDays)
     }
     
 //    func setUpPieChart() {
@@ -97,43 +119,46 @@ class summaryViewController: recordSummaryParentViewController {
 //        pieChartView.data = PieChartData(dataSet: dataSet)
 //    }
     
-    func setChart(dataPoints: [String], values: [Double]){
-        setChart(dataPoints: Hours, values: Points)
-        setWeeksChart(dataPoints: Hours, values: Points)
-        setLabel()
-    }
+//    func setChart(dataPoints: [String], values: [Double]){
+//        setChart(dataPoints: Hours, values: Points)
+//        setWeeksChart(dataPoints: Hours, values: Points)
+//        setLabel()
+//    }
     
     
-    func setLabel(){
-        var pos = 0;
-        //find the maxium point of in current week
-        if (Hours.isEmpty){
-
-//            recomend.text! = "Recommendations"
-//            recommendtext.text! = "Sleep time: " + "8.0"  + "  hours"
-        }
-        else{
-            let points = daysLineChartView.leftAxis.axisMaximum;
-            for (index, element) in Points.enumerated(){
-                if element - points < 0.001{
-                    pos = index
-                }
-            }
-            let str = String(Hours[pos]);
-//            recomend.text! = "Recommendations"
-//            recommendtext.text! = "Sleep time: " + str + "  hours"
-        }
-    }
+//    func setLabel(){
+//        var pos = 0;
+//        //find the maxium point of in current week
+//        if (Hours.isEmpty){
+//
+////            recomend.text! = "Recommendations"
+////            recommendtext.text! = "Sleep time: " + "8.0"  + "  hours"
+//        }
+//        else{
+//            let points = daysLineChartView.leftAxis.axisMaximum;
+//            for (index, element) in Points.enumerated(){
+//                if element - points < 0.001{
+//                    pos = index
+//                }
+//            }
+//            let str = String(Hours[pos]);
+////            recomend.text! = "Recommendations"
+////            recommendtext.text! = "Sleep time: " + str + "  hours"
+//        }
+//    }
 
     func setChart(dataPoints: [Double], values: [Double]){
         var dataEntries: [ChartDataEntry] = []
         
         for i in 0..<dataPoints.count {
-            let dataEntry = ChartDataEntry(x: Double(i), y: values[i])
-            dataEntries.append(dataEntry)
+            if ((dataPoints[i] != 0.0) || (values[i] != 0.0)) {
+                let dataEntry = ChartDataEntry(x: dataPoints[i], y: values[i])
+                dataEntries.append(dataEntry)
+            }
+            
         }
         
-        let line1 = LineChartDataSet(values:dataEntries,label:"Points")
+        let line1 = LineChartDataSet(values:dataEntries,label:"Scores")
         
         let data = LineChartData()
         data.addDataSet(line1)
@@ -146,21 +171,23 @@ class summaryViewController: recordSummaryParentViewController {
     func setWeeksChart(dataPoints:[Double],values:[Double]){
         var dataEntries:[ChartDataEntry] = []
         for i in 0..<dataPoints.count {
-            let dataEntry = ChartDataEntry(x: Double(i), y: values[i])
-            dataEntries.append(dataEntry)
+            if ((dataPoints[i] != 0.0) || (values[i] != 0.0)) {
+                let dataEntry = ChartDataEntry(x: dataPoints[i], y: values[i])
+                dataEntries.append(dataEntry)
+            }
         }
-        let line1 = LineChartDataSet(values:dataEntries,label:"Points")
+        let line1 = LineChartDataSet(values:dataEntries,label:"Scores")
         let data = LineChartData()
         data.addDataSet(line1)
         weeksLineChartView.data = data
-        weeksLineChartView.chartDescription?.text = "Hours"
+        weeksLineChartView.chartDescription?.text = "Weeks"
         weeksLineChartView.xAxis.labelPosition = XAxis.LabelPosition.bottom
         weeksLineChartView.isHidden = true
         
-        weeksLineChartView.xAxis.axisMaximum = 12.0
-        weeksLineChartView.leftAxis.axisMaximum = 10.0
-        weeksLineChartView.xAxis.axisMinimum = 0
-        weeksLineChartView.leftAxis.axisMinimum = 0
+//        weeksLineChartView.xAxis.axisMaximum = 15.0
+//        weeksLineChartView.leftAxis.axisMaximum = 1.0
+//        weeksLineChartView.xAxis.axisMinimum = 0
+//        weeksLineChartView.leftAxis.axisMinimum = 0
     }
     
     @IBAction func daysButton(_ sender: UIButton) {
