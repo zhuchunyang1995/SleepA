@@ -7,7 +7,7 @@
 
 >Team members: Xiayi Sun, Tianyuan Wu, Chunyang Zhu
 
-##back4app
+## back4app
 > althleticpeakperformance@gmail.com
 
 > umapp2018
