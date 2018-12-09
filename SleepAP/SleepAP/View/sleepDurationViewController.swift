@@ -17,6 +17,7 @@ class sleepDurationViewController: sleepParentViewController, segueDelegate {
     @IBOutlet weak var divider: UIView!
     @IBOutlet weak var noButton: buttonView!
     @IBOutlet weak var yesButton: buttonView!
+    var sleepDurationString : String = ""
         
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,7 +26,7 @@ class sleepDurationViewController: sleepParentViewController, segueDelegate {
         containerView.layer.cornerRadius = 20
         containerView.clipsToBounds = true
         
-        let components = Calendar.current.dateComponents([.hour, .minute], from: sleepStart, to: sleepEnd)
+        let components = Calendar.current.dateComponents([.hour, .minute], from: getSleepStartDate(), to: getSleepEndDate())
         sleepDurationString = convertToHourString(hour: components.hour!, mins: components.minute!)
         
         // sleepDurationLabel settings
@@ -60,7 +61,17 @@ class sleepDurationViewController: sleepParentViewController, segueDelegate {
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
             let vc = storyboard.instantiateViewController(withIdentifier: "tabBarViewController") as UIViewController
             present(vc, animated: false, completion: nil)
-            saveSleepHours()
+            saveSleepHourDuration(sleepDurationString: sleepDurationString)
+            
+            let alert = UIAlertController(title: "Successed", message: "The sleeping hour duration and sleep start time are saved",  preferredStyle: .alert)
+            
+            alert.addAction(UIAlertAction(title: "Ok", style: .default, handler:{action in
+                let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                let vc = storyboard.instantiateViewController(withIdentifier: "tabBarViewController") as UIViewController
+                self.present(vc, animated: false, completion: nil)
+            }))
+            
+            self.present(alert, animated: true)
         }
     }
 }

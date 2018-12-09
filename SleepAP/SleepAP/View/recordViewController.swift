@@ -25,9 +25,12 @@ class slideBarItemCell: UITableViewCell {
     @IBOutlet weak var slideBarItemName: UILabel!
     @IBOutlet weak var slideBarPercentNumber: UILabel!
     @IBOutlet weak var slideBar: customSlider!
+    var slideDoubleNumber : Double = 0.0
 
     @IBAction func valueChanged(_ sender: customSlider) {
-        slideBarPercentNumber.text = String(Int(sender.value * 100)) + "%"
+        slideBar.value = roundf(sender.value)
+        slideBarPercentNumber.text = item?.levels[Int(roundf(sender.value))]
+        slideDoubleNumber = Double(roundf(sender.value))
     }
     
     var item: slideBarItem?  {
@@ -37,12 +40,23 @@ class slideBarItemCell: UITableViewCell {
             image = UIImage.scaleImageToSize(image: image!, size: CGSize(width: thumbImageSize, height: thumbImageSize))
             slideBar.setThumbImage(image, for: .normal)
             slideBar.setThumbImage(image, for: .highlighted)
+            slideBarPercentNumber.text = item?.levels[0]
             setNeedsLayout()
         }
     }
     
     override func layoutSubviews() {
         super.layoutSubviews()
+        
+        slideBar.maximumValue = 3
+        slideBar.minimumValue = 0
+        slideBar.isContinuous = false
+        slideBar.value = 0.0
+        slideBar.isContinuous = true
+        slideBar.minimumTrackTintColor = slideBarMinTrackColor
+        slideBar.maximumTrackTintColor = slideBarMaxTrackColor
+        let slideWidth = self.contentView.frame.width - 2 * leftRightMargin
+        slideBar.frame = CGRect(x: leftRightMargin, y: self.contentView.frame.height - slideBarBottomMargin - slideBarHeight, width: slideWidth, height: slideBarHeight)
         
         slideBarItemName.textColor = slideBarlabelColor
         slideBarItemName.font = UIFont(name: labelFontName, size: 22)
@@ -51,18 +65,12 @@ class slideBarItemCell: UITableViewCell {
         slideBarItemName.frame = CGRect(x: leftRightMargin, y: labelTopMargin, width: nameSize.width, height: nameSize.height)
         
         slideBarPercentNumber.textColor = slideBarlabelColor
-        slideBarPercentNumber.font = UIFont(name: labelFontName, size: 22)
-        slideBarPercentNumber.textAlignment = .left
+        slideBarPercentNumber.font = UIFont(name: "FiraSansCondensed-UltraLight", size: 18)
+        slideBarPercentNumber.textAlignment = .right
+        slideBarPercentNumber.numberOfLines = 0
         let percentSize = slideBarPercentNumber.intrinsicContentSize
-        slideBarPercentNumber.frame = CGRect(x: self.contentView.frame.width - leftRightMargin - percentSize.width, y: labelTopMargin, width: percentSize.width, height: percentSize.height)
-        slideBarPercentNumber.text = "0%"
-        
-        slideBar.value = 0.0
-        slideBar.isContinuous = true
-        slideBar.minimumTrackTintColor = slideBarMinTrackColor
-        slideBar.maximumTrackTintColor = slideBarMaxTrackColor
-        let slideWidth = self.contentView.frame.width - 2 * leftRightMargin
-        slideBar.frame = CGRect(x: leftRightMargin, y: self.contentView.frame.height - slideBarBottomMargin - slideBarHeight, width: slideWidth, height: slideBarHeight)
+        let startXPos = slideBarItemName.bounds.maxX + 30
+        slideBarPercentNumber.frame = CGRect(x: startXPos, y: labelTopMargin + 2, width: slideBar.bounds.maxX - startXPos, height: percentSize.height)
     }
 }
 
@@ -121,57 +129,42 @@ class recordViewController: recordSummaryParentViewController, UITableViewDelega
                     tableView.cellForRow(at: IndexPath(row: i, section: 0)) as! slideBarItemCell)
             }
         }
-        let sleepQualityScore = cellSingleton.sharedInstance.cells[0].slideBarPercentNumber.text!
-        let health = cellSingleton.sharedInstance.cells[1].slideBarPercentNumber.text!
-        let productivity = cellSingleton.sharedInstance.cells[2].slideBarPercentNumber.text!
-        let energy = cellSingleton.sharedInstance.cells[3].slideBarPercentNumber.text!
-        let mood = cellSingleton.sharedInstance.cells[4].slideBarPercentNumber.text!
+        saveScoreToBackend()
+    }
+
+    // helper functions
+    func saveScoreToBackend() {
+        // Float number: 0.0, 1.0, 2.0, 3.0. rescale to 10 point scale.
+        let sleepQualityScore = cellSingleton.sharedInstance.cells[0].slideDoubleNumber * 3.33
+        let health = cellSingleton.sharedInstance.cells[1].slideDoubleNumber * 3.33
+        let productivity = cellSingleton.sharedInstance.cells[2].slideDoubleNumber * 3.33
+        let energy = cellSingleton.sharedInstance.cells[3].slideDoubleNumber * 3.33
+        let mood = cellSingleton.sharedInstance.cells[4].slideDoubleNumber * 3.33
         
-        // Push the record to backend
-        let doubleSleepQualityScore = Double(String(sleepQualityScore.dropLast()))! * 0.01
-        let doubleHealthScore = Double(String(health.dropLast()))! * 0.01
-        let doubleProductivityScore = Double(String(productivity.dropLast()))! * 0.01
-        let doubleEnergyScore = Double(String(energy.dropLast()))! * 0.01
-        let doubleMoodScore = Double(String(mood.dropLast()))! * 0.01
-        let denominator = (Double((doubleSleepQualityScore != 0) as NSNumber) + Double((doubleHealthScore != 0) as NSNumber) + Double((doubleProductivityScore != 0) as NSNumber) + Double((doubleEnergyScore != 0) as NSNumber) + Double((doubleMoodScore != 0)as NSNumber))
-        let diviosr = denominator != 0.0 ? 1 / denominator : 0.0
-        let averageScore = (doubleSleepQualityScore+doubleHealthScore+doubleProductivityScore+doubleEnergyScore+doubleMoodScore) * diviosr
+        let denominator = (Double((sleepQualityScore != 0) as NSNumber) + Double((health != 0) as NSNumber) + Double((productivity != 0) as NSNumber) + Double((energy != 0) as NSNumber) + Double((mood != 0)as NSNumber))
+        let divisor = denominator != 0.0 ? 1 / denominator : 0.0
+        let averageScore = (sleepQualityScore + health + productivity + energy + mood) * divisor
         
+        // store score
         let user = PFUser.current()
+        var scoreList = user?["last7AverageScore"] as! [Double]
+        scoreList.append(averageScore)
+        user?["last7AverageScore"] = scoreList
         
-        
-        let summary = PFObject(className:"Summary")
-        summary["User"] = user
-        summary["SleepQualityScore"] = doubleSleepQualityScore
-        summary["HealthScore"] = doubleHealthScore
-        summary["ProductivityScore"] = doubleProductivityScore
-        summary["EnergyScore"] = doubleEnergyScore
-        summary["MoodScore"] = doubleMoodScore
-        summary["AverageScore"] = averageScore
-        var last7AverageScore = user!["last7AverageScore"] as! [Double]
-        last7AverageScore.remove(at: 0)
-        last7AverageScore.append(averageScore)
-        user!["last7AverageScore"] = last7AverageScore
-        summary.saveInBackground {
+        // store hour
+        var hourList = user?["last7SleepHour"] as! [Double]
+        hourList.append(getSleepDuration())
+        user?["last7SleepHour"] = hourList
+
+        user?.saveInBackground {
             (success, error) in
             if (success) {
-                user!.saveInBackground {
-                    (success, error) in
-                    if (success) {
-                        let alert = UIAlertController(title: "Successful", message: "Your summary has been submitted",  preferredStyle: .alert)
-                        
-                        alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
-                        self.present(alert, animated: true)
-                    } else {
-                       
-                    }
-                }
-            } else {
+                let alert = UIAlertController(title: "Successful", message: "Your summary has been submitted",  preferredStyle: .alert)
                 
+                alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+                self.present(alert, animated: true)
+            } else {
             }
         }
-        
     }
-    
-    
 }

@@ -9,26 +9,15 @@
 import Foundation
 import Parse
 
-// global variables
-var sleepStart : Date = Date()
-var sleepEnd : Date = Date()
-var sleepDurationString : String = ""
-var isSleeped : Bool = false
-var isReported : Bool = false
-
 // global functions
 func convertToHourString(hour: Int, mins: Int) -> String {
     let hours = Double(hour) + Double(mins) / 60.0
     return hours.format(f: ".1")
 }
 
-func saveSleepHours() {
-    //save data to backend
+func saveSleepStartTime(sleepStartDate: Date) {
     if let user = PFUser.current() {
-        user["lastNightSleepHour"] = Double(sleepDurationString)
-        let sleephr = PFObject(className:"SleepHour")
-        sleephr["user"] = user
-        sleephr["sleepHour"] = Double(sleepDurationString)
+        user["sleepStart"] = sleepStartDate
         user.saveInBackground {
             (success, error) in
             if (success) {
@@ -38,7 +27,13 @@ func saveSleepHours() {
                 // There was a problem, check error.description
             }
         }
-        sleephr.saveInBackground {
+    }
+}
+
+func saveSleepHourDuration(sleepDurationString: String) {
+    if let user = PFUser.current() {
+        user["sleepDuration"] = Double(sleepDurationString)
+        user.saveInBackground {
             (success, error) in
             if (success) {
                 // The object has been saved.
@@ -48,6 +43,37 @@ func saveSleepHours() {
             }
         }
     }
+}
+
+func saveSleepEndTime(sleepEndDate: Date) {
+    if let user = PFUser.current() {
+        user["sleepEnd"] = sleepEndDate
+        user.saveInBackground {
+            (success, error) in
+            if (success) {
+                // The object has been saved.
+                // ToDo: jump to the main page
+            } else {
+                // There was a problem, check error.description
+            }
+        }
+    }
+}
+
+
+func getSleepStartDate()->Date {
+    let user = PFUser.current()
+    return user?["sleepStart"] as! Date
+}
+
+func getSleepEndDate()->Date {
+    let user = PFUser.current()
+    return user?["sleepEnd"] as! Date
+}
+
+func getSleepDuration()->Double {
+    let user = PFUser.current()
+    return user?["sleepDuration"] as! Double
 }
 
 // If today is Monday, update the data

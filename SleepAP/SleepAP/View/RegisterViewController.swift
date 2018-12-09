@@ -69,12 +69,14 @@ class RegisterViewController: UIViewController {
         user.username = usernmForReg.text!
         user.password = pswdForReg.text!
         user.email = usernmForReg.text!
-        user["last7SleepHour"] = [0.0,0.0,0.0,0.0,0.0,0.0,0.0]
-        user["last7AverageScore"] = [0.0,0.0,0.0,0.0,0.0,0.0,0.0]
+        user["last7SleepHour"] = []
+        user["last7AverageScore"] = []
         user["reminderOn"] = false
         user["reminderTime"] = "00:00 AM"
-        user["weeklyHour"] = [0.0,0.0,0.0,0.0,0.0,0.0,0.0]
-        user["weeklyScore"] = [0.0,0.0,0.0,0.0,0.0,0.0,0.0]
+        user["weeklyHour"] = []
+        user["weeklyScore"] = []
+        user["daysHourScoreObjectArray"] = []
+        user["music"] = "Piano"
         
         if (pswdForComfirm.text! == pswdForReg.text!) {
             user.signUpInBackground {

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Parse
 
 class wakeupViewController: sleepParentViewController, segueDelegate{
 
@@ -27,8 +28,7 @@ class wakeupViewController: sleepParentViewController, segueDelegate{
     }
     
     func performSegueToNextVC(segueName: String) {
+        saveSleepEndTime(sleepEndDate: Date())
         performSegue(withIdentifier: wakeupView.segueName, sender: nil)
-        let date = Date()
-        sleepEnd = date
     }
 }
