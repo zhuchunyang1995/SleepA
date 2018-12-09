@@ -10,12 +10,10 @@
 		1FCE016B8F3D50426FD55230 /* Pods_SleepAPTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 822A3AD7704DAF26EE878169 /* Pods_SleepAPTests.framework */; };
 		3F7A9A940D2E9EC734B6593D /* Pods_SleepAP.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F47D98F4B02F42C8FD42348E /* Pods_SleepAP.framework */; };
 		47DF0B15BA1622061F7DBC92 /* Pods_SleepAPUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4FDB393460CD8643CBDBCDD8 /* Pods_SleepAPUITests.framework */; };
-		6F3ECF24219107A300049121 /* daysSummaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F3ECF23219107A300049121 /* daysSummaryView.swift */; };
 		6F8F044021864A2400D4C8EB /* summaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F8F043F21864A2400D4C8EB /* summaryViewController.swift */; };
 		6F8F0460218AAB2800D4C8EB /* Charts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F8F045D218AAB0200D4C8EB /* Charts.framework */; };
 		6F8F0461218AAB2800D4C8EB /* Charts.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6F8F045D218AAB0200D4C8EB /* Charts.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		C126C6D521855B580039C374 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C126C6D421855B580039C374 /* RegisterViewController.swift */; };
-		C15C1F7F219E5F5D00BA69D8 /* Summary.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C15C1F7E219E5F5D00BA69D8 /* Summary.storyboard */; };
 		C6F5977F2176C8AE003592C3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6F5977E2176C8AE003592C3 /* AppDelegate.swift */; };
 		C6F597812176C8AE003592C3 /* loginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6F597802176C8AE003592C3 /* loginViewController.swift */; };
 		C6F597842176C8AE003592C3 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C6F597822176C8AE003592C3 /* Login.storyboard */; };
@@ -29,7 +27,6 @@
 		D32D2E5B21989C62005446E0 /* reminderTimeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D32D2E5A21989C62005446E0 /* reminderTimeViewController.swift */; };
 		D32D2E5F2198AD38005446E0 /* Quicksand-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = D32D2E5E2198AD38005446E0 /* Quicksand-Bold.otf */; };
 		D32D2E612198ADD4005446E0 /* Quicksand-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = D32D2E602198ADD4005446E0 /* Quicksand-Regular.otf */; };
-		D32D2E632198BF58005446E0 /* reminderParentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D32D2E622198BF58005446E0 /* reminderParentViewController.swift */; };
 		D32D2E652198EFDE005446E0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D32D2E642198EFDE005446E0 /* Assets.xcassets */; };
 		D32D2E6721992B96005446E0 /* sleepStartTimeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D32D2E6621992B96005446E0 /* sleepStartTimeViewController.swift */; };
 		D32D2E69219934FE005446E0 /* Globals.swift in Sources */ = {isa = PBXBuildFile; fileRef = D32D2E68219934FE005446E0 /* Globals.swift */; };
@@ -42,6 +39,13 @@
 		D3327104217D189B00E0CC79 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3327103217D189B00E0CC79 /* Constants.swift */; };
 		D3327106217D1B0C00E0CC79 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3327105217D1B0C00E0CC79 /* Extensions.swift */; };
 		D3327108217D524A00E0CC79 /* beginSleepViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3327107217D524A00E0CC79 /* beginSleepViewController.swift */; };
+		D37DBCCA21BA1FD9007AF34A /* sleepEndTimeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D37DBCC921BA1FD9007AF34A /* sleepEndTimeViewController.swift */; };
+		D37DBCD321BB1080007AF34A /* FiraSansCondensed-UltraLight.otf in Resources */ = {isa = PBXBuildFile; fileRef = D37DBCD221BB1080007AF34A /* FiraSansCondensed-UltraLight.otf */; };
+		D37DBCDF21BB3B99007AF34A /* Piano.aiff in Resources */ = {isa = PBXBuildFile; fileRef = D37DBCDE21BB3B99007AF34A /* Piano.aiff */; };
+		D37DBCE421BB3D16007AF34A /* Violin.aiff in Resources */ = {isa = PBXBuildFile; fileRef = D37DBCE021BB3D15007AF34A /* Violin.aiff */; };
+		D37DBCE521BB3D16007AF34A /* Guitar.aiff in Resources */ = {isa = PBXBuildFile; fileRef = D37DBCE121BB3D16007AF34A /* Guitar.aiff */; };
+		D37DBCE621BB3D16007AF34A /* Blues.aiff in Resources */ = {isa = PBXBuildFile; fileRef = D37DBCE221BB3D16007AF34A /* Blues.aiff */; };
+		D37DBCE721BB3D16007AF34A /* Electronic.aiff in Resources */ = {isa = PBXBuildFile; fileRef = D37DBCE321BB3D16007AF34A /* Electronic.aiff */; };
 		D39EEE4421989945000BA373 /* Reminder.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D39EEE4321989945000BA373 /* Reminder.storyboard */; };
 		D3B14B0921797CD6002B91F6 /* Sleep.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D3B14B0721797CD6002B91F6 /* Sleep.storyboard */; };
 		D3B14B0F217A3853002B91F6 /* wakeupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3B14B0E217A3853002B91F6 /* wakeupViewController.swift */; };
@@ -111,14 +115,12 @@
 		4CECD1D14C9913763932AE4F /* Pods-SleepAPUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SleepAPUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SleepAPUITests/Pods-SleepAPUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		4FDB393460CD8643CBDBCDD8 /* Pods_SleepAPUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SleepAPUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		57B78463B6C9E775DC228544 /* Pods-SleepAPTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SleepAPTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-SleepAPTests/Pods-SleepAPTests.release.xcconfig"; sourceTree = "<group>"; };
-		6F3ECF23219107A300049121 /* daysSummaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = daysSummaryView.swift; sourceTree = "<group>"; };
 		6F8F043F21864A2400D4C8EB /* summaryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = summaryViewController.swift; sourceTree = "<group>"; };
 		6F8F0457218AAB0200D4C8EB /* Charts.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Charts.xcodeproj; path = "Charts-3.2.1/Charts.xcodeproj"; sourceTree = "<group>"; };
 		70E754EA466C3BF54BAC8BA2 /* Pods-SleepAP.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SleepAP.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SleepAP/Pods-SleepAP.debug.xcconfig"; sourceTree = "<group>"; };
 		726F812CCF914C248883962C /* Pods-SleepAPTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SleepAPTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SleepAPTests/Pods-SleepAPTests.debug.xcconfig"; sourceTree = "<group>"; };
 		822A3AD7704DAF26EE878169 /* Pods_SleepAPTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SleepAPTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C126C6D421855B580039C374 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
-		C15C1F7E219E5F5D00BA69D8 /* Summary.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Summary.storyboard; sourceTree = "<group>"; };
 		C6F5977B2176C8AE003592C3 /* SleepAP.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SleepAP.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C6F5977E2176C8AE003592C3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C6F597802176C8AE003592C3 /* loginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = loginViewController.swift; sourceTree = "<group>"; };
@@ -138,7 +140,6 @@
 		D32D2E5A21989C62005446E0 /* reminderTimeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = reminderTimeViewController.swift; sourceTree = "<group>"; };
 		D32D2E5E2198AD38005446E0 /* Quicksand-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Quicksand-Bold.otf"; sourceTree = "<group>"; };
 		D32D2E602198ADD4005446E0 /* Quicksand-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Quicksand-Regular.otf"; sourceTree = "<group>"; };
-		D32D2E622198BF58005446E0 /* reminderParentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = reminderParentViewController.swift; sourceTree = "<group>"; };
 		D32D2E642198EFDE005446E0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D32D2E6621992B96005446E0 /* sleepStartTimeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = sleepStartTimeViewController.swift; sourceTree = "<group>"; };
 		D32D2E68219934FE005446E0 /* Globals.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Globals.swift; sourceTree = "<group>"; };
@@ -151,6 +152,13 @@
 		D3327103217D189B00E0CC79 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		D3327105217D1B0C00E0CC79 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		D3327107217D524A00E0CC79 /* beginSleepViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = beginSleepViewController.swift; sourceTree = "<group>"; };
+		D37DBCC921BA1FD9007AF34A /* sleepEndTimeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = sleepEndTimeViewController.swift; sourceTree = "<group>"; };
+		D37DBCD221BB1080007AF34A /* FiraSansCondensed-UltraLight.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "FiraSansCondensed-UltraLight.otf"; sourceTree = "<group>"; };
+		D37DBCDE21BB3B99007AF34A /* Piano.aiff */ = {isa = PBXFileReference; lastKnownFileType = audio.aiff; path = Piano.aiff; sourceTree = "<group>"; };
+		D37DBCE021BB3D15007AF34A /* Violin.aiff */ = {isa = PBXFileReference; lastKnownFileType = audio.aiff; path = Violin.aiff; sourceTree = "<group>"; };
+		D37DBCE121BB3D16007AF34A /* Guitar.aiff */ = {isa = PBXFileReference; lastKnownFileType = audio.aiff; path = Guitar.aiff; sourceTree = "<group>"; };
+		D37DBCE221BB3D16007AF34A /* Blues.aiff */ = {isa = PBXFileReference; lastKnownFileType = audio.aiff; path = Blues.aiff; sourceTree = "<group>"; };
+		D37DBCE321BB3D16007AF34A /* Electronic.aiff */ = {isa = PBXFileReference; lastKnownFileType = audio.aiff; path = Electronic.aiff; sourceTree = "<group>"; };
 		D39EEE4321989945000BA373 /* Reminder.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Reminder.storyboard; sourceTree = "<group>"; };
 		D3B14B0821797CD6002B91F6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Sleep.storyboard; sourceTree = "<group>"; };
 		D3B14B0E217A3853002B91F6 /* wakeupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = wakeupViewController.swift; sourceTree = "<group>"; };
@@ -282,16 +290,14 @@
 				D3B14B0E217A3853002B91F6 /* wakeupViewController.swift */,
 				D3B14B1B217AB0C5002B91F6 /* sleepDurationViewController.swift */,
 				D32D2E6621992B96005446E0 /* sleepStartTimeViewController.swift */,
+				D37DBCC921BA1FD9007AF34A /* sleepEndTimeViewController.swift */,
 				D3E32BEE219E667D00F2C02A /* Summary.storyboard */,
 				6F8F043F21864A2400D4C8EB /* summaryViewController.swift */,
-				6F3ECF23219107A300049121 /* daysSummaryView.swift */,
 				D33270ED217BCE1000E0CC79 /* Record.storyboard */,
 				D312C751219B43BC009ECB85 /* recordSummaryParentViewController.swift */,
 				D33270FB217CA6F500E0CC79 /* customSlider.swift */,
 				D33270F3217BD5B900E0CC79 /* recordViewController.swift */,
 				D39EEE4321989945000BA373 /* Reminder.storyboard */,
-				C15C1F7E219E5F5D00BA69D8 /* Summary.storyboard */,
-				D32D2E622198BF58005446E0 /* reminderParentViewController.swift */,
 				D32D2E5A21989C62005446E0 /* reminderTimeViewController.swift */,
 				D32D2E5721989B1E005446E0 /* ReminderNavigationViewController.swift */,
 				D33270EF217BD2B500E0CC79 /* Main.storyboard */,
@@ -313,6 +319,12 @@
 		D3B14B16217AA577002B91F6 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				D37DBCE221BB3D16007AF34A /* Blues.aiff */,
+				D37DBCE321BB3D16007AF34A /* Electronic.aiff */,
+				D37DBCE121BB3D16007AF34A /* Guitar.aiff */,
+				D37DBCE021BB3D15007AF34A /* Violin.aiff */,
+				D37DBCDE21BB3B99007AF34A /* Piano.aiff */,
+				D37DBCD221BB1080007AF34A /* FiraSansCondensed-UltraLight.otf */,
 				D312C74F219B42F2009ECB85 /* District.ttf */,
 				D32D2E602198ADD4005446E0 /* Quicksand-Regular.otf */,
 				D32D2E5E2198AD38005446E0 /* Quicksand-Bold.otf */,
@@ -476,13 +488,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				C6F597892176C8AF003592C3 /* LaunchScreen.storyboard in Resources */,
+				D37DBCE721BB3D16007AF34A /* Electronic.aiff in Resources */,
+				D37DBCE621BB3D16007AF34A /* Blues.aiff in Resources */,
+				D37DBCE421BB3D16007AF34A /* Violin.aiff in Resources */,
 				D3B14B18217AA5E4002B91F6 /* Roboto-Medium.ttf in Resources */,
 				D3B14B1A217AA91A002B91F6 /* MontserratAlternates-Regular.otf in Resources */,
 				D32D2E612198ADD4005446E0 /* Quicksand-Regular.otf in Resources */,
 				D3E32BEF219E667D00F2C02A /* Summary.storyboard in Resources */,
 				D32D2E652198EFDE005446E0 /* Assets.xcassets in Resources */,
-				C15C1F7F219E5F5D00BA69D8 /* Summary.storyboard in Resources */,
 				C6F597842176C8AE003592C3 /* Login.storyboard in Resources */,
+				D37DBCD321BB1080007AF34A /* FiraSansCondensed-UltraLight.otf in Resources */,
+				D37DBCDF21BB3B99007AF34A /* Piano.aiff in Resources */,
 				D3B14B11217A605B002B91F6 /* buttonView.xib in Resources */,
 				D33270FA217BDDF500E0CC79 /* Chalkduster.ttf in Resources */,
 				D33270F0217BD2B500E0CC79 /* Main.storyboard in Resources */,
@@ -491,6 +507,7 @@
 				D3B14B0921797CD6002B91F6 /* Sleep.storyboard in Resources */,
 				D33270EE217BCE1000E0CC79 /* Record.storyboard in Resources */,
 				D312C750219B42F2009ECB85 /* District.ttf in Resources */,
+				D37DBCE521BB3D16007AF34A /* Guitar.aiff in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -647,11 +664,10 @@
 				D32D2E6721992B96005446E0 /* sleepStartTimeViewController.swift in Sources */,
 				6F8F044021864A2400D4C8EB /* summaryViewController.swift in Sources */,
 				D3B14B1C217AB0C5002B91F6 /* sleepDurationViewController.swift in Sources */,
-				6F3ECF24219107A300049121 /* daysSummaryView.swift in Sources */,
 				D3327106217D1B0C00E0CC79 /* Extensions.swift in Sources */,
 				D3B14B13217A6082002B91F6 /* buttonView.swift in Sources */,
-				D32D2E632198BF58005446E0 /* reminderParentViewController.swift in Sources */,
 				C126C6D521855B580039C374 /* RegisterViewController.swift in Sources */,
+				D37DBCCA21BA1FD9007AF34A /* sleepEndTimeViewController.swift in Sources */,
 				D33270F4217BD5B900E0CC79 /* recordViewController.swift in Sources */,
 				C6F5977F2176C8AE003592C3 /* AppDelegate.swift in Sources */,
 			);

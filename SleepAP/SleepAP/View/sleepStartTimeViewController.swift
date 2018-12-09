@@ -12,7 +12,7 @@ class sleepStartTimeViewController: sleepParentViewController, segueDelegate {
 
     @IBOutlet weak var questionLabel: UILabel!
     @IBOutlet weak var containerView: UIView!
-    @IBOutlet weak var doneButton: buttonView!
+    @IBOutlet weak var nextButton: buttonView!
     @IBOutlet weak var datePickerView: UIDatePicker!
     
     override func viewDidLoad() {
@@ -27,10 +27,10 @@ class sleepStartTimeViewController: sleepParentViewController, segueDelegate {
         questionLabel.font = UIFont(name: labelFontName, size: 20)
         questionLabel.sizeToFit()
         
-        doneButton.resize(width: 70, height: 70, textSize: 20)
-        doneButton.setLabelWithText(text: "Done")
-        doneButton.viewControllerDelegate = self
-        doneButton.segueName = "doneSegue"
+        nextButton.resize(width: 70, height: 70, textSize: 20)
+        nextButton.setLabelWithText(text: "Next")
+        nextButton.viewControllerDelegate = self
+        nextButton.segueName = "nextSegue"
         
         datePickerView.setValue(labelColor, forKeyPath: "textColor")
         datePickerView.subviews[0].subviews[1].isHidden = true
@@ -38,13 +38,9 @@ class sleepStartTimeViewController: sleepParentViewController, segueDelegate {
     }
     
     func performSegueToNextVC(segueName: String) {
-        sleepEnd = datePickerView.date
-        let components = Calendar.current.dateComponents([.hour, .minute], from: sleepStart, to: sleepEnd)
-        sleepDurationString = convertToHourString(hour: components.hour!, mins: components.minute!)
-        saveSleepHours()
-        
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let vc = storyboard.instantiateViewController(withIdentifier: "tabBarViewController") as UIViewController
-        present(vc, animated: false, completion: nil)
+        let pickerDate = datePickerView.date
+        let sleepStartTime = pickerDate.addingTimeInterval(-24*60*60)
+        saveSleepStartTime(sleepStartDate: sleepStartTime)
+        performSegue(withIdentifier: nextButton.segueName, sender: nil)
     }
 }

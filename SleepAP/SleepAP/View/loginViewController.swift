@@ -38,16 +38,6 @@ class loginViewController: UIViewController {
         self.addIconToTextField(txtField: passwordTextField, icon: passwdIcon!)
         usernameTextField.text = ""
         passwordTextField.text = ""
-        
-        
-        
-    }
-    override func viewDidAppear(_ animated: Bool){
-        let currentUser = PFUser.current()
-        if currentUser != nil {
-            //@TODO
-            //loadHomeScreen()
-        }
     }
     
     func addIconToTextField (txtField: UITextField, icon: UIImage) {
@@ -97,12 +87,13 @@ class loginViewController: UIViewController {
                         let user = PFUser()
                         user.username = uuid
                         user.password = "000"
-                        user["last7SleepHour"] = [0.0,0.0,0.0,0.0,0.0,0.0,0.0]
-                        user["last7AverageScore"] = [0.0,0.0,0.0,0.0,0.0,0.0,0.0]
+                        user["last7SleepHour"] = []
+                        user["last7AverageScore"] = []
                         user["reminderOn"] = false
+                        user["daysHourScoreObjectArray"] = []
                         user["reminderTime"] = "00:00 AM"
-                        user["weeklyHour"] = [0.0,0.0,0.0,0.0,0.0,0.0,0.0]
-                        user["weeklyScore"] = [0.0,0.0,0.0,0.0,0.0,0.0,0.0]
+                        user["weeklyHour"] = []
+                        user["weeklyScore"] = []
                         
                         user.signUpInBackground {
                             (succeeded, error) -> Void in

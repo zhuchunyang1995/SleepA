@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Parse
 
 class beginSleepViewController: sleepParentViewController, segueDelegate {
 
@@ -26,8 +27,7 @@ class beginSleepViewController: sleepParentViewController, segueDelegate {
     }
 
     func performSegueToNextVC(segueName: String) {
-        let date = Date()
-        sleepStart = date
+        saveSleepStartTime(sleepStartDate: Date())
         performSegue(withIdentifier: sleepView.segueName, sender: nil)
     }
 }

@@ -24,12 +24,10 @@ class summaryViewController: recordSummaryParentViewController {
     @IBOutlet weak var sleepTimeContent: UILabel!
     @IBOutlet weak var sleepDurationLabel: UILabel!
     @IBOutlet weak var recommendationLabel: UILabel!
+    @IBOutlet weak var pieChartView: PieChartView!
     
-
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        navigationItem.title = "Summary"
         
         let user = PFUser.current()
         let dayHours =  user!["last7SleepHour"] as! [Double]
@@ -37,11 +35,16 @@ class summaryViewController: recordSummaryParentViewController {
         let dayScores = user!["last7AverageScore"] as! [Double]
         let weekScores = user!["weeklyScore"] as! [Double]
         
-        setChart(dataPoints: dayHours, values: dayScores)
-        setWeeksChart(dataPoints: weekHours, values: weekScores)
+        setDaysChart(sleepHourDay: dayHours, sleepScoreDay: dayScores)
+        setWeeksChart(sleepHourWeek: weekHours, sleepScoreWeek: weekScores)
+        daysLineChartView.isHidden = false
+        weeksLineChartView.isHidden = true
+        setUpPieChart()
         
         let recommendSleepHour = calcBestHour(dayHours, dayScores, weekHours, weekScores)
-        sleepDurationContent.text = String(recommendSleepHour) + " Hours"
+        sleepDurationContent.text = "8 Hours"
+//        let recommendSleepTime = calcBestSleepTime(dayHours, dayScores, weekHours, weekScores)
+//        sleepTimeContent.text = String(recommendSleepTime)
         
         let (underDays, totalDays) = findUnderDays(dayHours, recommendSleepHour)
         let sleepDaysWithinOneHourOfTargetedTime = underDays
@@ -50,14 +53,12 @@ class summaryViewController: recordSummaryParentViewController {
         daysButton.titleLabel?.font =  UIFont(name: labelFontName, size: 20)
         weeksButton.titleLabel?.font =  UIFont(name: labelFontName, size: 20)
         targetSleepLabel.text = "During \(sleepDaysWithinOneHourOfTargetedTime) out of the past \(sleepTotalDays) days, you have slept within one hour of your targeted sleep time."
-        targetSleepLabel.font = UIFont(name: labelFontName, size: 20)
+        targetSleepLabel.font = UIFont(name: labelFontName, size: 15)
         recommendationLabel.font = UIFont(name: labelFontNameBold, size: 20)
         sleepTimeLabel.font = UIFont(name: labelFontName, size: 15)
         sleepTimeContent.font = UIFont(name: labelFontName, size: 15)
         sleepDurationLabel.font = UIFont(name: labelFontName, size: 15)
         sleepDurationContent.font = UIFont(name: labelFontName, size: 15)
-
-
     }
     
     func calcBestHour(_ dayHours: [Double], _ dayScores: [Double],_ weekHours: [Double], _ weekScores: [Double]) -> Int {
@@ -80,7 +81,6 @@ class summaryViewController: recordSummaryParentViewController {
             bestHour += usefulPoints[i].0 * (usefulPoints[i].1/totalScore)
         }
         return Int(bestHour)
-        
     }
     
     func findUnderDays(_ dayHours: [Double], _ recommendSleepHour: Int) -> (Int, Int) {
@@ -97,107 +97,89 @@ class summaryViewController: recordSummaryParentViewController {
         return (underDays, totalDays)
     }
     
-//    func setUpPieChart() {
-//        pieChartView.chartDescription?.enabled = false
-//        pieChartView.drawHoleEnabled = false
-//        pieChartView.rotationAngle = 0
-//        pieChartView.rotationEnabled = false
-//        pieChartView.isUserInteractionEnabled = false
-//
-//        let color1 = NSUIColor(hex: 0x000000)
-//        let color2 = NSUIColor(hex: 0xFFFFFF)
-//
-//        var entries : [PieChartDataEntry] = []
-//        entries.append(PieChartDataEntry(value: 50.0, label: "Sleep1"))
-//        entries.append(PieChartDataEntry(value: 50.0, label: "Sleep2"))
-//
-//        let dataSet = PieChartDataSet(values: entries, label: "")
-//
-//        dataSet.colors = [color1, color2]
-//        dataSet.drawValuesEnabled = false
-//
-//        pieChartView.data = PieChartData(dataSet: dataSet)
-//    }
-    
-//    func setChart(dataPoints: [String], values: [Double]){
-//        setChart(dataPoints: Hours, values: Points)
-//        setWeeksChart(dataPoints: Hours, values: Points)
-//        setLabel()
-//    }
-    
-    
-//    func setLabel(){
-//        var pos = 0;
-//        //find the maxium point of in current week
-//        if (Hours.isEmpty){
-//
-////            recomend.text! = "Recommendations"
-////            recommendtext.text! = "Sleep time: " + "8.0"  + "  hours"
-//        }
-//        else{
-//            let points = daysLineChartView.leftAxis.axisMaximum;
-//            for (index, element) in Points.enumerated(){
-//                if element - points < 0.001{
-//                    pos = index
-//                }
-//            }
-//            let str = String(Hours[pos]);
-////            recomend.text! = "Recommendations"
-////            recommendtext.text! = "Sleep time: " + str + "  hours"
-//        }
-//    }
+    func setUpPieChart() {
+        pieChartView.chartDescription?.enabled = false
+        pieChartView.drawHoleEnabled = true
+        pieChartView.rotationAngle = 0
+        pieChartView.rotationEnabled = false
+        pieChartView.isUserInteractionEnabled = false
+        pieChartView.holeColor = UIColor.clear
+        pieChartView.drawEntryLabelsEnabled = false
+        
+        pieChartView.chartDescription?.textAlign = NSTextAlignment.center
+        pieChartView.legend.font = UIFont(name: labelFontName, size: 12)!
+        pieChartView.legend.xOffset = pieChartView.bounds.minX + 30
+        //pieChartView.legend.yOffset = pieChartView.bounds.maxY + 10
 
-    func setChart(dataPoints: [Double], values: [Double]){
-        var dataEntries: [ChartDataEntry] = []
+        let color1 = NSUIColor(red: 234/255.0, green: 112/255.0, blue: 46/255.0, alpha: 1.0)
+        let color2 = NSUIColor(red: 131.0/255.0, green: 221.0/255.0, blue: 206.0/255.0, alpha: 1.0)
+
+        var entries : [PieChartDataEntry] = []
+        entries.append(PieChartDataEntry(value: 28.5, label: "Sleep before 12pm"))
+        entries.append(PieChartDataEntry(value: 71.5, label: "Sleep after 12pm"))
+
+        let dataSet = PieChartDataSet(values: entries, label: "")
+
+        dataSet.colors = [color1, color2]
+        dataSet.drawValuesEnabled = false
         
-        for i in 0..<dataPoints.count {
-            if ((dataPoints[i] != 0.0) || (values[i] != 0.0)) {
-                let dataEntry = ChartDataEntry(x: dataPoints[i], y: values[i])
-                dataEntries.append(dataEntry)
-            }
-            
-        }
-        
-        let line1 = LineChartDataSet(values:dataEntries,label:"Scores")
-        
-        let data = LineChartData()
-        data.addDataSet(line1)
-        daysLineChartView.data = data;
-        daysLineChartView.chartDescription?.text = "Days"
-        daysLineChartView.xAxis.labelPosition = XAxis.LabelPosition.bottom;
-//        lineChartView.xAxis.valueFormatter = IndexAxisValueFormatter(values: ["Points","  /Sleeping Hours"])
+        pieChartView.data = PieChartData(dataSet: dataSet)
+    }
+
+    func setDaysChart(sleepHourDay: [Double], sleepScoreDay: [Double]){
+        lineChartSetupHelper(lineChartType: daysLineChartView, xValues: sleepHourDay, yValues: sleepScoreDay)
     }
     
-    func setWeeksChart(dataPoints:[Double],values:[Double]){
-        var dataEntries:[ChartDataEntry] = []
-        for i in 0..<dataPoints.count {
-            if ((dataPoints[i] != 0.0) || (values[i] != 0.0)) {
-                let dataEntry = ChartDataEntry(x: dataPoints[i], y: values[i])
-                dataEntries.append(dataEntry)
-            }
-        }
-        let line1 = LineChartDataSet(values:dataEntries,label:"Scores")
-        let data = LineChartData()
-        data.addDataSet(line1)
-        weeksLineChartView.data = data
-        weeksLineChartView.chartDescription?.text = "Weeks"
-        weeksLineChartView.xAxis.labelPosition = XAxis.LabelPosition.bottom
-        weeksLineChartView.isHidden = true
-        
-//        weeksLineChartView.xAxis.axisMaximum = 15.0
-//        weeksLineChartView.leftAxis.axisMaximum = 1.0
-//        weeksLineChartView.xAxis.axisMinimum = 0
-//        weeksLineChartView.leftAxis.axisMinimum = 0
+    func setWeeksChart(sleepHourWeek:[Double],sleepScoreWeek:[Double]){
+        lineChartSetupHelper(lineChartType: weeksLineChartView, xValues: sleepHourWeek, yValues: sleepScoreWeek)
     }
     
     @IBAction func daysButton(_ sender: UIButton) {
         daysLineChartView.isHidden = false
         weeksLineChartView.isHidden = true
-        
     }
     
     @IBAction func weeksButton(_ sender: UIButton) {
         daysLineChartView.isHidden = true
         weeksLineChartView.isHidden = false
+    }
+    
+    func lineChartSetupHelper(lineChartType: LineChartView, xValues: [Double], yValues: [Double]) {
+        lineChartType.chartDescription?.text = "Hours"
+        lineChartType.xAxis.labelPosition = XAxis.LabelPosition.bottom
+        
+        lineChartType.leftAxis.axisMinimum = 0
+        lineChartType.leftAxis.axisMaximum = 10
+        lineChartType.rightAxis.enabled = false
+        
+        lineChartType.xAxis.axisMinimum = 5
+        lineChartType.xAxis.axisMaximum = 10
+        lineChartType.xAxis.labelCount = 5
+        
+        lineChartType.drawGridBackgroundEnabled = false
+        lineChartType.leftAxis.drawAxisLineEnabled = true
+        lineChartType.leftAxis.drawGridLinesEnabled = true
+        lineChartType.xAxis.drawAxisLineEnabled = true
+        lineChartType.xAxis.drawGridLinesEnabled = true
+        lineChartType.borderColor = .gray
+        lineChartType.drawBordersEnabled = true
+        
+        var dataEntries: [ChartDataEntry] = []
+        
+        for i in 0..<xValues.count {
+            if ((xValues[i] != 0.0) || (yValues[i] != 0.0)) {
+                let dataEntry = ChartDataEntry(x: xValues[i], y: yValues[i])
+                dataEntries.append(dataEntry)
+            }
+        }
+        
+        let daySleepDataSet = LineChartDataSet(values:dataEntries, label:"Scores")
+        daySleepDataSet.highlightEnabled = false
+        daySleepDataSet.drawCirclesEnabled = true
+        daySleepDataSet.circleRadius = 5
+        daySleepDataSet.drawValuesEnabled = false
+        daySleepDataSet.drawFilledEnabled = true
+        let data = LineChartData(dataSet: daySleepDataSet)
+        lineChartType.data = data
     }
 }

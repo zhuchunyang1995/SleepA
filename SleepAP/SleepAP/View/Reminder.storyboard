@@ -12,7 +12,7 @@
         <!--Reminder Time View Controller-->
         <scene sceneID="rcp-Xj-FnE">
             <objects>
-                <viewController id="u0E-5I-Y66" customClass="reminderTimeViewController" customModule="SleepAP" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="reminderTimeViewController" id="u0E-5I-Y66" customClass="reminderTimeViewController" customModule="SleepAP" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ESX-6S-d5b">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -191,7 +191,7 @@
         <!--Reminder-->
         <scene sceneID="ID7-DA-j6F">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="G8S-GR-UP4" customClass="ReminderNavigationViewController" customModule="SleepAP" customModuleProvider="target" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="ReminderNavigationViewController" automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="G8S-GR-UP4" customClass="ReminderNavigationViewController" customModule="SleepAP" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Reminder" image="reminder" id="EYq-RX-0oy"/>
                     <toolbarItems/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>

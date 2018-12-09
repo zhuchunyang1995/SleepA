@@ -12,7 +12,7 @@ import Parse
 
 private let reminderLabelColor : UIColor = .white
 
-class reminderTimeViewController: reminderParentViewController, UIPickerViewDelegate, UIPickerViewDataSource, UIGestureRecognizerDelegate {
+class reminderTimeViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UIGestureRecognizerDelegate {
 
     @IBOutlet weak var textLabel: UILabel!
     @IBOutlet weak var timeLabel: UILabel!
@@ -27,12 +27,15 @@ class reminderTimeViewController: reminderParentViewController, UIPickerViewDele
     @IBOutlet weak var switchReminder: UISwitch!
     @IBOutlet weak var doneView: UIView!
     
-    let musicList = ["Piano", "Guitar", "Violin", "Rock", "News"]
+    let musicList = ["Piano", "Guitar", "Violin", "Electronic", "Blues"]
+    let musicFileDict: [String:String] = ["Piano":"Piano.aiff","Guitar":"Guitar.aiff","Violin":"Violin.aiff","Electronic":"Electronic.aiff","Blues":"Blues.aiff"]
     var isSleepReminderOn : Bool = false
     var sleepReminderTimeString : String = "00:00 AM"
+    var musicLabelString: String = "Piano"
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setUpBackground()
         
         doneView.backgroundColor = UIColor(red:1.00, green:1.00, blue:1.00, alpha:0.4)
         doneView.layer.cornerRadius = 0.5 * doneView.bounds.width
@@ -42,9 +45,10 @@ class reminderTimeViewController: reminderParentViewController, UIPickerViewDele
         if let user = PFUser.current() {
             isSleepReminderOn = user["reminderOn"] as! Bool
             sleepReminderTimeString = user["reminderTime"] as! String
+            if let music = user["music"] {
+                musicLabelString = music as! String
+            }
         }
-
-        
         setUpTimeView()
         setUpMusicView()
     }
@@ -66,8 +70,8 @@ class reminderTimeViewController: reminderParentViewController, UIPickerViewDele
             // create a new notification
             let content = UNMutableNotificationContent()
             content.title = "Time to sleep!"
-            content.body = "Early sleep makes you healthier and wiser. If you haven't finished your work today, get up early tomorrow to finish them! If you are playing games, well then..."
-            content.sound = UNNotificationSound.default // TODO: change according to type
+            content.body = "Early sleep makes you healthier and wiser!"
+            content.sound = UNNotificationSound(named: UNNotificationSoundName(rawValue: musicFileDict[musicLabel.text!]!))
             
             let pickerDate = timePickerView.date
             let components = Calendar.current.dateComponents([.hour, .minute], from: pickerDate)
@@ -87,42 +91,7 @@ class reminderTimeViewController: reminderParentViewController, UIPickerViewDele
             UNUserNotificationCenter.current().removePendingNotificationRequests(withIdentifiers: ["sleepReminder"])
         }
         
-        // Save Data to the backend
-        if let user = PFUser.current() {
-            user["reminderOn"] = isSleepReminderOn
-            user["reminderTime"] = sleepReminderTimeString
-            if (isSleepReminderOn == true) {
-                user.saveInBackground {
-                    (success, error) in
-                    if (success) {
-                        let alert = UIAlertController(title: "Successed", message: "The reminder is on",  preferredStyle: .alert)
-                        
-                        alert.addAction(UIAlertAction(title: "Ok", style: .default, handler:{action in
-                            // show main tab bar
-                            let storyboard = UIStoryboard(name: "Main", bundle: nil)
-                            let vc = storyboard.instantiateViewController(withIdentifier: "tabBarViewController") as UIViewController
-                            self.present(vc, animated: false, completion: nil)
-                        }))
-                        
-                        self.present(alert, animated: true)
-                    } else {
-                        // There was a problem, check error.description
-                        let alert = UIAlertController(title: "Failed", message: "Please try again",  preferredStyle: .alert)
-                        
-                        alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
-                        self.present(alert, animated: true)
-                    }
-                }
-            }
-            else {
-                let storyboard = UIStoryboard(name: "Main", bundle: nil)
-                let vc = storyboard.instantiateViewController(withIdentifier: "tabBarViewController") as UIViewController
-                self.present(vc, animated: false, completion: nil)
-            }
-            
-            
-        }
-        
+        saveReminderInfo()
     }
     
     
@@ -203,7 +172,7 @@ class reminderTimeViewController: reminderParentViewController, UIPickerViewDele
         
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(dismissTimePicker(gestureRecognizer:)))
         tapGesture.delegate = self
-        self.view.addGestureRecognizer(tapGesture)
+        self.view.subviews[0].addGestureRecognizer(tapGesture)
         
         textLabel.textColor = reminderLabelColor
         textLabel.font = UIFont(name: labelFontNameBold, size: 14)
@@ -244,7 +213,7 @@ class reminderTimeViewController: reminderParentViewController, UIPickerViewDele
         
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(dismissMusicPicker(gestureRecognizer:)))
         tapGesture.delegate = self
-        self.view.addGestureRecognizer(tapGesture)
+        self.view.subviews[0].addGestureRecognizer(tapGesture)
 
         musicDescriptionTextLabel.textColor = reminderLabelColor
         musicDescriptionTextLabel.font = UIFont(name: labelFontNameBold, size: 14)
@@ -252,7 +221,7 @@ class reminderTimeViewController: reminderParentViewController, UIPickerViewDele
 
         musicLabel.textColor = reminderLabelColor
         musicLabel.font = UIFont(name: labelFontName, size: 40)
-        musicLabel.text = "Piano"
+        musicLabel.text = musicLabelString
 
         changeMusicButton.setTitleColor(reminderLabelColor, for: .normal)
         changeMusicButton.titleLabel?.font = UIFont(name: labelFontName, size: 15);
@@ -266,5 +235,72 @@ class reminderTimeViewController: reminderParentViewController, UIPickerViewDele
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "HH:mm a"
         return dateFormatter.string(from: date)
+    }
+    
+    func setUpBackground() {
+        let backgroundImageView = UIImageView(frame: UIScreen.main.bounds)
+        backgroundImageView.image = UIImage(named: "star1")
+        backgroundImageView.contentMode = .scaleAspectFill
+        backgroundImageView.alpha = 1.0
+        backgroundImageView.isUserInteractionEnabled = true
+        self.view.insertSubview(backgroundImageView, at: 0)
+        
+        let yValue : CGFloat
+        if ((UIApplication.shared.keyWindow?.safeAreaInsets.top)! > CGFloat(20.0)) {
+            yValue = 50
+        } else {
+            yValue = 30
+        }
+        
+        let imageView = UIImageView(frame:CGRect(x: 20, y: yValue, width: 30, height: 30))
+        imageView.image = UIImage(named:"cross")
+        imageView.isUserInteractionEnabled = true
+        self.view.addSubview(imageView)
+        
+        let tap = UITapGestureRecognizer(target: self, action: #selector(self.handleTap(_:)))
+        imageView.addGestureRecognizer(tap)
+    }
+    
+    // click cross will return to the tabBarViewController
+    @objc func handleTap(_ sender: UITapGestureRecognizer) {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let vc = storyboard.instantiateViewController(withIdentifier: "tabBarViewController") as UIViewController
+        present(vc, animated: false, completion: nil)
+    }
+    
+    func saveReminderInfo() {
+        if let user = PFUser.current() {
+            user["reminderOn"] = isSleepReminderOn
+            user["reminderTime"] = sleepReminderTimeString
+            user["music"] = musicLabel.text
+            if (isSleepReminderOn == true) {
+                user.saveInBackground {
+                    (success, error) in
+                    if (success) {
+                        let alert = UIAlertController(title: "Successed", message: "The reminder is on",  preferredStyle: .alert)
+                        
+                        alert.addAction(UIAlertAction(title: "Ok", style: .default, handler:{action in
+                            // show main tab bar
+                            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                            let vc = storyboard.instantiateViewController(withIdentifier: "tabBarViewController") as UIViewController
+                            self.present(vc, animated: false, completion: nil)
+                        }))
+                        
+                        self.present(alert, animated: true)
+                    } else {
+                        // There was a problem, check error.description
+                        let alert = UIAlertController(title: "Failed", message: "Please try again",  preferredStyle: .alert)
+                        
+                        alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
+                        self.present(alert, animated: true)
+                    }
+                }
+            }
+            else {
+                let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                let vc = storyboard.instantiateViewController(withIdentifier: "tabBarViewController") as UIViewController
+                self.present(vc, animated: false, completion: nil)
+            }
+        }
     }
 }

@@ -37,21 +37,23 @@ class slideBarItems: recordViewModelItems {
 class slideBarItem {
     var slideBarItemName: String
     var slideBarItemImageName: String
+    var levels : [String]
     
-    init(name: String, imageName: String) {
+    init(name: String, imageName: String, levels: [String]) {
         self.slideBarItemName = name
         self.slideBarItemImageName = imageName
+        self.levels = levels
     }
 }
 
 class recordViewModel: NSObject {
     var recordItems = [recordViewModelItems]()
     
-    let slideBar = [slideBarItem(name: "Sleep Quality", imageName: "sleep"),
-                         slideBarItem(name: "Health", imageName: "health"),
-                         slideBarItem(name: "Productivity", imageName: "productivity"),
-                         slideBarItem(name: "Energy", imageName: "energy"),
-                         slideBarItem(name: "Mood", imageName: "mood")
+    let slideBar = [slideBarItem(name: "Sleep", imageName: "sleep", levels:["Tossed and turned all night","Waked up at times","Slept without interruption","A refreshing sleep"]),
+                    slideBarItem(name: "Health", imageName: "health", levels:["Feel strong pains in body","A little uncomfortable","Feeling normal","Feeling healthy and fit"]),
+                    slideBarItem(name: "Productivity", imageName: "productivity", levels:["Nothing accomplished","Accomplished a little","Much of work done", "Goal 100% accomplished"]),
+                    slideBarItem(name: "Energy", imageName: "energy",levels:["Excessive sleepiness","Fatigue most of time","Feeling good","Very energetic and refreshing"]),
+                    slideBarItem(name: "Mood", imageName: "mood",levels:["Depressed and irritated","Moodiness","Feeling OK","Happy and tranquil"])
     ]
     
     override init() {
@@ -63,4 +65,14 @@ class recordViewModel: NSObject {
 class cellSingleton {
     static let sharedInstance = cellSingleton()
     var cells = [slideBarItemCell]()
+}
+
+class hourScoreObject {
+    var hour: Double
+    var score: Double
+    
+    init(hour: Double, score: Double) {
+        self.hour = hour
+        self.score = score
+    }
 }

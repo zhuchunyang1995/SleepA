@@ -12,7 +12,7 @@
         <!--Begin Sleep View Controller-->
         <scene sceneID="9Zu-D9-tdv">
             <objects>
-                <viewController restorationIdentifier="beginSleepViewController" storyboardIdentifier="beginSleepViewController" id="fQx-hM-HJ0" customClass="beginSleepViewController" customModule="SleepAP" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="beginSleepViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="fQx-hM-HJ0" customClass="beginSleepViewController" customModule="SleepAP" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="mR9-eX-Lum">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -54,7 +54,7 @@
         <!--Wakeup View Controller-->
         <scene sceneID="DS5-Qj-e2k">
             <objects>
-                <viewController restorationIdentifier="wakeupViewController" storyboardIdentifier="wakeupViewController" id="ryB-26-n5I" customClass="wakeupViewController" customModule="SleepAP" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="wakeupViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="ryB-26-n5I" customClass="wakeupViewController" customModule="SleepAP" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="rlH-2c-U1T">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -96,7 +96,7 @@
         <!--Sleep Duration View Controller-->
         <scene sceneID="SIt-pO-LLy">
             <objects>
-                <viewController restorationIdentifier="sleepDurationViewController" storyboardIdentifier="sleepDurationViewController" id="9yC-15-bh3" customClass="sleepDurationViewController" customModule="SleepAP" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="sleepDurationViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="9yC-15-bh3" customClass="sleepDurationViewController" customModule="SleepAP" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="KDf-Xf-uns">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -184,7 +184,7 @@
         <!--Sleep Start Time View Controller-->
         <scene sceneID="xGF-Fs-JIg">
             <objects>
-                <viewController id="BD1-gq-Qso" customClass="sleepStartTimeViewController" customModule="SleepAP" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="sleepStartTimeViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="BD1-gq-Qso" customClass="sleepStartTimeViewController" customModule="SleepAP" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="G8F-DD-zsZ">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -239,18 +239,19 @@
                     <connections>
                         <outlet property="containerView" destination="KYA-X9-yjY" id="Y5J-Gb-9x6"/>
                         <outlet property="datePickerView" destination="u3s-RD-o5Y" id="dUs-jG-3r3"/>
-                        <outlet property="doneButton" destination="L8G-8d-Ukn" id="BrT-92-auZ"/>
+                        <outlet property="nextButton" destination="L8G-8d-Ukn" id="D1n-mT-FAo"/>
                         <outlet property="questionLabel" destination="8a3-v0-LLb" id="jFi-k9-Xkh"/>
+                        <segue destination="Dmz-ID-ob3" kind="show" identifier="nextSegue" id="foh-RN-mxN"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CMO-Im-UiA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4089.8550724637685" y="26.785714285714285"/>
+            <point key="canvasLocation" x="4084" y="27"/>
         </scene>
         <!--Sleep-->
         <scene sceneID="rOn-bX-RUr">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="AU6-jL-JEX" customClass="SleepNavigationViewController" customModule="SleepAP" customModuleProvider="target" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="SleepNavigationViewController" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" navigationBarHidden="YES" id="AU6-jL-JEX" customClass="SleepNavigationViewController" customModule="SleepAP" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Sleep" image="tabbar_sleep" id="8l0-Br-q4I"/>
                     <toolbarItems/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
@@ -265,6 +266,72 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qPh-WA-ftU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1158" y="27"/>
+        </scene>
+        <!--Sleep End Time View Controller-->
+        <scene sceneID="3aF-we-9kl">
+            <objects>
+                <viewController storyboardIdentifier="sleepEndTimeViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Dmz-ID-ob3" customClass="sleepEndTimeViewController" customModule="SleepAP" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Q7Z-Do-qkE">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9cM-ZN-hrs">
+                                <rect key="frame" x="30" y="144" width="354" height="569"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Question" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sqh-Xh-6Ut">
+                                        <rect key="frame" x="0.0" y="100" width="354" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cOi-to-9Fy" customClass="buttonView" customModule="SleepAP" customModuleProvider="target">
+                                        <rect key="frame" x="142" y="459" width="70" height="70"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="70" id="GtS-Bc-fqX"/>
+                                            <constraint firstAttribute="height" constant="70" id="RTc-Zv-e13"/>
+                                        </constraints>
+                                    </view>
+                                    <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="time" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="FxQ-Zr-wgg">
+                                        <rect key="frame" x="20" y="141" width="324" height="298"/>
+                                        <date key="date" timeIntervalSinceReferenceDate="563687837.32396495">
+                                            <!--2018-11-12 03:57:17 +0000-->
+                                        </date>
+                                    </datePicker>
+                                </subviews>
+                                <color key="backgroundColor" red="0.43529411759999997" green="0.4431372549" blue="0.47450980390000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstItem="cOi-to-9Fy" firstAttribute="top" secondItem="FxQ-Zr-wgg" secondAttribute="bottom" constant="20" id="Bsw-wF-qu1"/>
+                                    <constraint firstItem="FxQ-Zr-wgg" firstAttribute="leading" secondItem="9cM-ZN-hrs" secondAttribute="leading" constant="20" id="FUh-nv-S20"/>
+                                    <constraint firstItem="FxQ-Zr-wgg" firstAttribute="top" secondItem="sqh-Xh-6Ut" secondAttribute="bottom" constant="20" id="GVY-NF-Ajs"/>
+                                    <constraint firstItem="sqh-Xh-6Ut" firstAttribute="top" secondItem="9cM-ZN-hrs" secondAttribute="top" constant="100" id="MLz-uY-kPt"/>
+                                    <constraint firstAttribute="bottom" secondItem="cOi-to-9Fy" secondAttribute="bottom" constant="40" id="P8m-sJ-0sZ"/>
+                                    <constraint firstAttribute="trailing" secondItem="sqh-Xh-6Ut" secondAttribute="trailing" id="Us8-yh-Cga"/>
+                                    <constraint firstItem="sqh-Xh-6Ut" firstAttribute="leading" secondItem="9cM-ZN-hrs" secondAttribute="leading" id="XyJ-PK-6qA"/>
+                                    <constraint firstAttribute="trailing" secondItem="FxQ-Zr-wgg" secondAttribute="trailing" constant="10" id="nVI-gw-j3k"/>
+                                    <constraint firstItem="cOi-to-9Fy" firstAttribute="centerX" secondItem="9cM-ZN-hrs" secondAttribute="centerX" id="r6s-Zb-0gm"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="9cM-ZN-hrs" firstAttribute="top" secondItem="eKY-O0-edd" secondAttribute="top" constant="100" id="NX5-lb-FtP"/>
+                            <constraint firstItem="9cM-ZN-hrs" firstAttribute="leading" secondItem="eKY-O0-edd" secondAttribute="leading" constant="30" id="h81-33-vtc"/>
+                            <constraint firstItem="eKY-O0-edd" firstAttribute="trailing" secondItem="9cM-ZN-hrs" secondAttribute="trailing" constant="30" id="jjd-hT-Hva"/>
+                            <constraint firstItem="eKY-O0-edd" firstAttribute="bottom" secondItem="9cM-ZN-hrs" secondAttribute="bottom" constant="100" id="voR-x7-5b7"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="eKY-O0-edd"/>
+                    </view>
+                    <connections>
+                        <outlet property="containerView" destination="9cM-ZN-hrs" id="vYD-z3-qE6"/>
+                        <outlet property="datePickerView" destination="FxQ-Zr-wgg" id="rQm-Qm-UxI"/>
+                        <outlet property="doneButton" destination="cOi-to-9Fy" id="S6Q-RO-MhE"/>
+                        <outlet property="questionLabel" destination="sqh-Xh-6Ut" id="DJv-YA-LVk"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="HNC-dM-6VM" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4870" y="27"/>
         </scene>
     </scenes>
     <resources>
